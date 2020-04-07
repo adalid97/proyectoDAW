@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+{% block title %}Soci@s{% endblock %}
+{% block sidebar %}
+	{{ include('nav.html.twig', { 'seccionActual': "socios" }) }}
+{% endblock %}
+{% block body %}
+	<div class="row justify-content-center mb-5 mt-5">
+		<div class="col-4">
+		<!-- Default form login -->
+		<form class="text-center border border-success p-5" action="#!">
+
+			<p class="h4 mb-4">ZONA EXCLUSIVA SOCI@S PEÑA</p>
+
+			<!-- Email -->
+			<input type="email" id="usuario" class="form-control mb-4" placeholder="Usuario">
+
+			<!-- Password -->
+			<input type="password" id="contraseña" class="form-control mb-4" placeholder="Contraseña">
+
+			<div class="d-flex justify-content-around">
+				<div>
+					<!-- Forgot password -->
+					<a href="" class="text-success">¿Contraseña olvidada?</a>
+				</div>
+			</div>
+
+			<!-- Sign in button -->
+			<button class="btn btn-dark-green btn-block my-4 text-white" type="submit"><strong>Iniciar Sesión</strong></button>
+
+			<!-- Register -->
+			<p> 
+				<a href="" class="text-success">¿Eres soci@ y no tienes acceso?<strong>  Regístrate</strong></a>
+			</p>
+
+		</form>
+		<!-- Default form login -->
+	</div>
+
+	</div>
+
+{% endblock %}

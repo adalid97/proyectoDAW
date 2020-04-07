@@ -1,0 +1,19 @@
+index:
+    path: /
+    controller: App\Controller\Controller::index
+
+noticias:
+    path: /noticias
+    controller: App\Controller\Controller::noticias
+
+socios:
+    path: /socios
+    controller: App\Controller\Controller::socios
+
+faq:
+    path: /faq
+    controller: App\Controller\Controller::faq
+
+contacto:
+    path: /contacto
+    controller: App\Controller\Controller::contacto
