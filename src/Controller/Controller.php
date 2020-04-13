@@ -3,6 +3,8 @@
 namespace App\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
+use App\Entity\Noticias;
+
 class Controller extends AbstractController{
     public function index(){
         return $this->render('index.html.twig', [
@@ -10,8 +12,18 @@ class Controller extends AbstractController{
     }
 
     public function noticias(){
-        return $this->render('noticias.html.twig', [
-            ]);
+
+        // Obtenemos el gestor de entidades de Doctrine
+        $entityManager = $this->getDoctrine()->getManager();
+        // obtenemos todas las noticias
+        $noticias= $entityManager->getRepository(Noticias::class)->findBy(
+            array(),
+            array('fecha' => 'DESC')
+        );
+
+        return $this->render('noticias.html.twig', array(
+            'noticias' => $noticias,
+        ));        
     }
 
     public function socios(){
@@ -28,6 +40,8 @@ class Controller extends AbstractController{
         return $this->render('contacto.html.twig', [
             ]);
     }
+
+    
 
 }
 

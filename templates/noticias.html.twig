@@ -5,6 +5,8 @@
 {% endblock %}
 {% block body %}
 <div class="container mt-5">
+
+{% for noticia in noticias %}
   <!--Section: Content-->
   <section class="dark-grey-text">
   	<!-- Grid row -->
@@ -28,17 +30,11 @@
       <div class="col-lg-7 col-xl-8">
 
         <!-- Post title -->
-        <h4 class="font-weight-bold mb-3"><strong>Partido Real Sociedad - Betis</strong></h4>
+        <h4 class="font-weight-bold mb-3"><strong>{{ noticia.titular }}</strong></h4>
         <!-- Excerpt -->
-        <p class="dark-grey-text">Estimad@s soci@s:
-		Os informamos que tras el partido de mañana, Real Sociedad - Real Betis, (14:00 horas), se celebrará un bingo entre tod@s l@s soci@s asistentes.
-		Por cada consumición en barra de al menos un euro, se adquirirá un cartón.
-		El ganador del bingo obtendrá 20 euros en consumiciones, y la primera línea cantada 5 euros, también en consumiciones en barra.
-		Los ganadores podrán realizar sus consumiciones durante los partidos venideros.
-		La Peña estará abierta desde las 12:00 horas. 
-		Esperamos vuestra asistencia. 💚</p>
+        <p class="dark-grey-text">{{ noticia.entradilla }}</p>
         <!-- Post data -->
-        <br><p class="float-right">en Fuentes de Andalucía, 19/04/2018</p><br>
+        <br><p class="float-right">en {{ noticia.localidad }}, {{ noticia.fecha|date("d/m/Y") }}</p><br>
         <!-- Read more button -->
         <a class="btn btn-dark-green btn-md mx-0 btn-rounded text-white">Leer más...</a>
 		
@@ -52,100 +48,9 @@
 
   </section>
   <!--Section: Content-->
-    <!--Section: Content-->
-  <section class="dark-grey-text">
-  	<!-- Grid row -->
-    <div class="row align-items-center">
-
-      <!-- Grid column -->
-      <div class="col-lg-5 col-xl-4">
-
-        <!-- Featured image -->
-        <div class="view overlay rounded z-depth-1-half mb-lg-0 mb-4">
-          <img class="img-fluid" src="images/img2.jpg" alt="Sample image" width="505px" height="280px">
-          <a>
-            <div class="mask rgba-white-slight"></div>
-          </a>
-        </div>
-
-      </div>
-      <!-- Grid column -->
-
-      <!-- Grid column -->
-      <div class="col-lg-7 col-xl-8">
-
-        <!-- Post title -->
-        <h4 class="font-weight-bold mb-3"><strong>Partido Real Sociedad - Betis</strong></h4>
-        <!-- Excerpt -->
-        <p class="dark-grey-text">Estimad@s soci@s:
-		Os informamos que tras el partido de mañana, Real Sociedad - Real Betis, (14:00 horas), se celebrará un bingo entre tod@s l@s soci@s asistentes.
-		Por cada consumición en barra de al menos un euro, se adquirirá un cartón.
-		El ganador del bingo obtendrá 20 euros en consumiciones, y la primera línea cantada 5 euros, también en consumiciones en barra.
-		Los ganadores podrán realizar sus consumiciones durante los partidos venideros.
-		La Peña estará abierta desde las 12:00 horas. 
-		Esperamos vuestra asistencia. 💚</p>
-        <!-- Post data -->
-        <br><p class="float-right">en Fuentes de Andalucía, 19/04/2018</p><br>
-        <!-- Read more button -->
-        <a class="btn btn-dark-green btn-md mx-0 btn-rounded text-white">Leer más...</a>
-
-      </div>
-      <!-- Grid column -->
-
-    </div>
-    <!-- Grid row -->
-
-    <hr class="my-5">
-
-  </section>
-  <!--Section: Content-->
-    <!--Section: Content-->
-  <section class="dark-grey-text">
-  	<!-- Grid row -->
-    <div class="row align-items-center">
-
-      <!-- Grid column -->
-      <div class="col-lg-5 col-xl-4">
-
-        <!-- Featured image -->
-        <div class="view overlay rounded z-depth-1-half mb-lg-0 mb-4">
-          <img class="img-fluid" src="images/img2.jpg" alt="Sample image" width="505px" height="280px">
-          <a>
-            <div class="mask rgba-white-slight"></div>
-          </a>
-        </div>
-
-      </div>
-      <!-- Grid column -->
-
-      <!-- Grid column -->
-      <div class="col-lg-7 col-xl-8">
-
-        <!-- Post title -->
-        <h4 class="font-weight-bold mb-3"><strong>Partido Real Sociedad - Betis</strong></h4>
-        <!-- Excerpt -->
-        <p class="dark-grey-text">Estimad@s soci@s:
-		Os informamos que tras el partido de mañana, Real Sociedad - Real Betis, (14:00 horas), se celebrará un bingo entre tod@s l@s soci@s asistentes.
-		Por cada consumición en barra de al menos un euro, se adquirirá un cartón.
-		El ganador del bingo obtendrá 20 euros en consumiciones, y la primera línea cantada 5 euros, también en consumiciones en barra.
-		Los ganadores podrán realizar sus consumiciones durante los partidos venideros.
-		La Peña estará abierta desde las 12:00 horas. 
-		Esperamos vuestra asistencia. 💚</p>
-        <!-- Post data -->
-        <br><p class="float-right">en Fuentes de Andalucía, 19/04/2018</p><br>
-        <!-- Read more button -->
-        <a class="btn btn-dark-green btn-md mx-0 btn-rounded text-white">Leer más...</a>
-
-      </div>
-      <!-- Grid column -->
-
-    </div>
-    <!-- Grid row -->
-
-    <hr class="my-5">
-
-  </section>
-  <!--Section: Content-->
+  {% else %}
+            <li>No hay apuestas</li>
+    {% endfor %}
 </div>
 
 {% endblock %}
