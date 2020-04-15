@@ -41,7 +41,25 @@ class Controller extends AbstractController{
             ]);
     }
 
+    public function inicioAdmin(){
+        return $this->render('administradores/inicioAdmin.html.twig', [
+            ]);
+    }
     
+    public function sociosAdmin(){
+        return $this->render('administradores/sociosAdmin.html.twig', [
+            ]);
+    }
+
+    public function noticiasAdmin(){
+        return $this->render('administradores/noticiasAdmin.html.twig', [
+            ]);
+    }
+
+    public function notificacionesAdmin(){
+        return $this->render('administradores/notificacionesAdmin.html.twig', [
+            ]);
+    }
 
 }
 

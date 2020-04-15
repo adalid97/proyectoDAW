@@ -1,11 +1,111 @@
 {% extends 'base.html.twig' %}
-{% block title %}Contacto{% endblock %}
+{% block title %}Contacto
+{% endblock %}
 {% block sidebar %}
 	{{ include('nav.html.twig', { 'seccionActual': "contacto" }) }}
 {% endblock %}
 {% block body %}
-	<br/>
-	<h1>Peña Bética Fontaniega</h1>
-	<p>Esta es la página de CONTACTO</p>
+	<div
+		class="container my-5 py-5 z-depth-1">
 
-{% endblock %}
+
+		<!--Section: Content-->
+		<section
+			class="text-center px-md-5 mx-md-5 dark-grey-text">
+
+			<!-- Section heading -->
+			<h3 class="font-weight-bold mb-4">Contacto</h3>
+			<!-- Section description -->
+			<p class="text-center w-responsive mx-auto mb-5">¿Quieres hacerte soci@ de nuestra Peña? ¿Tienes alguna pregunta que hacernos? Escribenos a través del siguiente formulario o por nuestras Redes Sociales.</p>
+
+			<!-- Grid row -->
+			<div
+				class="row">
+
+				<!-- Grid column -->
+				<div class="col-md-9 mb-md-0 mb-5">
+
+					<form>
+
+						<!-- Grid row -->
+						<div
+							class="row">
+
+							<!-- Grid column -->
+							<div class="col-md-6">
+								<div class="md-form mb-0">
+									<input type="text" id="contact-name" class="form-control" >
+									<label for="contact-name" class="">Your name</label>
+								</div>
+							</div>
+							<!-- Grid column -->
+
+							<!-- Grid column -->
+							<div class="col-md-6">
+								<div class="md-form mb-0">
+									<input type="text" id="contact-email" class="form-control">
+									<label for="contact-email" class="">Your email</label>
+								</div>
+							</div>
+							<!-- Grid column -->
+
+						</div>
+						<!-- Grid row -->
+
+						<!-- Grid row -->
+						<div
+							class="row">
+
+							<!-- Grid column -->
+							<div class="col-md-12">
+								<div class="md-form">
+									<textarea id="contact-message" class="form-control md-textarea" rows="3"></textarea>
+									<label for="contact-message">Your message</label>
+								</div>
+							</div>
+							<!-- Grid column -->
+
+						</div>
+						<!-- Grid row -->
+
+					</form>
+
+					<div class="text-center text-md-left">
+						<a class="btn btn-dark-green btn-block my-4 text-white">Enviar Mensaje</a>
+					</div>
+
+				</div>
+				<!-- Grid column -->
+
+				<!-- Grid column -->
+				<div class="col-md-3 text-center">
+					<ul class="list-unstyled mb-0">
+						<li>
+							<i class="fas fa-map-marker-alt fa-2x green-text"></i>
+							<p>Calle Córdoba, 9 Fuentes de Andalucía (Sevilla)</p>
+						</li>
+						<li>
+							<i class="fas fa-phone fa-2x mt-4 green-text"></i>
+							<p>625 83 41 38 / 654 95 93 40 / 626 32 61 61</p>
+						</li>
+						<li>
+							<i class="fas fa-envelope fa-2x mt-4 green-text"></i>
+							<p class="mb-0">pbeticafontaniega@gmail.com</p>
+						</li>
+					</ul>
+				</div>
+				<!-- Grid column -->
+
+			</div>
+			<!-- Grid row -->
+		</br>
+		{# <!--Google map-->
+		<div id="map-container-google-1" class="z-depth-1 map-container">
+			<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3166.837273474185!2d-5.343208607405387!3d37.4645638534742!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd12beefe861f2fb%3A0xa41f46dd1803dbf6!2sCalle%20C%C3%B3rdoba%2C%2041420%20Fuentes%20de%20Andaluc%C3%ADa%2C%20Sevilla!5e0!3m2!1ses!2ses!4v1586860572686!5m2!1ses!2ses" width="600" height="100" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+		</div>
+		<!--Google Maps--> #}
+	</section>
+	<!--Section: Content-->
+
+
+</div>{% endblock %}

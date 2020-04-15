@@ -1,0 +1,33 @@
+{# templates/nav.html.twig #}
+<ul class="navbar-nav mr-auto">
+    <li {% if seccionActual == "inicio" %}
+            class="nav-item active"
+        {% else %}
+            class="nav-item"
+        {% endif %}>
+        <a class="nav-link" href="{{ path('inicioAdmin') }}">Inicio
+            <span class="sr-only"></span>
+        </a>
+    </li>
+   <li {% if seccionActual == "noticias" %}
+            class="nav-item active"
+        {% else %}
+            class="nav-item"
+        {% endif %}>
+        <a class="nav-link" href="{{ path('noticiasAdmin') }}">Noticias</a>
+    </li>
+    <li {% if seccionActual == "socios" %}
+            class="nav-item active"
+        {% else %}
+            class="nav-item"
+        {% endif %}>
+        <a class="nav-link" href="{{ path('sociosAdmin') }}">Socios</a>
+    </li>
+    <li {% if seccionActual == "notificaciones" %}
+            class="nav-item active"
+        {% else %}
+            class="nav-item"
+        {% endif %}>
+        <a class="nav-link" href="{{ path('notificacionesAdmin') }}">Notificaciones</a>
+    </li>
+</ul>

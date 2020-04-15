@@ -7,8 +7,8 @@ noticias:
     controller: App\Controller\Controller::noticias
 
 socios:
-    path: /socios
-    controller: App\Controller\Controller::socios
+    path: /login
+    controller: App\Controller\SecurityController::login
 
 faq:
     path: /faq
@@ -17,3 +17,28 @@ faq:
 contacto:
     path: /contacto
     controller: App\Controller\Controller::contacto
+
+admin:
+    path: /admin
+    controller: App\Controller\Controller::admin
+
+logout:
+    path: /logout
+    methods: GET
+
+inicioAdmin:
+    path: /administrador/inicio
+    controller: App\Controller\Controller::inicioAdmin
+
+sociosAdmin:
+    path: /administrador/socios
+    controller: App\Controller\Controller::sociosAdmin
+
+noticiasAdmin:
+    path: /administrador/noticias
+    controller: App\Controller\Controller::noticiasAdmin
+
+notificacionesAdmin:
+    path: /administrador/notificaciones
+    controller: App\Controller\Controller::notificacionesAdmin
+    
