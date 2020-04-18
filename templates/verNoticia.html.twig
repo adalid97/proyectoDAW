@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+{% block title %}Noticias
+{% endblock %}
+{% block sidebar %}
+	{{ include('nav.html.twig', { 'seccionActual': "noticias" }) }}
+{% endblock %}
+{% block body %}
+	<div class="container mt-5">
+
+		{% if is_granted('ROLE_ADMIN') %}
+			<a href="{{ path('noticiasAdmin') }}">← Volver a las noticias</a>
+		{% else %}
+			<p class="small">
+				<a href="{{ path('noticias') }}">← Volver a las noticias</a>
+			</p>
+		{% endif %}
+
+
+		<!--Section: Content-->
+		<section class="text-justify">
+			<h2 class="text-center font-weight-bold mb-4 pb-2">{{noticia.titular}}</h2>
+
+			<p class="font-weight-bold">{{noticia.entrada}}</p><hr>
+
+			<p>{{noticia.cuerpo}}</p>
+
+			<figure class="figure">
+				<img src='{{ asset('../../images/noticias/' ~ noticia.imagen) }}' class="figure-img img-fluid z-depth-1" alt="" . {{noticia.titular}} ."">
+				<figcaption class="figure-caption">{{noticia.titular}}</figcaption>
+			</figure>
+
+		</section>
+		<!--Section: Content-->
+
+		{% if is_granted('ROLE_ADMIN') %}
+			<a class="btn btn-dark-green btn-md mx-0 btn-rounded text-white mx-auto d-block" href="{{ path('editarNoticia', {'id': noticia.id}) }}">Editar Noticia</a>
+			<a class="btn btn-dark-green btn-md mx-0 btn-rounded text-white mx-auto d-block" href="{{ path('borrarNoticia', {'id': noticia.id}) }}">Borrar Noticia</a>
+		{% endif %}
+		<br>
+	</div>
+{% endblock %}

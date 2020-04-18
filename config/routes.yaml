@@ -42,3 +42,18 @@ notificacionesAdmin:
     path: /administrador/notificaciones
     controller: App\Controller\Controller::notificacionesAdmin
     
+verNoticia:
+    path: /noticia/{id}
+    controller: App\Controller\Controller::verNoticia
+
+nuevaNoticia:
+  path: /administrador/noticia/nueva
+  controller: App\Controller\Controller::nuevaNoticia
+
+borrarNoticia:
+  path: /administrador/noticia/borrar/{id}
+  controller: App\Controller\Controller::borrarNoticia
+
+editarNoticia:
+  path: /noticia/editar/{id}
+  controller: App\Controller\Controller::editarNoticia

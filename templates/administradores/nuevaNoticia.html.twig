@@ -1,0 +1,13 @@
+{% extends 'administradores/baseAdmin.html.twig' %}
+{% block title %}Inicio{% endblock %}
+{% block sidebar %}
+	{{ include('administradores/navAdministradores.html.twig', { 'seccionActual': "inicio" }) }}
+{% endblock %}
+
+{% block body %}
+	{{ form_start(form) }}
+    {# ... #}
+
+    {{ form_row(form.imagen) }}
+{{ form_end(form) }}
+{% endblock %}

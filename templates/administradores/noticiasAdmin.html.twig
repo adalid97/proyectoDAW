@@ -1,11 +1,21 @@
 {% extends 'administradores/baseAdmin.html.twig' %}
-{% block title %}Socios
+{% block title %}Noticias
 {% endblock %}
 {% block sidebar %}
 	{{ include('administradores/navAdministradores.html.twig', { 'seccionActual': "noticias" }) }}
 {% endblock %}
 {% block body %}
+	<div class="container mt-5">
 
-	<h1>NOTICIAS ADMINISTRADORES</h1>
+		<a class="btn btn-dark-green btn-md mx-0 btn-rounded text-white mx-auto d-block" href="{{ path('nuevaNoticia') }}">Nueva noticia</a> <br>
+		{% for noticia in noticias %}
+
+			{{ include('baseNoticia.html.twig') }}
+			
+
+		{% else %}
+			<p>No hay noticias</p>
+		{% endfor %}
+	</div>
 
 {% endblock %}

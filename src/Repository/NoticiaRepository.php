@@ -2,25 +2,25 @@
 
 namespace App\Repository;
 
-use App\Entity\Noticias;
+use App\Entity\Noticia;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
- * @method Noticias|null find($id, $lockMode = null, $lockVersion = null)
- * @method Noticias|null findOneBy(array $criteria, array $orderBy = null)
- * @method Noticias[]    findAll()
- * @method Noticias[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method Noticia|null find($id, $lockMode = null, $lockVersion = null)
+ * @method Noticia|null findOneBy(array $criteria, array $orderBy = null)
+ * @method Noticia[]    findAll()
+ * @method Noticia[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class NoticiasRepository extends ServiceEntityRepository
+class NoticiaRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, Noticias::class);
+        parent::__construct($registry, Noticia::class);
     }
 
     // /**
-    //  * @return Noticias[] Returns an array of Noticias objects
+    //  * @return Noticia[] Returns an array of Noticia objects
     //  */
     /*
     public function findByExampleField($value)
@@ -37,7 +37,7 @@ class NoticiasRepository extends ServiceEntityRepository
     */
 
     /*
-    public function findOneBySomeField($value): ?Noticias
+    public function findOneBySomeField($value): ?Noticia
     {
         return $this->createQueryBuilder('n')
             ->andWhere('n.exampleField = :val')

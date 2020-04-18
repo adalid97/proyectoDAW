@@ -5,9 +5,9 @@ namespace App\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass="App\Repository\NoticiasRepository")
+ * @ORM\Entity(repositoryClass="App\Repository\NoticiaRepository")
  */
-class Noticias
+class Noticia
 {
     /**
      * @ORM\Id()
@@ -22,9 +22,19 @@ class Noticias
     private $titular;
 
     /**
-     * @ORM\Column(type="string", length=100000)
+     * @ORM\Column(type="string", length=255)
      */
-    private $entradilla;
+    private $entrada;
+
+    /**
+     * @ORM\Column(type="string", length=9999)
+     */
+    private $cuerpo;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $imagen;
 
     /**
      * @ORM\Column(type="date")
@@ -53,14 +63,38 @@ class Noticias
         return $this;
     }
 
-    public function getEntradilla(): ?string
+    public function getEntrada(): ?string
     {
-        return $this->entradilla;
+        return $this->entrada;
     }
 
-    public function setEntradilla(string $entradilla): self
+    public function setEntrada(string $entrada): self
     {
-        $this->entradilla = $entradilla;
+        $this->entrada = $entrada;
+
+        return $this;
+    }
+
+    public function getCuerpo(): ?string
+    {
+        return $this->cuerpo;
+    }
+
+    public function setCuerpo(string $cuerpo): self
+    {
+        $this->cuerpo = $cuerpo;
+
+        return $this;
+    }
+
+    public function getImagen(): ?string
+    {
+        return $this->imagen;
+    }
+
+    public function setImagen(string $imagen): self
+    {
+        $this->imagen = $imagen;
 
         return $this;
     }
