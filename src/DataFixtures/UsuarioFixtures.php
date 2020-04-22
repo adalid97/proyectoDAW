@@ -27,6 +27,15 @@ class UsuarioFixtures extends Fixture
         $usuario->setPassword($this->passwordEncoder->encodePassword($usuario,'admin'));
         $manager->persist($usuario);
 
+        $usuario1 = new Usuario();
+        $usuario1->setNombre('Socio');
+        $usuario1->setApellidos('Socio 1');
+        $usuario1->setLocalidad('Fuentes de Andalucia');
+        $usuario1->setRoles(array('ROLE_USER'));
+        $usuario1->setUsername('socio1');
+        $usuario1->setPassword($this->passwordEncoder->encodePassword($usuario,'1234'));
+        $manager->persist($usuario1);
+
         $manager->flush();
     }
 }

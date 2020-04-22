@@ -1,13 +1,27 @@
 {% extends 'administradores/baseAdmin.html.twig' %}
-{% block title %}Inicio{% endblock %}
+{% block title %}Noticia
+{% endblock %}
 {% block sidebar %}
-	{{ include('administradores/navAdministradores.html.twig', { 'seccionActual': "inicio" }) }}
+	{{ include('administradores/navAdministradores.html.twig', { 'seccionActual': "noticia" }) }}
 {% endblock %}
 
 {% block body %}
 	{{ form_start(form) }}
-    {# ... #}
 
-    {{ form_row(form.imagen) }}
-{{ form_end(form) }}
+    {{ form_row(form.titular, {label_attr: {class: 'form-group'} }) }}
+
+
+	<div class="form-group">
+		<labe>Entrada</label>
+		<div class="form-control">
+			{{ form_row(form.entrada) }}
+		</div>
+	</div>
+	<div class="form-group">
+		<labe>Cuerpo</label>
+		<textarea class="form-control" rows="10">{{ form_row(form.cuerpo) }}</textarea>
+	</div>
+
+
+	{{ form_end(form) }}
 {% endblock %}

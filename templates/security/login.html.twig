@@ -1,5 +1,6 @@
 {% extends 'base.html.twig' %}
-{% block title %}Soci@s{% endblock %}
+{% block title %}Soci@s
+{% endblock %}
 {% block sidebar %}
 	{{ include('nav.html.twig', { 'seccionActual': "socios" }) }}
 {% endblock %}
@@ -28,19 +29,25 @@
 				type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
 
 				{#
-								        Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
-								        See https://symfony.com/doc/current/security/remember_me.html
-								
-								        <div class="checkbox mb-3">
-								            <label>
-								                <input type="checkbox" name="_remember_me"> Remember me
-								            </label>
-								        </div>
-								    #}
+												        Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
+												        See https://symfony.com/doc/current/security/remember_me.html
+												
+												        <div class="checkbox mb-3">
+												            <label>
+												                <input type="checkbox" name="_remember_me"> Remember me
+												            </label>
+												        </div>
+												    #}
 
 				<button class="btn btn-dark-green btn-block my-4 text-white" type="submit">
 					<strong>Iniciar Sesión</strong>
 				</button>
+				<!-- Register -->
+				<p>
+					<a href="{{ path('registroSocio') }}" class="text-success">¿Eres soci@ y no tienes acceso?<strong>
+							Regístrate</strong>
+					</a>
+				</p>
 			</form>
 		</div>
 

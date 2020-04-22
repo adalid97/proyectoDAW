@@ -92,32 +92,6 @@ class Controller extends AbstractController{
 
     public function nuevaNoticia(Request $request)
     {
-        /* $noticia = new Noticias();
-
-        $form = $this->createFormBuilder($noticia)
-        ->add('titular', TextType::class)
-        ->add('entradilla', TextareaType::class)
-        ->add('localidad', TextType::class)
-        ->add('fecha', DateType::class)
-        ->add('save', SubmitType::class,
-        array('label' => 'Añadir Noticia'))
-        ->getForm();
-
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $noticia = $form->getData();
-            // Obtenemos el gestor de entidades de Doctrine
-            $entityManager = $this->getDoctrine()->getManager();
-            // Le decimos a doctrine que nos gustaría almacenar
-            // el objeto de la variable en la base de datos
-            $entityManager->persist($noticia);
-            // Ejecuta las consultas necesarias
-            $entityManager->flush();
-            //Redirigimos a una página de confirmación.
-            return $this->redirectToRoute('noticiasAdmin');
-        }
- */
         $noticia = new Noticia();
 
         $form = $this->createForm(NoticiaType::class, $noticia);

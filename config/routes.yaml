@@ -10,6 +10,10 @@ socios:
     path: /login
     controller: App\Controller\SecurityController::login
 
+registroSocio:
+    path: /registro
+    controller: App\Controller\RegistrationController::register
+
 faq:
     path: /faq
     controller: App\Controller\Controller::faq
