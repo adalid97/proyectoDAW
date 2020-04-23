@@ -1,0 +1,66 @@
+{# templates/navAreaPrivada.html.twig #}
+
+<ul class="navbar-nav mr-auto">
+{% if is_granted('ROLE_ADMIN') %}
+
+    <li {% if seccionActual == "inicio" %}
+            class="nav-item active"
+        {% else %}
+            class="nav-item"
+        {% endif %}>
+        <a class="nav-link" href="{{ path('inicioAreaPrivada') }}">Inicio
+            <span class="sr-only"></span>
+        </a>
+    </li>
+   <li {% if seccionActual == "noticias" %}
+            class="nav-item active"
+        {% else %}
+            class="nav-item"
+        {% endif %}>
+        <a class="nav-link" href="{{ path('noticiasAdmin') }}">Noticias</a>
+    </li>
+    <li {% if seccionActual == "socios" %}
+            class="nav-item active"
+        {% else %}
+            class="nav-item"
+        {% endif %}>
+        <a class="nav-link" href="{{ path('sociosAdmin') }}">Socios</a>
+    </li>
+    <li {% if seccionActual == "notificaciones" %}
+            class="nav-item active"
+        {% else %}
+            class="nav-item"
+        {% endif %}>
+        <a class="nav-link" href="{{ path('notificacionesAdmin') }}">Notificaciones</a>
+    </li>
+{% endif %}
+{% if is_granted('ROLE_ADMIN') == false %}
+
+    <li {% if seccionActual == "inicio" %}
+            class="nav-item active"
+        {% else %}
+            class="nav-item"
+        {% endif %}>
+        <a class="nav-link" href="{{ path('inicioAreaPrivada') }}">Inicio
+            <span class="sr-only"></span>
+        </a>
+    </li>
+   <li {% if seccionActual == "noticias" %}
+            class="nav-item active"
+        {% else %}
+            class="nav-item"
+        {% endif %}>
+        <a class="nav-link" href="{{ path('inicioAreaPrivada') }}">Cuotas</a>
+    </li>
+    <li {% if seccionActual == "socios" %}
+            class="nav-item active"
+        {% else %}
+            class="nav-item"
+        {% endif %}>
+        <a class="nav-link" href="{{ path('inicioAreaPrivada') }}">Socios</a>
+    </li>
+
+{% endif %}
+</ul>
+
+        

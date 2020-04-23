@@ -179,7 +179,10 @@ class Controller extends AbstractController{
         ));    
     }
 
-
+    public function inicioAreaPrivada(){
+        return $this->render('areaPrivada/inicioAreaPrivada.html.twig', [
+            ]);
+    }
 
 }
 

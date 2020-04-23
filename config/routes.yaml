@@ -61,3 +61,7 @@ borrarNoticia:
 editarNoticia:
   path: /noticia/editar/{id}
   controller: App\Controller\Controller::editarNoticia
+
+inicioAreaPrivada:
+  path: /area_privada
+  controller: App\Controller\Controller::inicioAreaPrivada 
