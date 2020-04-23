@@ -3,12 +3,10 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\UsuarioRepository")
- * @UniqueEntity(fields={"username"}, message="There is already an account with this username")
  */
 class Usuario implements UserInterface
 {
@@ -18,21 +16,6 @@ class Usuario implements UserInterface
      * @ORM\Column(type="integer")
      */
     private $id;
-
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $nombre;
-
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $apellidos;
-
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $localidad;
 
     /**
      * @ORM\Column(type="string", length=180, unique=true)
@@ -49,6 +32,12 @@ class Usuario implements UserInterface
      * @ORM\Column(type="string")
      */
     private $password;
+
+    /**
+     * @ORM\OneToOne(targetEntity="Socio", inversedBy="usuario", cascade={"persist", "remove"})
+     * @ORM\JoinColumn()
+     */
+    private $socio;
 
     public function getId(): ?int
     {
@@ -106,42 +95,6 @@ class Usuario implements UserInterface
         return $this;
     }
 
-    public function getLocalidad(): ?string
-    {
-        return $this->localidad;
-    }
-
-    public function setLocalidad(string $localidad): self
-    {
-        $this->localidad = $localidad;
-
-        return $this;
-    }
-
-    public function getNombre(): ?string
-    {
-        return $this->nombre;
-    }
-
-    public function setNombre(string $nombre): self
-    {
-        $this->nombre = $nombre;
-
-        return $this;
-    }
-    
-    public function getApellidos(): ?string
-    {
-        return $this->apellidos;
-    }
-
-    public function setApellidos(string $apellidos): self
-    {
-        $this->apellidos = $apellidos;
-
-        return $this;
-    }
-
     /**
      * @see UserInterface
      */
@@ -157,5 +110,17 @@ class Usuario implements UserInterface
     {
         // If you store any temporary, sensitive data on the user, clear it here
         // $this->plainPassword = null;
+    }
+
+    public function getSocio(): ?socio
+    {
+        return $this->socio;
+    }
+
+    public function setSocio(socio $socio): self
+    {
+        $this->socio = $socio;
+
+        return $this;
     }
 }

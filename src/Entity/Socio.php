@@ -19,7 +19,7 @@ class Socio
     /**
      * @ORM\Column(type="integer")
      */
-    private $numeroSocio;
+    private $numSocio;
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -27,12 +27,7 @@ class Socio
     private $nombre;
 
     /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $categoria;
-
-    /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=9)
      */
     private $dni;
 
@@ -47,28 +42,33 @@ class Socio
     private $direccion;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $poblacion;
+    private $localidad;
 
     /**
      * @ORM\Column(type="string", length=9)
      */
     private $telefono;
 
+    /**
+     * @ORM\OneToOne(targetEntity="Usuario", mappedBy="socio", cascade={"persist", "remove"})
+     */
+    private $usuario;
+
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getNumeroSocio(): ?int
+    public function getNumSocio(): ?int
     {
-        return $this->numeroSocio;
+        return $this->numSocio;
     }
 
-    public function setNumeroSocio(int $numeroSocio): self
+    public function setNumSocio(int $numSocio): self
     {
-        $this->numeroSocio = $numeroSocio;
+        $this->numSocio = $numSocio;
 
         return $this;
     }
@@ -81,18 +81,6 @@ class Socio
     public function setNombre(string $nombre): self
     {
         $this->nombre = $nombre;
-
-        return $this;
-    }
-
-    public function getCategoria(): ?string
-    {
-        return $this->categoria;
-    }
-
-    public function setCategoria(string $categoria): self
-    {
-        $this->categoria = $categoria;
 
         return $this;
     }
@@ -133,14 +121,14 @@ class Socio
         return $this;
     }
 
-    public function getPoblacion(): ?string
+    public function getLocalidad(): ?string
     {
-        return $this->poblacion;
+        return $this->localidad;
     }
 
-    public function setPoblacion(string $poblacion): self
+    public function setLocalidad(?string $localidad): self
     {
-        $this->poblacion = $poblacion;
+        $this->localidad = $localidad;
 
         return $this;
     }
@@ -153,6 +141,23 @@ class Socio
     public function setTelefono(string $telefono): self
     {
         $this->telefono = $telefono;
+
+        return $this;
+    }
+
+    public function getUsuario(): ?Usuario
+    {
+        return $this->usuario;
+    }
+
+    public function setUsuario(Usuario $usuario): self
+    {
+        $this->usuario = $usuario;
+
+        // set the owning side of the relation if necessary
+        if ($usuario->getSocio() !== $this) {
+            $usuario->setSocio($this);
+        }
 
         return $this;
     }

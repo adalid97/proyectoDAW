@@ -2,7 +2,7 @@
 
 namespace App\Security;
 
-use App\Entity\Usuario;
+
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -19,6 +19,8 @@ use Symfony\Component\Security\Csrf\CsrfTokenManagerInterface;
 use Symfony\Component\Security\Guard\Authenticator\AbstractFormLoginAuthenticator;
 use Symfony\Component\Security\Guard\PasswordAuthenticatedInterface;
 use Symfony\Component\Security\Http\Util\TargetPathTrait;
+use App\Entity\Usuario;
+use App\Entity\Socio;
 
 class LoginFormAuthenticator extends AbstractFormLoginAuthenticator implements PasswordAuthenticatedInterface
 {

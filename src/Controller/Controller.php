@@ -9,6 +9,8 @@ use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\HttpFoundation\Request;
 use App\Entity\Noticia;
+use App\Entity\usuario;
+use App\Entity\socio;
 use App\Form\NoticiaType;
 
 class Controller extends AbstractController{
