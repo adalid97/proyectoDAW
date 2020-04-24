@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Usuario;
+use App\Entity\Socio;
 use App\Form\RegistrationFormType;
 use App\Security\LoginFormAuthenticator;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -32,14 +33,12 @@ class RegistrationController extends AbstractController
                 )
             );
 
-                //  , apellidos, localidad, username, roles, password
 
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($user);
             $entityManager->flush();
 
-            // do anything else you need here, like send an email
-
+           
             return $guardHandler->authenticateUserAndHandleSuccess(
                 $user,
                 $request,

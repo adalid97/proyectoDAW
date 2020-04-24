@@ -8,4 +8,34 @@
 
 	<h1>SOCI@S</h1>
 
+	{# <table class="table">
+		<thead class="success-color-dark white-text">
+			<tr>
+				<th scope="col">ID</th>
+				<th scope="col">Nombre</th>
+				<th scope="col">Menjase</th>
+				<th scope="col"></th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for notificacion in notificaciones %}
+				<tr>
+					<th scope="row">{{notificacion.id}}</th>
+					<td>{{notificacion.nombre}}</td>
+					<td>{{ notificacion.mensaje }}</td>
+					<td>
+						<p>
+							<a href="{{ path('verNotficacion', {'id': notificacion.id}) }}">Leer más</a>
+						</p>
+					</td>
+				</tr>
+			{% else %}
+				<li>No hay apuestas</li>
+			{% endfor %}
+
+
+		</tbody>
+	</table> #}
+
+
 {% endblock %}

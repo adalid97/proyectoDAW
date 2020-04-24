@@ -41,6 +41,11 @@ class Notificacion
      */
     private $leido;
 
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    private $date;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -102,6 +107,18 @@ class Notificacion
     public function setLeido(bool $leido): self
     {
         $this->leido = $leido;
+
+        return $this;
+    }
+
+    public function getDate(): ?\DateTimeInterface
+    {
+        return $this->date;
+    }
+
+    public function setDate(\DateTimeInterface $date): self
+    {
+        $this->date = $date;
 
         return $this;
     }

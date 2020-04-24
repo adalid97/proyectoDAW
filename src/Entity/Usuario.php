@@ -123,4 +123,5 @@ class Usuario implements UserInterface
 
         return $this;
     }
+    
 }

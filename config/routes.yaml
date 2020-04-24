@@ -44,7 +44,19 @@ noticiasAdmin:
 
 notificacionesAdmin:
     path: /administrador/notificaciones
-    controller: App\Controller\Controller::notificacionesAdmin
+    controller: App\Controller\NotificacionesController::listaNotificaciones
+
+notificacionLeida:
+    path: /administrador/notificacionLeida/{id}
+    controller: App\Controller\NotificacionesController::notificacionLeida
+
+notificacionNoLeida:
+    path: /administrador/notificacionNoLeida/{id}
+    controller: App\Controller\NotificacionesController::notificacionNoLeida
+
+verNotificacion:
+    path: /administrador/notificacion/{id}
+    controller: App\Controller\NotificacionesController::verNotificacion
     
 verNoticia:
     path: /noticia/{id}
