@@ -33,6 +33,13 @@
         {% endif %}>
         <a class="nav-link" href="{{ path('notificacionesAdmin') }}">Notificaciones</a>
     </li>
+        <li {% if seccionActual == "documentos" %}
+            class="nav-item active"
+        {% else %}
+            class="nav-item"
+        {% endif %}>
+        <a class="nav-link" href="{{ path('documentosAdmin') }}">Documentos</a>
+    </li>
 {% endif %}
 {% if is_granted('ROLE_ADMIN') == false %}
 
@@ -52,12 +59,12 @@
         {% endif %}>
         <a class="nav-link" href="{{ path('inicioAreaPrivada') }}">Cuotas</a>
     </li>
-    <li {% if seccionActual == "socios" %}
+    <li {% if seccionActual == "documentos" %}
             class="nav-item active"
         {% else %}
             class="nav-item"
         {% endif %}>
-        <a class="nav-link" href="{{ path('inicioAreaPrivada') }}">Socios</a>
+        <a class="nav-link" href="{{ path('documentos') }}">Documentos</a>
     </li>
 
 {% endif %}

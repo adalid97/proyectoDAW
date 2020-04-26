@@ -18,6 +18,8 @@ faq:
     path: /faq
     controller: App\Controller\Controller::faq
 
+
+
 nuevaNotificacion:
     path: /contacto
     controller: App\Controller\NotificacionesController::nuevaNotificacion
@@ -77,3 +79,25 @@ editarNoticia:
 inicioAreaPrivada:
   path: /area_privada
   controller: App\Controller\Controller::inicioAreaPrivada 
+
+# Documentos
+
+nuevoDocumento:
+    path: /nuevoDocumento
+    controller: App\Controller\DocumentosController::nuevoDocumento
+
+documentos:
+    path: /documentos
+    controller: App\Controller\DocumentosController::listaDocumentos
+
+documentosAdmin:
+  path: /administrador/documentosAdmin
+  controller: App\Controller\DocumentosController::documentosAdmin   
+
+documentosSocios:
+  path: /socio/documentosSocios
+  controller: App\Controller\DocumentosController::documentosSocios   
+
+borrarDocumento:
+  path: /administrador/documento/borrar/{id}
+  controller: App\Controller\DocumentosController::borrarDocumento

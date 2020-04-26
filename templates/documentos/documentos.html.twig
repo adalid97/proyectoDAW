@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+{% block title %}Documentos{% endblock %}
+{% block sidebar %}
+	{{ include('nav.html.twig', { 'seccionActual': "documentos" }) }}
+{% endblock %}
+{% block body %}
+	<br/>
+	{{ include('documentos/baseDocumentos.html.twig') }}
+
+{% endblock %}

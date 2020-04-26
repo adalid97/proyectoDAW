@@ -20,10 +20,7 @@ class Controller extends AbstractController{
     }
 
     public function noticias(){
-
-        // Obtenemos el gestor de entidades de Doctrine
         $entityManager = $this->getDoctrine()->getManager();
-        // obtenemos todas las noticias
         $noticias= $entityManager->getRepository(Noticia::class)->findBy(
             array(),
             array('fecha' => 'DESC')
@@ -41,6 +38,11 @@ class Controller extends AbstractController{
 
     public function faq(){
         return $this->render('faq.html.twig', [
+            ]);
+    }
+
+    public function documentos(){
+        return $this->render('documentos.html.twig', [
             ]);
     }
 
