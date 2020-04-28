@@ -8,18 +8,18 @@
 {% block body %}
 	<div class="container my-5">
 		<div class="row">
-			<div
-				class="col-md-8 col-lg-6 mx-auto">
+			<div class="col-md-8 col-lg-6 mx-auto">
 
 				<section>
 
-					<div class="card testimonial-card">
-            <!-- SOCIOS -->
+					<div
+						class="card testimonial-card">
+						<!-- SOCIOS -->
 						{% if is_granted('ROLE_ADMIN') == false %}
-							
+
 							<div class="card-up success-color-dark p-3 white-text">
 								<p class="font-weight-normal mb-0">{{app.user.socio.nombre}}</p>
-                <p class="font-weight-normal mb-0">{{app.user.username}}</p>
+								<p class="font-weight-normal mb-0">{{app.user.username}}</p>
 								<p class="small mb-0"></p>
 							</div>
 							<div class="avatar mx-auto white mb-3 mt-3">
@@ -28,23 +28,23 @@
 							<div class="card-body px-3 py-4">
 								<div class="row">
 									<div class="col-4 text-center">
-                  <p class="small text-uppercase mb-0">Fecha Nacimiento</p>
+										<p class="small text-uppercase mb-0">Fecha Nacimiento</p>
 										<p class="font-weight-bold mb-0">{{app.user.socio.fechaNacimiento|date("d/m/Y")}}</p>
-										
+
 									</div>
 									<div class="col-4 text-center border-left border-right">
 										<p class="small text-uppercase mb-0">Dirección</p>
 										<p class="font-weight-bold mb-0">{{app.user.socio.direccion}}<br>{{app.user.socio.localidad}}</p>
 									</div>
 									<div class="col-4 text-center">
-                  <p class="small text-uppercase mb-0">Teléfono</p>
+										<p class="small text-uppercase mb-0">Teléfono</p>
 										<p class="font-weight-bold mb-0">{{app.user.socio.telefono}}</p>
-										
+
 									</div>
 								</div>
 							</div>
 						{% endif %}
-            <!-- ADMINISTRADORES -->
+						<!-- ADMINISTRADORES -->
 						{% if is_granted('ROLE_ADMIN')%}
 							<div class="card-up success-color-dark p-3 white-text">
 								<p class="font-weight-normal mb-0">{{app.user.username}}</p>

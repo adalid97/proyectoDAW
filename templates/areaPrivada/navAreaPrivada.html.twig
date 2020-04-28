@@ -40,6 +40,14 @@
         {% endif %}>
         <a class="nav-link" href="{{ path('documentosAdmin') }}">Documentos</a>
     </li>
+    </li>
+        <li {% if seccionActual == "partidos" %}
+            class="nav-item active"
+        {% else %}
+            class="nav-item"
+        {% endif %}>
+        <a class="nav-link" href="{{ path('partidosAdmin') }}">Partidos</a>
+    </li>
 {% endif %}
 {% if is_granted('ROLE_ADMIN') == false %}
 

@@ -83,7 +83,7 @@ inicioAreaPrivada:
 # Documentos
 
 nuevoDocumento:
-    path: /nuevoDocumento
+    path: /administrador/nuevoDocumento
     controller: App\Controller\DocumentosController::nuevoDocumento
 
 documentos:
@@ -101,3 +101,18 @@ documentosSocios:
 borrarDocumento:
   path: /administrador/documento/borrar/{id}
   controller: App\Controller\DocumentosController::borrarDocumento
+
+
+# Partidos
+
+nuevoPartido:
+    path: /administrador/nuevoPartido
+    controller: App\Controller\PartidosController::nuevoPartido
+
+nuevoEquipo:
+    path: /administrador/nuevoEquipo
+    controller: App\Controller\PartidosController::nuevoEquipo
+
+partidosAdmin:
+    path: /administrador/partidos
+    controller: App\Controller\PartidosController::partidosAdmin

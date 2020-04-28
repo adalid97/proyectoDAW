@@ -6,6 +6,7 @@
 parameters:
     imagen_directory: '%kernel.project_dir%/public/images/noticias'
     documento_directory: '%kernel.project_dir%/public/documentos'
+    equipos_directory: '%kernel.project_dir%/public/equipos'
 
 services:
     # default configuration for services in *this* file
