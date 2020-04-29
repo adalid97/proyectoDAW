@@ -1,0 +1,29 @@
+<br>
+<div
+	class="col-md-8 col-lg-6 mx-auto">
+	<!--Card image-->
+	<div class="view" style="background-image: url('../../images/fondo.png');">
+		<div class="row">
+			<div class="col-6 col-6 mt-3"><img class="rounded mx-auto d-block" src='{{ asset('../../equipos/' ~ partido.idEquipoLocal.escudo) }}' width"300px" height="300px"></div>
+			<div class="col-6 col-6 mt-3"><img class="rounded mx-auto d-block" src='{{ asset('../../equipos/' ~ partido.idEquipoVisitante.escudo) }}' width"300px" height="300px"></div>
+		</div>
+
+		<div
+			class="card-body text-center">
+			<!--Title-->
+			<h4 class="card-title white-text">{{partido.idEquipoLocal.nombre}}
+				-
+				{{partido.idEquipoVisitante.nombre}}</h4>
+			<h6 class="white-text">Estadio
+				{{partido.estadio}}
+				~
+				{{partido.fecha|date("d/m/Y")}}
+				|
+				{{partido.hora|date('H:i')}}
+				horas</h6>
+			<p class="white-text">Hora de Apertura Sede:
+				{{partido.horaAperturaSede|date("H:i")}}
+				horas</p>
+		</div>
+	</div>
+</div>

@@ -115,4 +115,8 @@ nuevoEquipo:
 
 partidosAdmin:
     path: /administrador/partidos
-    controller: App\Controller\PartidosController::partidosAdmin
+    controller: App\Controller\PartidosController::partidos
+
+partidos:
+    path: /partidos
+    controller: App\Controller\PartidosController::partidos

@@ -52,11 +52,11 @@ class PartidosController extends AbstractController{
             ));
     }
 
-    public function partidosAdmin(){
+    public function partidos(){
         $entityManager = $this->getDoctrine()->getManager();
         $partidos= $entityManager->getRepository(Partido::class)->findBy(
             array(),
-            array('fecha' => 'DESC')
+            array('fecha' => 'ASC')
         );
         return $this->render('partidos/partidos.html.twig', array(
             'partidos' => $partidos,
