@@ -63,6 +63,17 @@ class PartidosController extends AbstractController{
         )); 
     }   
 
+    public function partido(){
+        $entityManager = $this->getDoctrine()->getManager();
+        $partidos= $entityManager->getRepository(Partido::class)->findOneBy(
+            array(),
+            array('fecha' => 'ASC')
+        );
+        return $this->render('partidos/partido.html.twig', array(
+            'partidos' => $partidos,
+        )); 
+    }   
+
     public function nuevoPartido(Request $request)
     {
         $partido = new Partido();

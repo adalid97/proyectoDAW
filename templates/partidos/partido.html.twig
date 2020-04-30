@@ -11,12 +11,8 @@
 		<a class="btn btn-dark-green btn-md mx-0 btn-rounded text-white mx-auto d-block" href="{{ path('nuevoEquipo') }}">Nuevo Equipo</a><br>
 		<a class="btn btn-dark-green btn-md mx-0 btn-rounded text-white mx-auto d-block" href="{{ path('nuevoPartido') }}">Nuevo Partido</a><br>
 	{% endif %}
-	<div class="col-md-8 col-lg-6 mx-auto">
-		{% for partidos in partidos %}
 
-			{{ include('partidos/basePartidos.html.twig') }}
+		{{ include('partidos/basePartidos.html.twig') }}
 
-		{% endfor %}
-	</div>
 	<br>
 {% endblock %}

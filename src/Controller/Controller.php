@@ -11,12 +11,28 @@ use Symfony\Component\HttpFoundation\Request;
 use App\Entity\Noticia;
 use App\Entity\usuario;
 use App\Entity\socio;
+use App\Entity\Partido;
 use App\Form\NoticiaType;
 
 class Controller extends AbstractController{
     public function index(){
-        return $this->render('index.html.twig', [
-            ]);
+        $entityManager = $this->getDoctrine()->getManager();
+        $partidos= $entityManager->getRepository(Partido::class)->findOneBy(
+            array(),
+            array('fecha' => 'ASC')
+        );
+
+        // obtenemos todas las noticias
+        $noticias= $entityManager->getRepository(Noticia::class)->findOneBy(
+            array(),
+            array('fecha' => 'DESC')
+        );
+        
+        return $this->render('index.html.twig', array(
+            'partidos' => $partidos,
+            'noticia' => $noticias
+        )); 
+
     }
 
     public function noticias(){

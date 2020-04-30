@@ -1,55 +1,91 @@
 {% extends 'base.html.twig' %}
 {% block body %}
- <div class="container">
-    <div class="row mb-5">
-      <div class="col-12">
-	<!-- Carrusel -->
-        <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
-          <ol class="carousel-indicators">
-            <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
-            <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
-            <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
-          </ol>
-          <div class="carousel-inner">
-            <div class="carousel-item active">
-              <img src="images/img1.jpg" class="d-block w-100 img_carrusel" alt="...">
-              <div class="carousel-caption d-none d-md-block">
-                <h5>Peña Bética Fontaniega 'Juan José Cañas'</h5>
-                <p>Bienvenid@ a portal web oficial de la Peña Bética Fontaniega</p>
-              </div>
-            </div>
-            <div class="carousel-item">
-              <img src="images/img1.jpg" class="d-block w-100 img_carrusel" alt="...">
-              <div class="carousel-caption d-none d-md-block">
-                <h5>Peña Bética Fontaniega 'Juan José Cañas'</h5>
-                <p>Bienvenid@ a portal web oficial de la Peña Bética Fontaniega</p>
-              </div>
-            </div>
-            <div class="carousel-item">
-              <img src="images/img1.jpg" class="d-block w-100 img_carrusel" alt="...">
-              <div class="carousel-caption d-none d-md-block">
-                <h5>Peña Bética Fontaniega 'Juan José Cañas'</h5>
-                <p>Bienvenid@ a portal web oficial de la Peña Bética Fontaniega</p>
-              </div>
-            </div>
-          </div>
-          <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="sr-only">Anterior</span>
-          </a>
-          <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="sr-only">Siguiente</span>
-          </a>
-        </div>
-		</div>
-		</div>
+	<div class="container">
+		<div class="row mb-5">
+			<div
+				class="col-12 mt-3">
+				<!-- Carrusel -->
+				<div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
+					<ol class="carousel-indicators">
+						<li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
+						<li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
+						<li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
+					</ol>
+					<div class="carousel-inner">
+						<div class="carousel-item active">
+							<img src="images/img1.jpg" class="d-block w-100 img_carrusel" alt="...">
+							<div class="carousel-caption d-none d-md-block">
+								<h5>Peña Bética Fontaniega 'Juan José Cañas'</h5>
+								<p>Bienvenid@ a portal web oficial de la Peña Bética Fontaniega</p>
+							</div>
+						</div>
+						<div class="carousel-item">
+							<img src="images/img1.jpg" class="d-block w-100 img_carrusel" alt="...">
+							<div class="carousel-caption d-none d-md-block">
+								<h5>Peña Bética Fontaniega 'Juan José Cañas'</h5>
+								<p>Bienvenid@ a portal web oficial de la Peña Bética Fontaniega</p>
+							</div>
+						</div>
+						<div class="carousel-item">
+							<img src="images/img1.jpg" class="d-block w-100 img_carrusel" alt="...">
+							<div class="carousel-caption d-none d-md-block">
+								<h5>Peña Bética Fontaniega 'Juan José Cañas'</h5>
+								<p>Bienvenid@ a portal web oficial de la Peña Bética Fontaniega</p>
+							</div>
+						</div>
+					</div>
+					<a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
+						<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+						<span class="sr-only">Anterior</span>
+					</a>
+					<a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
+						<span class="carousel-control-next-icon" aria-hidden="true"></span>
+						<span class="sr-only">Siguiente</span>
+					</a>
+				</div>
+			</div>
+			<div class="col-md-12 col-lg-6 col-sm-12 mt-3">
+				<div
+					class="container mt-4 py-5 z-depth-1 noticiaPartido">
+					<section
+						class="px-md-5 mx-md-5 text-center text-lg-left dark-grey-text" >
+						<div
+							class="row d-flex justify-content-center">
+
+							<!--Grid column-->
+							<div class="col-lg-8 text-center">
+
+								<h3 class="font-weight-bold mb-4">{{ noticia.titular }}</h3>
+                <h5 class="font-weight-bold mb-4">{{ noticia.entrada }}</h5>
+
+								<!--Image-->
+								<div class="view overlay z-depth-1-half">
+									<img class="img-fluid" src='{{ asset('../../images/noticias/' ~ noticia.imagen) }}'>
+								</div>
+
+							</div>
+							<!--Grid column-->
+
+						</div>
+						<!--Grid row-->
+            
+<br>
+<a class="btn btn-dark-green btn-md mx-0 btn-rounded text-white" href="{{ path('verNoticia', {'id': noticia.id}) }}">Leer más...</a>
+					</section>
+					<!--Section: Content-->
 
 
-	<h1>Peña Bética Fontaniega</h1>
-	<p>Esta es ss portada</p>
-		
+				</div>
+			</div>
+			<div class="col-md-12 col-lg-6 col-sm-12 mt-3 noticiaPartido">
+				{{ include('partidos/basePartidos.html.twig') }}
+			</div>
 		</div>
+
+		<h1>Peña Bética Fontaniega</h1>
+		<p>Esta es ss portada</p>
+
+	</div>
 
 
 {% endblock %}
