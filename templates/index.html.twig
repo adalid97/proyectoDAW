@@ -44,48 +44,109 @@
 					</a>
 				</div>
 			</div>
-			<div class="col-md-12 col-lg-6 col-sm-12 mt-3">
+
+
+		</div>
+
+
+		<!--Main layout-->
+
+		<hr
+		class="extra-margins">
+
+		<!--Second row-->
+		<div class="row">
+			<div class="col-12"><h2>Noticias</h2></div>
+			<!--First columnn-->
+			<div
+				class="col-lg-4">
+				<!--Card-->
 				<div
-					class="container mt-4 py-5 z-depth-1 noticiaPartido">
-					<section
-						class="px-md-5 mx-md-5 text-center text-lg-left dark-grey-text" >
-						<div
-							class="row d-flex justify-content-center">
+					class="card wow fadeIn" data-wow-delay="0.2s">
 
-							<!--Grid column-->
-							<div class="col-lg-8 text-center">
+					<!--Card image-->
+					<img
+					class="img-fluid" src='{{ asset('../../images/noticias/' ~ noticia.imagen) }}' alt="Card image cap">
 
-								<h3 class="font-weight-bold mb-4">{{ noticia.titular }}</h3>
-                <h5 class="font-weight-bold mb-4">{{ noticia.entrada }}</h5>
-
-								<!--Image-->
-								<div class="view overlay z-depth-1-half">
-									<img class="img-fluid" src='{{ asset('../../images/noticias/' ~ noticia.imagen) }}'>
-								</div>
-
-							</div>
-							<!--Grid column-->
-
-						</div>
-						<!--Grid row-->
-            
-<br>
-<a class="btn btn-dark-green btn-md mx-0 btn-rounded text-white" href="{{ path('verNoticia', {'id': noticia.id}) }}">Leer más...</a>
-					</section>
-					<!--Section: Content-->
-
+					<!--Card content-->
+					<div
+						class="card-body">
+						<!--Title-->
+						<h4 class="card-title">{{ noticia.titular }}</h4>
+						<!--Text-->
+						<p class="card-text">{{ noticia.entrada}}</p>
+						<a href="#" class="btn btn-info">Leer...</a>
+					</div>
 
 				</div>
+				<!--/.Card-->
+			</div>
+			<!--First columnn-->
+
+			<!--Second columnn-->
+			<div
+				class="col-lg-4">
+				<!--Card-->
+				<div
+					class="card wow fadeIn" data-wow-delay="0.2s">
+
+					<!--Card image-->
+					<img
+					class="img-fluid" src='{{ asset('../../images/noticias/' ~ noticia.imagen) }}' alt="Card image cap">
+
+					<!--Card content-->
+					<div
+						class="card-body">
+						<!--Title-->
+						<h4 class="card-title">{{ noticia.titular }}</h4>
+						<!--Text-->
+						<p class="card-text">{{ noticia.entrada}}</p>
+						<a href="#" class="btn btn-info">Leer...</a>
+					</div>
+
+				</div>
+				<!--/.Card-->
+
+			</div>
+			<!--Second columnn-->
+
+			<!--Third columnn-->
+			<div
+				class="col-lg-4">
+				<!--Card-->
+				<div
+					class="card wow fadeIn" data-wow-delay="0.2s">
+
+					<!--Card image-->
+					<img
+					class="img-fluid" src='{{ asset('../../images/noticias/' ~ noticia.imagen) }}' alt="Card image cap">
+
+					<!--Card content-->
+					<div
+						class="card-body">
+						<!--Title-->
+						<h4 class="card-title">{{ noticia.titular }}</h4>
+						<!--Text-->
+						<p class="card-text">{{ noticia.entrada}}</p>
+						<a href="#" class="btn btn-info">Leer...</a>
+					</div>
+
+				</div>
+				<!--/.Card-->
+			</div>
+			<!--Third columnn-->
+		</div>
+		<!--/.Second row-->
+		
+		<div class="row mb-5">
+			<div class="col-12"><br><h2>Próximos Partidos</h2></div>
+			<div class="col-md-12 col-lg-6 col-sm-12 mt-3 noticiaPartido">
+				{{ include('partidos/basePartidos.html.twig') }}
 			</div>
 			<div class="col-md-12 col-lg-6 col-sm-12 mt-3 noticiaPartido">
 				{{ include('partidos/basePartidos.html.twig') }}
 			</div>
 		</div>
-
-		<h1>Peña Bética Fontaniega</h1>
-		<p>Esta es ss portada</p>
-
 	</div>
-
-
-{% endblock %}
+	<!--/.Main layout-->
+</div>{% endblock %}
