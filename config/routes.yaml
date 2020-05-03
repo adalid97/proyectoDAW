@@ -117,3 +117,8 @@ partidosAdmin:
 partidos:
     path: /partidos
     controller: App\Controller\PartidosController::partidos
+
+# Cuotas
+verCuota:
+    path: /socios/cuotas/{idSocio}
+    controller: App\Controller\CuotasController::verCuota

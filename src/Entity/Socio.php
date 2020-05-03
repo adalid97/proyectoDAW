@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -55,6 +57,21 @@ class Socio
      * @ORM\OneToOne(targetEntity="Usuario", mappedBy="socio", cascade={"persist", "remove"})
      */
     private $usuario;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Socio")
+     */
+    private $idSocio;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Cuota", mappedBy="idSocio")
+     */
+    private $cuotas;
+
+    public function __construct()
+    {
+        $this->cuotas = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -161,4 +178,36 @@ class Socio
 
         return $this;
     }
+
+    /**
+     * @return Collection|Cuota[]
+     */
+    public function getCuotas(): Collection
+    {
+        return $this->cuotas;
+    }
+
+    public function addCuota(Cuota $cuota): self
+    {
+        if (!$this->cuotas->contains($cuota)) {
+            $this->cuotas[] = $cuota;
+            $cuota->setIdSocio($this);
+        }
+
+        return $this;
+    }
+
+    public function removeCuota(Cuota $cuota): self
+    {
+        if ($this->cuotas->contains($cuota)) {
+            $this->cuotas->removeElement($cuota);
+            // set the owning side to null (unless already changed)
+            if ($cuota->getIdSocio() === $this) {
+                $cuota->setIdSocio(null);
+            }
+        }
+
+        return $this;
+    }
+
 }
