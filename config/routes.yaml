@@ -34,10 +34,6 @@ inicioAdmin:
     path: /administrador/inicio
     controller: App\Controller\Controller::inicioAdmin
 
-sociosAdmin:
-    path: /administrador/socios
-    controller: App\Controller\Controller::sociosAdmin
-
 noticiasAdmin:
     path: /administrador/noticias
     controller: App\Controller\Controller::noticiasAdmin
@@ -122,3 +118,18 @@ partidos:
 verCuota:
     path: /socios/cuotas/{idSocio}
     controller: App\Controller\CuotasController::verCuota
+
+nuevaCuota:
+    path: /administrador/nuevaCuota/{idSocio}
+    controller: App\Controller\CuotasController::nuevaCuota
+
+# Socios
+
+sociosAdmin:
+    path: /administrador/socios
+    controller: App\Controller\SociosController::socios
+
+nuevoSocio:
+    path: /administrador/nuevoSocio
+    controller: App\Controller\SociosController::nuevoSocio
+

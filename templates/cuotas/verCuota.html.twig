@@ -11,14 +11,16 @@
 
 		<!--Section: Content-->
 		<section class="text-justify">
+
+
 			<div class="table-responsive">
 
 				{% for cuota in cuotas %}
+
 					<table class="table table-bordered">
+
 						<thead>
-							<h2 class="text-center font-weight-bold mb-4 pb-2">{{cuota.año}}</h2>
-
-
+							<h2 class="text-center font-weight-bold mb-4 pb-2">{{cuota.ano}}</h2>
 							<tr>
 								<th scope="col">Enero</th>
 								<th scope="col">Febrero</th>
@@ -99,7 +101,15 @@
 							</tr>
 						</tbody>
 
+
+
+					{% else %}
+						<p>No hay cuotas</p>
+
 					{% endfor %}
+					
+					{# <a class="btn btn-dark-green btn-md mx-0 btn-rounded text-white mx-auto d-block" href="{{ path('nuevaCuota', {'idSocio' : cuotas.idSocio}) }}">Nueva Cuota</a> #}
+
 				</table>
 			</div>
 		</section>

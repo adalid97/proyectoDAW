@@ -17,12 +17,11 @@ use App\Form\NoticiaType;
 class Controller extends AbstractController{
     public function index(){
         $entityManager = $this->getDoctrine()->getManager();
-        $partidos= $entityManager->getRepository(Partido::class)->findOneBy(
+        $partidos= $entityManager->getRepository(Partido::class)->findAll(
             array(),
             array('fecha' => 'ASC')
         );
 
-        // obtenemos todas las noticias
         $noticias= $entityManager->getRepository(Noticia::class)->findOneBy(
             array(),
             array('fecha' => 'DESC')

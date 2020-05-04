@@ -5,37 +5,46 @@
 	{{ include('areaPrivada/navAreaPrivada.html.twig', { 'seccionActual': "socios" }) }}
 {% endblock %}
 {% block body %}
-
-	<h1>SOCI@S</h1>
-
-	{# <table class="table">
-		<thead class="success-color-dark white-text">
+<a class="btn btn-dark-green btn-md mx-0 btn-rounded text-white mx-auto d-block" href="{{ path('nuevoSocio') }}">Nuevo Socio</a>
+	<br>
+	<table id="dtBasicExample" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
+		<thead>
 			<tr>
-				<th scope="col">ID</th>
-				<th scope="col">Nombre</th>
-				<th scope="col">Menjase</th>
-				<th scope="col"></th>
+				<th class="th-sm">Numero Socio
+				</th>
+				<th class="th-sm">Nombre
+				</th>
+				<th class="th-sm">DNI
+				</th>
+				<th class="th-sm">Fecha Nacimiento
+				</th>
+				<th class="th-sm">Direccion
+				</th>
+				<th class="th-sm">Localidad
+				</th>
+				<th class="th-sm">Teléfono
+				</th>
+				<th class="th-sm">Cuotas
+				</th>
 			</tr>
 		</thead>
 		<tbody>
-			{% for notificacion in notificaciones %}
+			{% for socio in socios %}
 				<tr>
-					<th scope="row">{{notificacion.id}}</th>
-					<td>{{notificacion.nombre}}</td>
-					<td>{{ notificacion.mensaje }}</td>
+					<td>{{socio.numSocio}}</td>
+					<td>{{socio.nombre}}</td>
+					<td>{{socio.dni}}</td>
+					<td>{{socio.fechaNacimiento|date("d/m/Y")}}</td>
+					<td>{{socio.direccion}}</td>
+					<td>{{socio.localidad}}</td>
+					<td>{{socio.telefono}}</td>
 					<td>
-						<p>
-							<a href="{{ path('verNotficacion', {'id': notificacion.id}) }}">Leer más</a>
-						</p>
+						<a class="btn btn-dark-green btn-md mx-0 btn-rounded text-white mx-auto d-block" href="{{ path('verCuota', {'idSocio': socio.id}) }}">Cuotas</a>
 					</td>
 				</tr>
-			{% else %}
-				<li>No hay apuestas</li>
 			{% endfor %}
 
-
 		</tbody>
-	</table> #}
-
+	</table>
 
 {% endblock %}

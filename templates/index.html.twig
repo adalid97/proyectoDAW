@@ -48,15 +48,13 @@
 
 		</div>
 
-
-		<!--Main layout-->
-
 		<hr
 		class="extra-margins">
 
-		<!--Second row-->
 		<div class="row">
-			<div class="col-12"><h2>Noticias</h2></div>
+			<div class="col-12">
+				<h2>Noticias</h2>
+			</div>
 			<!--First columnn-->
 			<div
 				class="col-lg-4">
@@ -137,15 +135,17 @@
 			<!--Third columnn-->
 		</div>
 		<!--/.Second row-->
-		
+
 		<div class="row mb-5">
-			<div class="col-12"><br><h2>Próximos Partidos</h2></div>
-			<div class="col-md-12 col-lg-6 col-sm-12 mt-3 noticiaPartido">
-				{{ include('partidos/basePartidos.html.twig') }}
+			<div class="col-12"><br><h2>Próximos Partidos</h2>
 			</div>
-			<div class="col-md-12 col-lg-6 col-sm-12 mt-3 noticiaPartido">
-				{{ include('partidos/basePartidos.html.twig') }}
-			</div>
+			{% for partidos in partidos %}
+				<div class="col-md-12 col-lg-6 col-sm-12 mt-3 noticiaPartido">
+					{{ include('partidos/basePartidos.html.twig') }}
+				</div>
+			{% endfor %}
+
+
 		</div>
 	</div>
 	<!--/.Main layout-->

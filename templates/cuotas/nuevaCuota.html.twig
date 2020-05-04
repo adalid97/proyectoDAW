@@ -1,0 +1,12 @@
+{% extends 'areaPrivada/baseAreaPrivada.html.twig' %}
+{% block title %}CuotaS
+{% endblock %}
+{% block sidebar %}
+	{{ include('areaPrivada/navAreaPrivada.html.twig', { 'seccionActual': "cuotas" }) }}
+{% endblock %}
+
+{% block body %}
+	{{ form_start(form) }}
+	{{ form_widget(form) }}
+	{{ form_end(form) }}
+{% endblock %}

@@ -19,7 +19,7 @@ class Cuota
     /**
      * @ORM\Column(type="integer")
      */
-    private $año;
+    private $ano;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Socio", inversedBy="cuotas")
@@ -91,14 +91,14 @@ class Cuota
         return $this->id;
     }
 
-    public function getAño(): ?int
+    public function getAno(): ?int
     {
-        return $this->año;
+        return $this->ano;
     }
 
-    public function setAño(int $año): self
+    public function setAno(int $ano): self
     {
-        $this->año = $año;
+        $this->ano = $ano;
 
         return $this;
     }
