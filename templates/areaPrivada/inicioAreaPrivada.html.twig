@@ -41,6 +41,9 @@
 										<p class="font-weight-bold mb-0">{{app.user.socio.telefono}}</p>
 
 									</div>
+									<div class="mt-5 mx-auto d-block">
+										<a class="btn btn-dark-green btn-md mx-0 btn-rounded text-white " href="{{ path('editarSocio', {'id': app.user.socio.id}) }}">Editar Datos</a>
+									</div>
 								</div>
 							</div>
 						{% endif %}
@@ -53,8 +56,6 @@
 							<div class="avatar mx-auto white mb-3 mt-3">
 								<img src="../images/logo.png" class="rounded-circle" alt="Logo Avatar" width="150px">
 							</div>
-
-
 						{% endif %}
 					</div>
 

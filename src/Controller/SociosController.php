@@ -51,9 +51,77 @@ class SociosController extends AbstractController{
             return $this->redirectToRoute('sociosAdmin');
         }
 
-        return $this->render('socios/nuevoSocio.html.twig', array(
+        return $this->render('socios/formSocio.html.twig', array(
         'form' => $form->createView(),
         ));
+    }
+
+    public function editarSocioAdmin(Request $request, $id)
+    {
+        $entityManager = $this->getDoctrine()->getManager();
+        $socio = $entityManager->getRepository(Socio::class)->find($id);
+        if (!$socio){
+            throw $this->createNotFoundException(
+                'No existe ningún socio con id '.$id
+        );
+        }
+       
+        $form = $this->createFormBuilder($socio)
+        ->add('numSocio', NumberType::class)
+        ->add('nombre', TextType::class)
+        ->add('dni', TextType::class)
+        ->add('fechaNacimiento', BirthdayType::class)
+        ->add('direccion', TextType::class)
+        ->add('localidad', TextType::class)
+        ->add('telefono', TextType::class)
+        ->add('save', SubmitType::class,
+        array('label' => 'Editar Socio'))
+        ->getForm();
+          
+        $form->handleRequest($request);
+       
+        if ($form->isSubmitted() && $form->isValid()) {
+            $socio = $form->getData();
+        
+            $entityManager->flush();
+        
+            return $this->redirectToRoute('sociosAdmin');
+        }
+        return $this->render('socios/formSocio.html.twig', array(
+            'form' => $form->createView(),
+        ));    
+    }
+
+    public function editarSocio(Request $request, $id)
+    {
+        $entityManager = $this->getDoctrine()->getManager();
+        $socio = $entityManager->getRepository(Socio::class)->find($id);
+        if (!$socio){
+            throw $this->createNotFoundException(
+                'No existe ningún socio con id '.$id
+        );
+        }
+       
+        $form = $this->createFormBuilder($socio)
+        ->add('direccion', TextType::class)
+        ->add('localidad', TextType::class)
+        ->add('telefono', TextType::class)
+        ->add('save', SubmitType::class,
+        array('label' => 'Guardar Datos'))
+        ->getForm();
+          
+        $form->handleRequest($request);
+       
+        if ($form->isSubmitted() && $form->isValid()) {
+            $socio = $form->getData();
+        
+            $entityManager->flush();
+        
+            return $this->redirectToRoute('inicioAreaPrivada');
+        }
+        return $this->render('socios/formSocio.html.twig', array(
+            'form' => $form->createView(),
+        ));    
     }
 
 }

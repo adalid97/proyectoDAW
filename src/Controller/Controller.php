@@ -165,13 +165,10 @@ class Controller extends AbstractController{
 
     public function editarNoticia(Request $request, $id)
     {
-        // Obtenemos el gestor de entidades de Doctrine
         $entityManager = $this->getDoctrine()->getManager();
         
-        // Obtenenemos el repositorio de noticias y buscamos en el usando la i
         $noticia = $entityManager->getRepository(Noticia::class)->find($id);
         
-        // Si la noticia no existe lanzamos una excepción.
         if (!$noticia){
             throw $this->createNotFoundException(
                 'No existe ninguna noticia con id '.$id
@@ -183,15 +180,10 @@ class Controller extends AbstractController{
         $form->handleRequest($request);
        
         if ($form->isSubmitted() && $form->isValid()) {
-            // De esta manera podemos sobreescribir la variable $noticia con l
             $noticia = $form->getData();
-        
-            // Ejecuta las consultas necesarias (UPDATE en este caso)
+    
             $entityManager->flush();
-        
-            //Redirigimos a la página de ver la noticia editada.
             return $this->redirectToRoute('noticiasAdmin');
-            //return $this->redirectToRoute('verNoticia', array('id'=>$id));
         }
         return $this->render('administradores/nuevaNoticia.html.twig', array(
             'form' => $form->createView(),

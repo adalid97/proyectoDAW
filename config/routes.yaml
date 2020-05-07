@@ -116,7 +116,7 @@ partidos:
 
 # Cuotas
 verCuota:
-    path: /socios/cuotas/{idSocio}
+    path: /socio/cuotas/{idSocio}
     controller: App\Controller\CuotasController::verCuota
 
 nuevaCuota:
@@ -133,3 +133,10 @@ nuevoSocio:
     path: /administrador/nuevoSocio
     controller: App\Controller\SociosController::nuevoSocio
 
+editarSocioAdmin:
+    path: /administrador/editarSocio/{id}
+    controller: App\Controller\SociosController::editarSocioAdmin
+
+editarSocio:
+    path: /socio/editarSocio{id}
+    controller: App\Controller\SociosController::editarSocio
