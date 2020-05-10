@@ -1,0 +1,7 @@
+{% for noticia in noticias %}
+
+	{{ include('bloqueNoticia.html.twig', {'noticia':noticia} ) }}
+
+{% else %}
+	<p>No hay noticias</p>
+{% endfor %}

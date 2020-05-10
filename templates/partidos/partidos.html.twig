@@ -2,13 +2,13 @@
 {% block title %}Partido
 {% endblock %}
 {% block sidebar %}
-	{{ include('areaPrivada/navAreaPrivada.html.twig', { 'seccionActual': "partidos" }) }}
+	{{ render(path('menuAreaPrivada', {'seccionActual': "partidos"})) }}
 {% endblock %}
 
 {% block body %}
 
 	{% if is_granted('ROLE_ADMIN') %}
-		<a class="btn btn-dark-green btn-md mx-0 btn-rounded text-white mx-auto d-block" href="{{ path('nuevoEquipo') }}">Nuevo Equipo</a><br>
+		<a class="btn btn-dark-green btn-md mx-0 btn-rounded text-white mx-auto d-block" href="{{ path('listaEquipos') }}">Equipos</a><br>
 		<a class="btn btn-dark-green btn-md mx-0 btn-rounded text-white mx-auto d-block" href="{{ path('nuevoPartido') }}">Nuevo Partido</a><br>
 	{% endif %}
 	<div class="col-md-8 col-lg-6 mx-auto">

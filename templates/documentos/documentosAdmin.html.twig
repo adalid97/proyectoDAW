@@ -2,7 +2,7 @@
 {% block title %}Documentos
 {% endblock %}
 {% block sidebar %}
-	{{ include('areaPrivada/navAreaPrivada.html.twig', { 'seccionActual': "documentos" }) }}
+	{{ render(path('menuAreaPrivada', {'seccionActual': "documentos"})) }}
 {% endblock %}
 {% block body %}
 	{{ include('documentos/baseDocumentos.html.twig') }}

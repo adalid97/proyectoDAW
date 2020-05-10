@@ -1,18 +1,15 @@
 <?php
 namespace App\Controller;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
-use Symfony\Component\Form\Extension\Core\Type\TextType;
-use Symfony\Component\Form\Extension\Core\Type\DateType;
-use Symfony\Component\Form\Extension\Core\Type\TextareaType;
-use Symfony\Component\Form\Extension\Core\Type\SubmitType;
-use Symfony\Component\HttpFoundation\Request;
-use App\Entity\Partido;
 use App\Entity\Equipo;
+use App\Entity\Partido;
 use App\Form\EquipoType;
 use App\Form\PartidoType;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 
-class PartidosController extends AbstractController{
+class PartidosController extends AbstractController
+{
 
     public function nuevoEquipo(Request $request)
     {
@@ -27,7 +24,7 @@ class PartidosController extends AbstractController{
             if ($escudo) {
                 $originalFilename = pathinfo($escudo->getClientOriginalName(), PATHINFO_FILENAME);
                 $safeFilename = $originalFilename;
-                $newFilename = $safeFilename.'-'.uniqid().'.'.$escudo->guessExtension();
+                $newFilename = $safeFilename . '-' . uniqid() . '.' . $escudo->guessExtension();
 
                 try {
                     $escudo->move(
@@ -49,30 +46,32 @@ class PartidosController extends AbstractController{
 
         return $this->render('partidos/nuevoEquipo.html.twig', array(
             'form' => $form->createView(),
-            ));
+        ));
     }
 
-    public function partidos(){
+    public function partidos()
+    {
         $entityManager = $this->getDoctrine()->getManager();
-        $partidos= $entityManager->getRepository(Partido::class)->findBy(
+        $partidos = $entityManager->getRepository(Partido::class)->findBy(
             array(),
             array('fecha' => 'ASC')
         );
         return $this->render('partidos/partidos.html.twig', array(
             'partidos' => $partidos,
-        )); 
-    }   
+        ));
+    }
 
-    public function partido(){
+    public function partido()
+    {
         $entityManager = $this->getDoctrine()->getManager();
-        $partidos= $entityManager->getRepository(Partido::class)->findOneBy(
+        $partidos = $entityManager->getRepository(Partido::class)->findOneBy(
             array(),
             array('fecha' => 'ASC')
         );
         return $this->render('partidos/partido.html.twig', array(
             'partidos' => $partidos,
-        )); 
-    }   
+        ));
+    }
 
     public function nuevoPartido(Request $request)
     {
@@ -88,61 +87,50 @@ class PartidosController extends AbstractController{
             $entityManager->persist($partido);
             $entityManager->flush();
             return $this->redirectToRoute('partidosAdmin');
-            
+
         }
 
         return $this->render('partidos/nuevoPartido.html.twig', array(
             'form' => $form->createView(),
-            ));
-    }
-
-
-    
-    /* public function listaDocumentos()
-    {
-        $entityManager = $this->getDoctrine()->getManager();
-        $documento= $entityManager->getRepository(Documento::class)->findBy(
-            array(),
-            array('fecha' => 'DESC')
-        );
-        return $this->render('documentos/documentos.html.twig', array(
-            'documentos' => $documento,
         ));
     }
 
-    public function documentosAdmin()
+    public function borrarPartido($id)
     {
         $entityManager = $this->getDoctrine()->getManager();
-        $documento= $entityManager->getRepository(Documento::class)->findBy(
-            array(),
-            array('fecha' => 'DESC')
-        );
-        return $this->render('documentos/documentosAdmin.html.twig', array(
-            'documentos' => $documento,
-        ));
-    }
-
-    public function documentosSocios()
-    {
-        $entityManager = $this->getDoctrine()->getManager();
-        $documento= $entityManager->getRepository(Documento::class)->findBy(
-            array(),
-            array('fecha' => 'DESC')
-        );
-        return $this->render('documentos/documentosSocios.html.twig', array(
-            'documentos' => $documento,
-        ));
-    }
-
-    public function borrarDocumento($id)
-    {
-        $entityManager = $this->getDoctrine()->getManager();
-        $documento= $entityManager->getRepository(Documento::class)->find($id);
-        $entityManager->remove($documento);
+        $partido = $entityManager->getRepository(Partido::class)->find($id);
+        if (!$partido) {
+            throw $this->createNotFoundException(
+                'No existe ningún partido con id ' . $id
+            );
+        }
+        $entityManager->remove($partido);
         $entityManager->flush();
-        return $this->redirectToRoute('documentosAdmin');
-    } */
+        return $this->redirectToRoute('partidosAdmin');
+    }
+
+    public function listaEquipos()
+    {
+        $entityManager = $this->getDoctrine()->getManager();
+        $equipos = $entityManager->getRepository(Equipo::class)->findBy(
+            array(),
+            array('nombre' => 'ASC')
+        );
+        return $this->render('partidos/listaEquipos.html.twig', array(
+            'equipos' => $equipos,
+        ));
+    }
+
+    public function borrarEquipo($id)
+    {
+
+        $entityManager = $this->getDoctrine()->getManager();
+        $equipo = $entityManager->getRepository(Equipo::class)->find($id);
+
+        $entityManager->remove($equipo);
+        $entityManager->flush();
+        return $this->redirectToRoute('listaEquipos');
+
+    }
 
 }
-
-?>

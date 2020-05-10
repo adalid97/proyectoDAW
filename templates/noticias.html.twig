@@ -6,15 +6,10 @@
 {% endblock %}
 {% block body %}
 	<div class="container mt-5">
+		<div class="row">
 
-		{% for noticia in noticias %}
+			{{ include('listaNoticias.html.twig', {'noticias':noticias}) }}
 
-			{{ include('baseNoticia.html.twig') }}
-
-
-		{% else %}
-			<p>No hay noticias</p>
-		{% endfor %}
+		</div>
 	</div>
-
 {% endblock %}

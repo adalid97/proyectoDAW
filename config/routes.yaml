@@ -114,6 +114,18 @@ partidos:
     path: /partidos
     controller: App\Controller\PartidosController::partidos
 
+borrarPartido:
+    path: /administrador/partido/{id}
+    controller: App\Controller\PartidosController::borrarPartido
+
+listaEquipos:
+    path: /administrador/listaEquipos
+    controller: App\Controller\PartidosController::listaEquipos
+
+borrarEquipo:
+    path: /administrador/borrarEquipo/{id}
+    controller: App\Controller\PartidosController::borrarEquipo
+
 # Cuotas
 verCuota:
     path: /socio/cuotas/{idSocio}
@@ -140,3 +152,7 @@ editarSocioAdmin:
 editarSocio:
     path: /socio/editarSocio{id}
     controller: App\Controller\SociosController::editarSocio
+
+menuAreaPrivada:
+    path: /administrador/menuAreaPrivada/{seccionActual}
+    controller: App\Controller\Controller::menuAreaPrivada

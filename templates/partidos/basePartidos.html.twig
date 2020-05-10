@@ -26,4 +26,7 @@
 				horas</p>
 		</div>
 	</div>
+	{% if is_granted('ROLE_ADMIN') %}
+		<a class="btn btn-dark-green btn-md mx-0 btn-rounded text-white mx-auto d-block" href="{{ path('borrarPartido', {'id': partidos.id}) }}">Borrar Partido</a><br>
+	{% endif %}
 </div>

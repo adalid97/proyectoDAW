@@ -19,7 +19,7 @@ class Socio
     private $id;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="integer", unique=true)
      */
     private $numSocio;
 
@@ -29,7 +29,7 @@ class Socio
     private $nombre;
 
     /**
-     * @ORM\Column(type="string", length=9)
+     * @ORM\Column(type="string", length=9, unique=true)
      */
     private $dni;
 
@@ -57,11 +57,6 @@ class Socio
      * @ORM\OneToOne(targetEntity="Usuario", mappedBy="socio", cascade={"persist", "remove"})
      */
     private $usuario;
-
-    /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Socio")
-     */
-    private $idSocio;
 
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\Cuota", mappedBy="idSocio")

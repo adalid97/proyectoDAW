@@ -2,7 +2,7 @@
 {% block title %}Socios
 {% endblock %}
 {% block sidebar %}
-	{{ include('areaPrivada/navAreaPrivada.html.twig', { 'seccionActual': "socios" }) }}
+	{{ render(path('menuAreaPrivada', {'seccionActual': "socios"})) }}
 {% endblock %}
 {% block body %}
 	<a class="btn btn-dark-green btn-md mx-0 btn-rounded text-white mx-auto d-block" href="{{ path('nuevoSocio') }}">Nuevo Socio</a>

@@ -1,8 +1,8 @@
 {% extends 'areaPrivada/baseAreaPrivada.html.twig' %}
-{% block title %}Noticia
+{% block title %}Documento
 {% endblock %}
 {% block sidebar %}
-	{{ include('areaPrivada/navAreaPrivada.html.twig', { 'seccionActual': "noticia" }) }}
+	{{ render(path('menuAreaPrivada', {'seccionActual': "documento"})) }}
 {% endblock %}
 
 {% block body %}

@@ -2,7 +2,7 @@
 {% block title %}Socio
 {% endblock %}
 {% block sidebar %}
-	{{ include('areaPrivada/navAreaPrivada.html.twig', { 'seccionActual': "socios" }) }}
+	{{ render(path('menuAreaPrivada', {'seccionActual': "socios"})) }}
 {% endblock %}
 
 {% block body %}

@@ -2,16 +2,17 @@
 {% block title %}Noticias
 {% endblock %}
 {% block sidebar %}
-	{{ include('areaPrivada/navAreaPrivada.html.twig', { 'seccionActual': "noticias" }) }}
+	{{ render(path('menuAreaPrivada', {'seccionActual': "noticias"})) }}
 {% endblock %}
 {% block body %}
 	<div class="container mt-5">
 
-		<a class="btn btn-dark-green btn-md mx-0 btn-rounded text-white mx-auto d-block" href="{{ path('nuevaNoticia') }}">Nueva noticia</a> <br>
+		<a class="btn btn-dark-green btn-md mx-0 btn-rounded text-white mx-auto d-block" href="{{ path('nuevaNoticia') }}">Nueva noticia</a>
+		<br>
 		{% for noticia in noticias %}
 
 			{{ include('baseNoticia.html.twig') }}
-			
+
 
 		{% else %}
 			<p>No hay noticias</p>

@@ -2,7 +2,7 @@
 {% block title %}Partido
 {% endblock %}
 {% block sidebar %}
-	{{ include('areaPrivada/navAreaPrivada.html.twig', { 'seccionActual': "partidos" }) }}
+	{{ render(path('menuAreaPrivada', {'seccionActual': "partidos"})) }}
 {% endblock %}
 
 {% block body %}

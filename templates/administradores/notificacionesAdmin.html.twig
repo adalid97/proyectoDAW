@@ -2,7 +2,9 @@
 {% block title %}Notificaciones
 {% endblock %}
 {% block sidebar %}
-	{{ include('areaPrivada/navAreaPrivada.html.twig', { 'seccionActual': "notificaciones" }) }}
+	{{ render(path('menuAreaPrivada', {'seccionActual': "notificaciones"})) }}
+
+	{# {{ include('areaPrivada/navAreaPrivada.html.twig', { 'seccionActual': "notificaciones" }) }} #}
 {% endblock %}
 {% block body %}
 
@@ -22,8 +24,8 @@
 				<tr>
 					<th scope="row">{{notificacion.id}}</th>
 					<td>{{notificacion.nombre}}</td>
-					{# <td>{{ notificacion.mensaje|truncate(5) }}</td> #}
-					<td>{{ notificacion.mensaje }}</td>
+					<td>{{ notificacion.mensaje|u.truncate(50, '...') }}</td>
+
 					<th scope="col">
 						{% if notificacion.leido == 1 %}
 							Sí
@@ -38,36 +40,12 @@
 					</td>
 
 				</tr>
+			{% else %}
+				<li>No hay ninguna notificación</li>
 			{% endfor %}
 
 
 		</tbody>
 	</table>
 
-
-	{# <section></br>
-				<h3 class="font-weight-bold text-center dark-grey-text pb-2">Notificaciones</h3>
-				<hr class="w-header my-4"/>
-			
-				<div class="row d-flex justify-content-center">
-			
-					{% for notificacion in notificaciones %}
-			
-						<div class="col-md-6 col-xl-4">
-							<h5 class="font-weight-normal">
-								{{notificacion.nombre}}
-							</h5>
-							<p class="small grey-text">{{ notificacion.email }},
-								{{ notificacion.telefono }}</p>
-						</div>
-			
-						<div class="col-md-6">
-							<p class="text-muted mb-5 pb-2">{{ notificacion.mensaje }}</p>
-						</div>
-						<a href="{{ path('verNotficacion', {'id': notificacion.id}) }}">Leer más</a>
-			
-					{% else %}
-						<li>No hay ninguna notificación</li>
-					{% endfor %}
-				</div> #}
 {% endblock %}

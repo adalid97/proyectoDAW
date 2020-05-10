@@ -2,8 +2,8 @@
 
 namespace App\Controller;
 
-use App\Entity\Usuario;
 use App\Entity\Socio;
+use App\Entity\Usuario;
 use App\Form\RegistrationFormType;
 use App\Security\LoginFormAuthenticator;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -33,18 +33,28 @@ class RegistrationController extends AbstractController
                 )
             );
 
+            $form->get('dni')->getData();
 
             $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($user);
-            $entityManager->flush();
+            $socio = $entityManager->getRepository(Socio::class)->findOneByDni($form->get('dni')->getData());
 
-           
-            return $guardHandler->authenticateUserAndHandleSuccess(
-                $user,
-                $request,
-                $authenticator,
-                'main' // firewall name in security.yaml
-            );
+            if ($socio == null) {
+                $this->addFlash('error', 'DNI no valido');
+            } else {
+
+                $user->setSocio($socio);
+
+                $entityManager = $this->getDoctrine()->getManager();
+                $entityManager->persist($user);
+                $entityManager->flush();
+
+                return $guardHandler->authenticateUserAndHandleSuccess(
+                    $user,
+                    $request,
+                    $authenticator,
+                    'main' // firewall name in security.yaml
+                );
+            }
         }
 
         return $this->render('registration/register.html.twig', [

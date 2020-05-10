@@ -48,105 +48,27 @@
 
 		</div>
 
-		<hr
-		class="extra-margins">
+		<hr class="extra-margins">
 
 		<div class="row">
 			<div class="col-12">
 				<h2>Noticias</h2>
 			</div>
-			<!--First columnn-->
-			<div
-				class="col-lg-4">
-				<!--Card-->
-				<div
-					class="card wow fadeIn" data-wow-delay="0.2s">
 
-					<!--Card image-->
-					<img
-					class="img-fluid" src='{{ asset('../../images/noticias/' ~ noticia.imagen) }}' alt="Card image cap">
+			{{ include('listaNoticias.html.twig', {'noticias':noticias}) }}
 
-					<!--Card content-->
-					<div
-						class="card-body">
-						<!--Title-->
-						<h4 class="card-title">{{ noticia.titular }}</h4>
-						<!--Text-->
-						<p class="card-text">{{ noticia.entrada}}</p>
-						<a href="#" class="btn btn-info">Leer...</a>
-					</div>
-
+			<div class="row mb-5">
+				<div class="col-12"><br><h2>Próximos Partidos</h2>
 				</div>
-				<!--/.Card-->
-			</div>
-			<!--First columnn-->
-
-			<!--Second columnn-->
-			<div
-				class="col-lg-4">
-				<!--Card-->
-				<div
-					class="card wow fadeIn" data-wow-delay="0.2s">
-
-					<!--Card image-->
-					<img
-					class="img-fluid" src='{{ asset('../../images/noticias/' ~ noticia.imagen) }}' alt="Card image cap">
-
-					<!--Card content-->
-					<div
-						class="card-body">
-						<!--Title-->
-						<h4 class="card-title">{{ noticia.titular }}</h4>
-						<!--Text-->
-						<p class="card-text">{{ noticia.entrada}}</p>
-						<a href="#" class="btn btn-info">Leer...</a>
+				{% for partidos in partidos %}
+					<div class="col-md-12 col-lg-6 col-sm-12 mt-3 noticiaPartido">
+						{{ include('partidos/basePartidos.html.twig') }}
 					</div>
+				{% endfor %}
 
-				</div>
-				<!--/.Card-->
 
 			</div>
-			<!--Second columnn-->
-
-			<!--Third columnn-->
-			<div
-				class="col-lg-4">
-				<!--Card-->
-				<div
-					class="card wow fadeIn" data-wow-delay="0.2s">
-
-					<!--Card image-->
-					<img
-					class="img-fluid" src='{{ asset('../../images/noticias/' ~ noticia.imagen) }}' alt="Card image cap">
-
-					<!--Card content-->
-					<div
-						class="card-body">
-						<!--Title-->
-						<h4 class="card-title">{{ noticia.titular }}</h4>
-						<!--Text-->
-						<p class="card-text">{{ noticia.entrada}}</p>
-						<a href="#" class="btn btn-info">Leer...</a>
-					</div>
-
-				</div>
-				<!--/.Card-->
-			</div>
-			<!--Third columnn-->
 		</div>
-		<!--/.Second row-->
-
-		<div class="row mb-5">
-			<div class="col-12"><br><h2>Próximos Partidos</h2>
-			</div>
-			{% for partidos in partidos %}
-				<div class="col-md-12 col-lg-6 col-sm-12 mt-3 noticiaPartido">
-					{{ include('partidos/basePartidos.html.twig') }}
-				</div>
-			{% endfor %}
-
-
-		</div>
+		<!--/.Main layout-->
 	</div>
-	<!--/.Main layout-->
-</div>{% endblock %}
+{% endblock %}

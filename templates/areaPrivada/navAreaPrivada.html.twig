@@ -1,89 +1,47 @@
 {# templates/navAreaPrivada.html.twig #}
 
 <ul class="navbar-nav mr-auto">
-{% if is_granted('ROLE_ADMIN') %}
+	{% if is_granted('ROLE_ADMIN') %}
 
-    <li {% if seccionActual == "inicio" %}
-            class="nav-item active"
-        {% else %}
-            class="nav-item"
-        {% endif %}>
-        <a class="nav-link" href="{{ path('inicioAreaPrivada') }}">Inicio
-            <span class="sr-only"></span>
-        </a>
-    </li>
-   <li {% if seccionActual == "noticias" %}
-            class="nav-item active"
-        {% else %}
-            class="nav-item"
-        {% endif %}>
-        <a class="nav-link" href="{{ path('noticiasAdmin') }}">Noticias</a>
-    </li>
-    <li {% if seccionActual == "socios" %}
-            class="nav-item active"
-        {% else %}
-            class="nav-item"
-        {% endif %}>
-        <a class="nav-link" href="{{ path('sociosAdmin') }}">Socios</a>
-    </li>
-    <li {% if seccionActual == "notificaciones" %}
-            class="nav-item active"
-        {% else %}
-            class="nav-item"
-        {% endif %}>
-        <a class="nav-link" href="{{ path('notificacionesAdmin') }}">Notificaciones</a>
-    </li>
-        <li {% if seccionActual == "documentos" %}
-            class="nav-item active"
-        {% else %}
-            class="nav-item"
-        {% endif %}>
-        <a class="nav-link" href="{{ path('documentosAdmin') }}">Documentos</a>
-    </li>
-    </li>
-        <li {% if seccionActual == "partidos" %}
-            class="nav-item active"
-        {% else %}
-            class="nav-item"
-        {% endif %}>
-        <a class="nav-link" href="{{ path('partidosAdmin') }}">Partidos</a>
-    </li>
+		<li {% if seccionActual == "inicio" %} class="nav-item active" {% else %} class="nav-item" {% endif %}>
+			<a class="nav-link" href="{{ path('inicioAreaPrivada') }}">Inicio
+				<span class="sr-only"></span>
+			</a>
+		</li>
+		<li {% if seccionActual == "noticias" %} class="nav-item active" {% else %} class="nav-item" {% endif %}>
+			<a class="nav-link" href="{{ path('noticiasAdmin') }}">Noticias</a>
+		</li>
+		<li {% if seccionActual == "socios" %} class="nav-item active" {% else %} class="nav-item" {% endif %}>
+			<a class="nav-link" href="{{ path('sociosAdmin') }}">Socios</a>
+		</li>
+		<li {% if seccionActual == "notificaciones" %} class="nav-item active" {% else %} class="nav-item" {% endif %}>
+			<a class="nav-link" href="{{ path('notificacionesAdmin') }}">Notificaciones
+				<span class="badge badge-light">{{notificaciones|length}}</span>
+			</a>
+
+		</li>
+		<li {% if seccionActual == "documentos" %} class="nav-item active" {% else %} class="nav-item" {% endif %}>
+			<a class="nav-link" href="{{ path('documentosAdmin') }}">Documentos</a>
+		</li>
+	</li>
+	<li {% if seccionActual == "partidos" %} class="nav-item active" {% else %} class="nav-item" {% endif %}>
+		<a class="nav-link" href="{{ path('partidosAdmin') }}">Partidos</a>
+	</li>
 {% endif %}
 {% if is_granted('ROLE_ADMIN') == false %}
 
-    <li {% if seccionActual == "inicio" %}
-            class="nav-item active"
-        {% else %}
-            class="nav-item"
-        {% endif %}>
-        <a class="nav-link" href="{{ path('inicioAreaPrivada') }}">Inicio
-            <span class="sr-only"></span>
-        </a>
-    </li>
-   <li {% if seccionActual == "cuotas" %}
-            class="nav-item active"
-        {% else %}
-            class="nav-item"
-        {% endif %}>
-        <a class="nav-link" href="{{ path('verCuota', {'idSocio': app.user.socio.id}) }}">Cuotas</a>
-    </li>
-    </li>
-        <li {% if seccionActual == "partidos" %}
-            class="nav-item active"
-        {% else %}
-            class="nav-item"
-        {% endif %}>
-        <a class="nav-link" href="{{ path('partidos') }}">Partidos</a>
-    </li>
-    <li {% if seccionActual == "documentos" %}
-            class="nav-item active"
-        {% else %}
-            class="nav-item"
-        {% endif %}>
-        <a class="nav-link" href="{{ path('documentosSocios') }}">Documentos</a>
-    </li>
-
-{% endif %}
-</ul>
-
-        
+	<li {% if seccionActual == "inicio" %} class="nav-item active" {% else %} class="nav-item" {% endif %}>
+		<a class="nav-link" href="{{ path('inicioAreaPrivada') }}">Inicio
+			<span class="sr-only"></span>
+		</a>
+	</li>
+	<li {% if seccionActual == "cuotas" %} class="nav-item active" {% else %} class="nav-item" {% endif %}>
+		<a class="nav-link" href="{{ path('verCuota', {'idSocio': app.user.socio.id}) }}">Cuotas</a>
+	</li>
+</li>
+<li {% if seccionActual == "partidos" %} class="nav-item active" {% else %} class="nav-item" {% endif %}>
+	<a class="nav-link" href="{{ path('partidos') }}">Partidos</a>
+</li>
+<li {% if seccionActual == "documentos" %} class="nav-item active" {% else %} class="nav-item" {% endif %}>
+	<a class="nav-link" href="{{ path('documentosSocios') }}">Documentos</a>
+</li>{% endif %}</ul>

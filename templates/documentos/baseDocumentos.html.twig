@@ -37,7 +37,8 @@
 						<p>
 							<a class="btn btn-dark-green btn-md mx-0 btn-rounded text-white mx-auto d-block" download href='{{ asset('../../documentos/' ~ documento.fichero) }}'>Descargar</a><br>
 							{% if is_granted('ROLE_ADMIN') %}
-								<a class="btn btn-dark-green btn-md mx-0 btn-rounded text-white mx-auto d-block" href="{{ path('borrarDocumento', {'id': documento.id}) }}">Borrar Documento</a>
+								<a class="btn btn-dark-green btn-md mx-0 btn-rounded text-white mx-auto d-block"
+￼>Borrar Documento</a>
 							{% endif %}
 						</p>
 					</td>

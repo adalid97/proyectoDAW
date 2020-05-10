@@ -2,7 +2,7 @@
 {% block title %}Cuotas
 {% endblock %}
 {% block sidebar %}
-	{{ render(path('menuAreaPrivada', {'seccionActual': "cuotas"})) }}
+	{{ include('areaPrivada/navAreaPrivada.html.twig', { 'seccionActual': "cuotas" }) }}
 {% endblock %}
 {% block body %}
 
