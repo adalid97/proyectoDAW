@@ -46,10 +46,14 @@ class NotificacionesController extends AbstractController
     public function listaNotificaciones()
     {
         $entityManager = $this->getDoctrine()->getManager();
-        $notificacion = $entityManager->getRepository(Notificacion::class)->findAll();
+        $notificacion = $entityManager->getRepository(Notificacion::class)->findBy(
+            array(),
+            array('leido' => 'ASC'),
+        );
         return $this->render('administradores/notificacionesAdmin.html.twig', array(
             'notificaciones' => $notificacion,
         ));
+
     }
 
     public function verNotificacion($id)

@@ -1,5 +1,5 @@
 index:
-    path: /
+    path: //
     controller: App\Controller\Controller::index
 
 noticias:

@@ -1,0 +1,222 @@
+<!-- PLANTILLA GENERAL -->
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>
+			{% block title %}Peña Bética Fontaniega
+			{% endblock %}
+		</title>
+		<link rel="shortcut icon" href="../images/logo.png" type="image/x-icon"/>
+		<link rel="icon" href="images/logo.png" type="image/x-icon"/>
+
+		{% block stylesheets %}
+			<link href="{{ asset('vendors/MDB-Free/css/mdb.min.css') }}" type="text/css" rel="stylesheet"/>
+			<link href="{{ asset('vendors/bootstrap-4.4.0-dist/css/bootstrap.min.css') }}" type="text/css" rel="stylesheet"/>
+			<link href="{{ asset('vendors/fontawesome/css/all.min.css') }}" type="text/css" rel="stylesheet"/>
+			<link href="{{ asset('css/style.css') }}" type="text/css" rel="stylesheet"/>
+		{% endblock %}
+	</head>
+	<body>
+
+		{% block menu %}
+			<header>
+
+				<style>
+
+					html,
+					body,
+					header,
+					.view {
+						height: 100%;
+					}
+
+					@media(max-width: 740px) {
+						html,
+						body,
+						header,
+						.view {
+							height: 100vh;
+						}
+					}
+
+					.top-nav-collapse {
+						background-color: #563e91 !important;
+					}
+
+					.navbar:not(.top-nav-collapse) {
+						background: transparent !important;
+					}
+
+					@media(max-width: 991px) {
+						.navbar:not(.top-nav-collapse) {
+							background: #563e91 !important;
+						}
+					}
+
+					.rgba-gradient {
+						background: linear-gradient(45deg, rgba(213, 15, 61, 0.6), rgba(13, 17, 198, 0.69) 100%);
+					}
+				</style>
+
+				<!-- Main navigation -->
+				<header>
+
+					<!--Navbar-->
+					<nav class="navbar navbar-expand-lg navbar-dark success-color-dark">
+
+						<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav" aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle navigation">
+							<span class="navbar-toggler-icon"></span>
+						</button>
+						<!-- Navbar brand -->
+						<div>
+							<a class="navbar-brand" href="{{ path('index') }}">
+								<img src="../images/logo.png" alt="logo" class="img-fluid" width="100px">
+							</a>
+						</div>
+						{#  <div class="align-self-center text-white">
+																																																																																																																																																																																																																																																																												            <br>
+																																																																																																																																																																																																																																																																								            <p><strong>Peña Bética Fontaniega<br>'Juan José Cañas'</strong></p>
+																																																																																																																																																																																																																																																																																		        </div> #}
+						<!-- Collapsible content -->
+						<div class="collapse navbar-collapse ml-4" id="basicExampleNav">
+							{% block sidebar %}
+								{{ include('nav.html.twig', { 'seccionActual': "inicio" }) }}
+							{% endblock %}
+							<ul class="navbar-nav nav-flex-icons">
+								<li class="nav-item">
+									<a class="nav-link" href="https://www.facebook.com/penafontaniega.juanjosecanas.7">
+										<i class="fab fa-facebook-f"></i>
+									</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link">
+										<i class="fab fa-twitter"></i>
+									</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link" href="https://www.instagram.com/pbeticafontaniega/">
+										<i class="fab fa-instagram"></i>
+									</a>
+								</li>
+							</ul>
+						</div>
+						<!-- Collapsible content -->
+					</nav>
+
+
+					<!-- Full Page Intro -->
+					<div id="intro-section" class="view">
+
+						<video class="video-intro" poster="https://mdbootstrap.com/img/Photos/Others/background.jpg" playsinline autoplay muted loop>
+							<source src="https://mdbootstrap.com/img/video/animation.mp4" type="video/mp4">
+						</video>
+
+						<!-- Mask & flexbox options-->
+						<div
+							class="mask rgba-gradient d-flex justify-content-center align-items-center">
+
+							<!-- Content -->
+							<div
+								class="container px-md-3 px-sm-0">
+
+								<!--Grid row-->
+								<div
+									class="row wow fadeIn">
+
+									<!--Grid column-->
+									<div class="col-md-12 mb-4 white-text text-center wow fadeIn">
+
+										<h3 class="display-3 font-weight-bold white-text mb-0 pt-md-5 pt-5">Creative Agency</h3>
+										<hr class="hr-light my-4 w-75">
+										<h4 class="subtext-header mt-2 mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit
+																																																																		              deleniti consequuntur nihil.</h4>
+										<a href="#!" class="btn btn-rounded btn-outline-white">
+											<i class="fas fa-home"></i>
+											Visit us
+										</a>
+
+									</div>
+									<!--Grid column-->
+
+								</div>
+								<!--Grid row-->
+
+							</div>
+							<!-- Content -->
+
+						</div>
+						<!-- Mask & flexbox options-->
+
+					</div>
+					<!-- Full Page Intro -->
+
+				</header>
+				<!-- Main navigation -->
+
+
+			</header>
+		{% endblock %}
+
+		<div class="container-fluid">
+			{% for message in app.flashes('error') %}
+				<div class="alert alert-danger">
+					{{ message }}
+				</div>
+			{% endfor %}
+
+			{% block body %}{% endblock %}
+
+		</div>
+
+
+		<!-- Footer -->
+		<footer
+			class="page-footer font-small green lighten-3 navbar-fixed-bottom footer">
+
+			<!-- Footer Elements -->
+			<div
+				class="container">
+
+				<!-- Grid row-->
+				<div
+					class="row">
+
+					<!-- Grid column -->
+					<div class="col-md-12 py-5">
+						<div
+							class="mb-5 flex-center">
+
+							<!-- Facebook -->
+							<a class="fb-ic" href="https://www.facebook.com/penafontaniega.juanjosecanas.7">
+								<i class="fab fa-facebook-f fa-lg white-text mr-md-5 mr-3 fa-2x"></i>
+							</a>
+							<!-- Twitter -->
+							<a class="tw-ic">
+								<i class="fab fa-twitter fa-lg white-text mr-md-5 mr-3 fa-2x"></i>
+							</a>
+							<!--Instagram-->
+							<a class="ins-ic" href="https://www.instagram.com/pbeticafontaniega/">
+								<i class="fab fa-instagram fa-lg white-text mr-md-5 mr-3 fa-2x"></i>
+							</a>
+						</div>
+					</div>
+				</div>
+
+			</div>
+			<div class="footer-copyright text-center py-3">Copyright ©
+				{{ "now"|date("Y") }}
+				<strong>Peña Bética Fontaniega 'Juan José Cañas'</strong>
+			</div>
+		</footer>
+
+
+		{% block javascripts %}
+			<script src="{{ asset('vendors/jquery-3.4.1.min.js') }}" type="text/javascript"></script>
+			<script src="{{ asset('vendors/popper.min.js') }}" type="text/javascript"></script>
+			<script src="{{ asset('vendors/bootstrap-4.4.0-dist/js/bootstrap.min.js') }}" type="text/javascript"></script>
+			<script src="{{ asset('vendors/MDB-Free/js/mdb.min.js') }}" type="text/javascript"></script>
+			<script src="{{ asset('vendors/fontawesome/js/fontawesome.min.js') }}" type="text/javascript"></script>
+		{% endblock %}
+	</body>
+</html>

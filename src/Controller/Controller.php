@@ -11,6 +11,7 @@ use Symfony\Component\HttpFoundation\Request;
 
 class Controller extends AbstractController
 {
+
     public function index()
     {
         $entityManager = $this->getDoctrine()->getManager();

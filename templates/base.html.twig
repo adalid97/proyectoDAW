@@ -33,11 +33,6 @@
 							<img src="../images/logo.png" alt="logo" class="img-fluid" width="100px">
 						</a>
 					</div>
-					{#  <div class="align-self-center text-white">
-					            <br>
-					            <p><strong>Peña Bética Fontaniega<br>'Juan José Cañas'</strong></p>
-					        </div> #}
-					<!-- Collapsible content -->
 					<div class="collapse navbar-collapse ml-4" id="basicExampleNav">
 						{% block sidebar %}
 							{{ include('nav.html.twig', { 'seccionActual': "inicio" }) }}
@@ -73,17 +68,47 @@
 			{% endfor %}
 
 			{% block body %}{% endblock %}
-
 		</div>
 
-		<!-- Footer -->
-		<footer class="page-footer font-small green lighten-3">
 
+		<!-- Footer -->
+		<footer
+			class="page-footer font-small green lighten-3 navbar-fixed-bottom footer">
+
+			<!-- Footer Elements -->
+			<div
+				class="container">
+
+				<!-- Grid row-->
+				<div
+					class="row">
+
+					<!-- Grid column -->
+					<div class="col-md-12 py-5">
+						<div
+							class="mb-5 flex-center">
+
+							<!-- Facebook -->
+							<a class="fb-ic" href="https://www.facebook.com/penafontaniega.juanjosecanas.7">
+								<i class="fab fa-facebook-f fa-lg white-text mr-md-5 mr-3 fa-2x"></i>
+							</a>
+							<!-- Twitter -->
+							<a class="tw-ic">
+								<i class="fab fa-twitter fa-lg white-text mr-md-5 mr-3 fa-2x"></i>
+							</a>
+							<!--Instagram-->
+							<a class="ins-ic" href="https://www.instagram.com/pbeticafontaniega/">
+								<i class="fab fa-instagram fa-lg white-text mr-md-5 mr-3 fa-2x"></i>
+							</a>
+						</div>
+					</div>
+				</div>
+
+			</div>
 			<div class="footer-copyright text-center py-3">Copyright ©
 				{{ "now"|date("Y") }}
 				<strong>Peña Bética Fontaniega 'Juan José Cañas'</strong>
 			</div>
-
 		</footer>
 
 
@@ -94,7 +119,5 @@
 			<script src="{{ asset('vendors/MDB-Free/js/mdb.min.js') }}" type="text/javascript"></script>
 			<script src="{{ asset('vendors/fontawesome/js/fontawesome.min.js') }}" type="text/javascript"></script>
 		{% endblock %}
-
-
 	</body>
 </html>

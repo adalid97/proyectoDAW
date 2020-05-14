@@ -9,7 +9,7 @@
 {% block body %}
 
 	<h1>notificaciones ADMINISTRADORES</h1>
-	<table class="table">
+	<table class="table table-hover border-dark">
 		<thead class="success-color-dark white-text">
 			<tr>
 				<th scope="col">ID</th>
@@ -21,31 +21,36 @@
 		</thead>
 		<tbody>
 			{% for notificacion in notificaciones %}
-				<tr>
-					<th scope="row">{{notificacion.id}}</th>
-					<td>{{notificacion.nombre}}</td>
-					<td>{{ notificacion.mensaje|u.truncate(50, '...') }}</td>
+				{% if notificacion.leido == 0 %}
+					<tr class="green lighten-4">
 
-					<th scope="col">
-						{% if notificacion.leido == 1 %}
-							Sí
-						{% else %}
-							No
+					{% else %}
+						<tr>
 						{% endif %}
-					</th>
-					<td>
-						<p>
-							<a href="{{ path('verNotificacion', {'id': notificacion.id}) }}">Leer...</a>
-						</p>
-					</td>
-
-				</tr>
-			{% else %}
-				<li>No hay ninguna notificación</li>
-			{% endfor %}
 
 
+						<th scope="row">{{notificacion.id}}</th>
+						<td>{{notificacion.nombre}}</td>
+						<td>{{ notificacion.mensaje|u.truncate(50, '...') }}</td>
+
+						<th scope="col">
+							{% if notificacion.leido == 1 %}
+								Sí
+							{% else %}
+								No
+							{% endif %}
+						</th>
+						<td>
+							<p>
+								<a href="{{ path('verNotificacion', {'id': notificacion.id}) }}">Leer...</a>
+							</p>
+						</td>
+
+					</tr>
+				{% else %}
+					<li>No hay ninguna notificación</li>
+				{% endfor %}
+			</tbody>
 		</tbody>
 	</table>
-
 {% endblock %}
