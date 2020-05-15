@@ -5,7 +5,67 @@
 	{{ include('nav.html.twig', { 'seccionActual': "contacto" }) }}
 {% endblock %}
 {% block body %}
-	{{ form_start(form) }}
-	{{ form_widget(form) }}
-	{{ form_end(form) }}
+
+
+	<div class="container my-5">
+		<style>
+			.border-top {
+				border-top: 5px solid #33b5e5 !important;
+				border-top-left-radius: 0.25rem !important;
+				border-top-right-radius: 0.25rem !important;
+			}
+		</style>
+
+		<!--Section: Content-->
+		<section class="text-center dark-green-text mb-5">
+
+			<div class="card">
+				<div
+					class="card-body rounded-top border border-success p-5">
+
+					<!-- Section heading -->
+					<h3 class="font-weight-bold my-4">Escribenos...</h3>
+					<!-- Section description -->
+					<p class="font-weight-light mx-auto mb-4 pb-2">Lorem ipsum dolor, sit amet consectetur</p>
+
+					{{ form_start(form) }}
+					<div class="row">
+						<div class="col-md-12 mb-4">
+							{{ form_widget(form.nombre, {'attr': {'placeholder': 'Nombre'}}) }}
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-6 mb-4">
+							{{ form_widget(form.email, {'attr': {'placeholder': 'Correo Electrónico'}}) }}
+
+						</div>
+						<div class="col-md-6 mb-4">
+							{{ form_widget(form.telefono, {'attr': {'placeholder': 'Teléfono'}}) }}
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-md-12">
+
+							<div class="form-group mb-4">
+								{{ form_widget(form.mensaje, {'attr': {'placeholder': 'Mensaje'}}) }}
+							</div>
+
+							<div class="text-center">
+								{{ form_widget(form.save, {'attr': {'class': 'btn btn-dark-green btn-block my-4 text-white'}}) }}
+							</div>
+
+						</div>
+					</div>
+					{{ form_end(form) }}
+
+
+				</div>
+			</div>
+
+		</section>
+		<!--Section: Content-->
+
+	</div>
+
 {% endblock %}

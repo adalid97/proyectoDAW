@@ -31,9 +31,9 @@ class NotificacionesController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $noticia = $form->getData();
+            $notificacion = $form->getData();
             $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($noticia);
+            $entityManager->persist($notificacion);
             $entityManager->flush();
             return $this->redirectToRoute('nuevaNotificacion');
         }
