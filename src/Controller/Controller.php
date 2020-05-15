@@ -148,6 +148,7 @@ class Controller extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($noticia);
             $entityManager->flush();
+            $this->addFlash('success', 'Noticia agregada correctamente.');
             return $this->redirectToRoute('noticiasAdmin');
         }
 

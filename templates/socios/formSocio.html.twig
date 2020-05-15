@@ -6,7 +6,49 @@
 {% endblock %}
 
 {% block body %}
-	{{ form_start(form) }}
-	{{ form_widget(form) }}
-	{{ form_end(form) }}
+	<div
+		class="container my-5">
+		<!--Section: Content-->
+		<section class="text-center border-top dark-green-text mb-5">
+
+			<div class="card">
+				<div class="card-body rounded-top border border-success p-5">
+					{{ form_start(form) }}
+
+					<div class="row">
+						<div class="col-md-4 mb-4">
+							{{ form_widget(form.numSocio, {'attr': {'placeholder': 'Numero de Socio'}}) }}
+						</div>
+						<div class="col-md-8 mb-4">
+							{{ form_widget(form.nombre, {'attr': {'placeholder': 'nombre'}}) }}
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-6 mb-4">
+							{{ form_widget(form.dni, {'attr': {'placeholder': 'DNI'}}) }}
+						</div>
+						<div class="col-md-6 mb-4">
+							{{ form_widget(form.fechaNacimiento, {'attr': {'placeholder': 'fechaNacimiento'}}) }}
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-4 mb-4">
+							{{ form_widget(form.direccion, {'attr': {'placeholder': 'Dirección'}}) }}
+						</div>
+						<div class="col-md-4 mb-4">
+							{{ form_widget(form.localidad, {'attr': {'placeholder': 'Localidad'}}) }}
+						</div>
+						<div class="col-md-4 mb-4">
+							{{ form_widget(form.telefono, {'attr': {'placeholder': 'Telefono'}}) }}
+						</div>
+					</div>
+					<div class="text-center">
+						{{ form_widget(form.save, {'attr': {'class': 'btn btn-dark-green btn-block my-4 text-white'}}) }}
+					</div>
+
+				</div>
+				{{ form_end(form) }}
+			</div>
+		</section>
+	</div>
 {% endblock %}

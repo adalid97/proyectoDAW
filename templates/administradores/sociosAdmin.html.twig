@@ -5,6 +5,11 @@
 	{{ render(path('menuAreaPrivada', {'seccionActual': "socios"})) }}
 {% endblock %}
 {% block body %}
+	{% for message in app.flashes('success') %}
+		<div class="alert alert-success">
+			{{ message }}
+		</div>
+	{% endfor %}
 	<a class="btn btn-dark-green btn-md mx-0 btn-rounded text-white mx-auto d-block" href="{{ path('nuevoSocio') }}">Nuevo Socio</a>
 	<br>
 	<table id="dtBasicExample" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">

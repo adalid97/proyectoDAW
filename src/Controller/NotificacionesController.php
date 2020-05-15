@@ -35,6 +35,7 @@ class NotificacionesController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($notificacion);
             $entityManager->flush();
+            $this->addFlash('success', 'Su mensaje ha sido enviado, en breve recibiras una respuesta. Gracias!');
             return $this->redirectToRoute('nuevaNotificacion');
         }
 

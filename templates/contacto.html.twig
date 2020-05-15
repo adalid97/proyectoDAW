@@ -5,17 +5,12 @@
 	{{ include('nav.html.twig', { 'seccionActual': "contacto" }) }}
 {% endblock %}
 {% block body %}
-
-
 	<div class="container my-5">
-		<style>
-			.border-top {
-				border-top: 5px solid #33b5e5 !important;
-				border-top-left-radius: 0.25rem !important;
-				border-top-right-radius: 0.25rem !important;
-			}
-		</style>
-
+		{% for message in app.flashes('success') %}
+			<div class="alert alert-success">
+				{{ message }}
+			</div>
+		{% endfor %}
 		<!--Section: Content-->
 		<section class="text-center dark-green-text mb-5">
 

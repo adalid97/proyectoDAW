@@ -6,7 +6,11 @@
 {% endblock %}
 {% block body %}
 	<div class="container mt-5">
-
+		{% for message in app.flashes('success') %}
+			<div class="alert alert-success">
+				{{ message }}
+			</div>
+		{% endfor %}
 		<a class="btn btn-dark-green btn-md mx-0 btn-rounded text-white mx-auto d-block" href="{{ path('nuevaNoticia') }}">Nueva noticia</a>
 		<br>
 		{% for noticia in noticias %}
