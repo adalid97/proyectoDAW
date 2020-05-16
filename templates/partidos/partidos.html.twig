@@ -6,7 +6,13 @@
 {% endblock %}
 
 {% block body %}
-
+	<div class="mt-3">
+		{% for message in app.flashes('success') %}
+			<div class="alert alert-success">
+				{{ message }}
+			</div>
+		{% endfor %}
+	</div>
 	{% if is_granted('ROLE_ADMIN') %}
 		<a class="btn btn-dark-green btn-md mx-0 btn-rounded text-white mx-auto d-block" href="{{ path('listaEquipos') }}">Equipos</a><br>
 		<a class="btn btn-dark-green btn-md mx-0 btn-rounded text-white mx-auto d-block" href="{{ path('nuevoPartido') }}">Nuevo Partido</a><br>

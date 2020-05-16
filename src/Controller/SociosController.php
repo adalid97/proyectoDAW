@@ -52,7 +52,7 @@ class SociosController extends AbstractController
             return $this->redirectToRoute('sociosAdmin');
         }
 
-        return $this->render('socios/formSocio.html.twig', array(
+        return $this->render('socios/nuevoSocio.html.twig', array(
             'form' => $form->createView(),
         ));
     }
@@ -88,7 +88,7 @@ class SociosController extends AbstractController
             $this->addFlash('success', 'Socio editado correctamente.');
             return $this->redirectToRoute('sociosAdmin');
         }
-        return $this->render('socios/formSocio.html.twig', array(
+        return $this->render('socios/editarSocio.html.twig', array(
             'form' => $form->createView(),
         ));
     }
@@ -120,9 +120,20 @@ class SociosController extends AbstractController
 
             return $this->redirectToRoute('inicioAreaPrivada');
         }
-        return $this->render('socios/formSocio.html.twig', array(
+        return $this->render('socios/editarSocio.html.twig', array(
             'form' => $form->createView(),
         ));
+    }
+
+    public function borrarSocio($id)
+    {
+        $entityManager = $this->getDoctrine()->getManager();
+        $socio = $entityManager->getRepository(Socio::class)->find($id);
+
+        $entityManager->remove($socio);
+        $entityManager->flush();
+        $this->addFlash('success', 'Socio borrado correctamente.');
+        return $this->redirectToRoute('sociosAdmin');
     }
 
 }

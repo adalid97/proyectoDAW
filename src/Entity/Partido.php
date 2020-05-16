@@ -19,11 +19,6 @@ class Partido
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $tipo;
-
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
     private $estadio;
 
     /**
@@ -54,18 +49,6 @@ class Partido
     public function getId(): ?int
     {
         return $this->id;
-    }
-
-    public function getTipo(): ?string
-    {
-        return $this->tipo;
-    }
-
-    public function setTipo(string $tipo): self
-    {
-        $this->tipo = $tipo;
-
-        return $this;
     }
 
     public function getEstadio(): ?string

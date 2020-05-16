@@ -86,6 +86,7 @@ class PartidosController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($partido);
             $entityManager->flush();
+            $this->addFlash('success', 'Partido agregado correctamente!');
             return $this->redirectToRoute('partidosAdmin');
 
         }
@@ -106,6 +107,7 @@ class PartidosController extends AbstractController
         }
         $entityManager->remove($partido);
         $entityManager->flush();
+        $this->addFlash('success', 'Partido borrado correctamente!');
         return $this->redirectToRoute('partidosAdmin');
     }
 

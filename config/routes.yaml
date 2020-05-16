@@ -156,3 +156,7 @@ editarSocio:
 menuAreaPrivada:
     path: /administrador/menuAreaPrivada/{seccionActual}
     controller: App\Controller\Controller::menuAreaPrivada
+
+borrarSocio:
+  path: /administrador/borrarSocio/{id}
+  controller: App\Controller\SociosController::borrarSocio

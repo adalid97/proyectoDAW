@@ -6,7 +6,51 @@
 {% endblock %}
 
 {% block body %}
-	{{ form_start(form) }}
-	{{ form_widget(form) }}
-	{{ form_end(form) }}
+	<div
+		class="container my-5">
+		<!--Section: Content-->
+		<section class="text-center border-top dark-green-text mb-5">
+
+			<div class="card">
+				<div class="card-body rounded-top border border-success p-5">
+					{{ form_start(form) }}
+					<div class="form-group row">
+						{{ form_label(form.estadio, 'Estadio', {'label_attr': {'class': 'col-sm-2 col-form-labe'}}) }}
+						<div class="col-sm-5">
+							{{ form_widget(form.estadio) }}
+						</div>
+						{{ form_label(form.fecha, 'Fecha', {'label_attr': {'class': 'col-sm-2 col-form-labe'}}) }}
+						<div class="col-sm-3">
+							{{ form_widget(form.fecha) }}
+						</div>
+					</div>
+					<div class="form-group row">
+						{{ form_label(form.hora, 'Hora', {'label_attr': {'class': 'col-sm-2 col-form-labe'}}) }}
+						<div class="col-sm-4">
+							{{ form_widget(form.hora) }}
+						</div>
+						{{ form_label(form.horaAperturaSede, 'Hora Apertura Sede', {'label_attr': {'class': 'col-sm-2 col-form-labe'}}) }}
+						<div class="col-sm-4">
+							{{ form_widget(form.horaAperturaSede) }}
+						</div>
+					</div>
+					<div class="form-group row">
+						{{ form_label(form.idEquipoLocal, 'Equipo Local', {'label_attr': {'class': 'col-sm-2 col-form-labe'}}) }}
+						<div class="col-sm-4">
+							{{ form_widget(form.idEquipoLocal) }}
+						</div>
+						{{ form_label(form.idEquipoVisitante, 'Equipo Visitante', {'label_attr': {'class': 'col-sm-2 col-form-labe'}}) }}
+						<div class="col-sm-4">
+							{{ form_widget(form.idEquipoVisitante) }}
+						</div>
+					</div>
+
+					<div class="text-center">
+						{{ form_widget(form.save, {'attr': {'class': 'btn btn-dark-green btn-block my-4 text-white'}}) }}
+					</div>
+				</div>
+				{{ form_end(form) }}
+			</div>
+		</section>
+	</div>
 {% endblock %}

@@ -1,0 +1,65 @@
+{% extends 'areaPrivada/baseAreaPrivada.html.twig' %}
+{% block title %}Socio
+{% endblock %}
+{% block sidebar %}
+	{{ render(path('menuAreaPrivada', {'seccionActual': "socios"})) }}
+{% endblock %}
+
+{% block body %}
+	<div
+		class="container my-5">
+		<!--Section: Content-->
+		<section class="text-center border-top dark-green-text mb-5">
+
+			<div class="card">
+				<div class="card-body rounded-top border border-success p-5">
+					{{ form_start(form) }}
+					{% if is_granted('ROLE_ADMIN') %}
+						<div class="form-group row">
+							{{ form_label(form.numSocio, 'Número de Socio', {'label_attr': {'class': 'col-sm-2 col-form-labe'}}) }}
+							<div class="col-sm-4">
+								{{ form_widget(form.numSocio, {'attr': {'placeholder': 'Número de Socio'}}) }}
+							</div>
+							{{ form_label(form.nombre, 'Nombre', {'label_attr': {'class': 'col-sm-2 col-form-labe'}}) }}
+							<div class="col-sm-4">
+								{{ form_widget(form.nombre, {'attr': {'placeholder': 'nombre'}}) }}
+							</div>
+						</div>
+						<div class="form-group row">
+							{{ form_label(form.dni, 'DNI', {'label_attr': {'class': 'col-sm-2 col-form-labe'}}) }}
+							<div class="col-sm-4">
+								{{ form_widget(form.dni, {'attr': {'placeholder': 'DNI'}}) }}
+							</div>
+							{{ form_label(form.fechaNacimiento, 'Fecha de Nacimiento', {'label_attr': {'class': 'col-sm-2 col-form-labe'}}) }}
+							<div class="col-sm-4">
+								{{ form_widget(form.fechaNacimiento, {'attr': {'placeholder': 'Fecha de Nacimeinto'}}) }}
+							</div>
+						</div>
+					{% endif %}
+					<div class="form-group row">
+						{{ form_label(form.direccion, 'Dirección', {'label_attr': {'class': 'col-sm-2 col-form-labe'}}) }}
+						<div class="col-sm-4">
+							{{ form_widget(form.direccion, {'attr': {'placeholder': 'Dirección'}}) }}
+						</div>
+						{{ form_label(form.localidad, 'Localidad', {'label_attr': {'class': 'col-sm-2 col-form-labe'}}) }}
+						<div class="col-sm-4">
+							{{ form_widget(form.localidad, {'attr': {'placeholder': 'Localidad'}}) }}
+						</div>
+					</div>
+					<div class="form-group row">
+						{{ form_label(form.telefono, 'Teléfono', {'label_attr': {'class': 'col-sm-2 col-form-labe'}}) }}
+						<div class="col-sm-10">
+							{{ form_widget(form.telefono, {'attr': {'placeholder': 'Teléfono'}}) }}
+						</div>
+					</div>
+
+					<div class="text-center">
+						{{ form_widget(form.save, {'attr': {'class': 'btn btn-dark-green btn-block my-4 text-white'}}) }}
+					</div>
+				</div>
+				{{ form_end(form) }}
+
+			</div>
+		</section>
+	</div>
+{% endblock %}
