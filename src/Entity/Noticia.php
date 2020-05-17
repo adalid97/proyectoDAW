@@ -122,4 +122,5 @@ class Noticia
 
         return $this;
     }
+
 }

@@ -5,5 +5,12 @@
 	{{ render(path('menuAreaPrivada', {'seccionActual': "documentos"})) }}
 {% endblock %}
 {% block body %}
+	<div class="mt-3">
+		{% for message in app.flashes('success') %}
+			<div class="alert alert-success">
+				{{ message }}
+			</div>
+		{% endfor %}
+	</div>
 	{{ include('documentos/baseDocumentos.html.twig') }}
 {% endblock %}

@@ -1,16 +1,13 @@
 <?php
 namespace App\Controller;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
-use Symfony\Component\Form\Extension\Core\Type\TextType;
-use Symfony\Component\Form\Extension\Core\Type\DateType;
-use Symfony\Component\Form\Extension\Core\Type\TextareaType;
-use Symfony\Component\Form\Extension\Core\Type\SubmitType;
-use Symfony\Component\HttpFoundation\Request;
 use App\Entity\Documento;
 use App\Form\DocumentoType;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 
-class DocumentosController extends AbstractController{
+class DocumentosController extends AbstractController
+{
 
     public function nuevoDocumento(Request $request)
     {
@@ -27,7 +24,7 @@ class DocumentosController extends AbstractController{
             if ($fichero) {
                 $originalFilename = pathinfo($fichero->getClientOriginalName(), PATHINFO_FILENAME);
                 $safeFilename = $originalFilename;
-                $newFilename = $safeFilename.'-'.uniqid().'.'.$fichero->guessExtension();
+                $newFilename = $safeFilename . '-' . uniqid() . '.' . $fichero->guessExtension();
 
                 try {
                     $fichero->move(
@@ -44,18 +41,19 @@ class DocumentosController extends AbstractController{
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($documento);
             $entityManager->flush();
+            $this->addFlash('success', 'El fichero se ha subido correctamente!');
             return $this->redirectToRoute('documentosAdmin');
         }
 
         return $this->render('documentos/nuevoDocumento.html.twig', array(
             'form' => $form->createView(),
-            ));
+        ));
     }
 
     public function listaDocumentos()
     {
         $entityManager = $this->getDoctrine()->getManager();
-        $documento= $entityManager->getRepository(Documento::class)->findBy(
+        $documento = $entityManager->getRepository(Documento::class)->findBy(
             array(),
             array('fecha' => 'DESC')
         );
@@ -67,7 +65,7 @@ class DocumentosController extends AbstractController{
     public function documentosAdmin()
     {
         $entityManager = $this->getDoctrine()->getManager();
-        $documento= $entityManager->getRepository(Documento::class)->findBy(
+        $documento = $entityManager->getRepository(Documento::class)->findBy(
             array(),
             array('fecha' => 'DESC')
         );
@@ -79,7 +77,7 @@ class DocumentosController extends AbstractController{
     public function documentosSocios()
     {
         $entityManager = $this->getDoctrine()->getManager();
-        $documento= $entityManager->getRepository(Documento::class)->findBy(
+        $documento = $entityManager->getRepository(Documento::class)->findBy(
             array(),
             array('fecha' => 'DESC')
         );
@@ -91,12 +89,10 @@ class DocumentosController extends AbstractController{
     public function borrarDocumento($id)
     {
         $entityManager = $this->getDoctrine()->getManager();
-        $documento= $entityManager->getRepository(Documento::class)->find($id);
+        $documento = $entityManager->getRepository(Documento::class)->find($id);
         $entityManager->remove($documento);
         $entityManager->flush();
         return $this->redirectToRoute('documentosAdmin');
     }
 
 }
-
-?>

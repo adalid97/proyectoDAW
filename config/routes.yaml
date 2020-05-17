@@ -3,8 +3,10 @@ index:
     controller: App\Controller\Controller::index
 
 noticias:
-    path: /noticias
+    path: /noticias/{currentPage}
     controller: App\Controller\Controller::noticias
+    defaults:
+      currentPage: 1
 
 socios:
     path: /login
@@ -135,6 +137,18 @@ nuevaCuota:
     path: /administrador/nuevaCuota/{idSocio}
     controller: App\Controller\CuotasController::nuevaCuota
 
+editarCuota:
+    path: /administrador/editarCuota/{id}
+    controller: App\Controller\CuotasController::editarCuota
+
+anoCompletoCuota:
+    path: /administrador/editarCuota/anoCompleto/{id}
+    controller: App\Controller\CuotasController::anoCompletoCuota
+
+seisMesesCuota:
+    path: /administrador/editarCuota/seisMesesCuotas/{id}
+    controller: App\Controller\CuotasController::seisMesesCuota
+
 # Socios
 
 sociosAdmin:
@@ -160,3 +174,9 @@ menuAreaPrivada:
 borrarSocio:
   path: /administrador/borrarSocio/{id}
   controller: App\Controller\SociosController::borrarSocio
+
+
+# Pruebas
+pruebasSocios:
+   path: /socio/pruebas
+   controller: App\Controller\CuotasController::socios

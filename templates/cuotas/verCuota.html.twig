@@ -102,21 +102,26 @@
 								{% endif %}
 							</tr>
 						</tbody>
+					</table>
+					<div class="d-flex justify-content-center">
+						<a class="btn btn-dark-green btn-md mx-0 btn-rounded text-white mr-2" href="{{ path('editarCuota', {'id' : cuota.id}) }}">Editar Cuota</a>
+						<a class="btn btn-dark-green btn-md mx-0 btn-rounded text-white mr-2" href="{{ path('anoCompletoCuota', {'id' : cuota.id}) }}">Año Completo Cuota</a>
+						<a class="btn btn-dark-green btn-md mx-0 btn-rounded text-white mr-2" href="{{ path('seisMesesCuota', {'id' : cuota.id}) }}">6 meses de cuota</a>
+					</div>
+
+				</tbody>
 
 
-					{% else %}
-						<p>No hay cuotas</p>
+			{% else %}
+				<p>No hay cuotas</p>
 
-					{% endfor %}
+			{% endfor %}
 
-					{# <a class="btn btn-dark-green btn-md mx-0 btn-rounded text-white mx-auto d-block" href="{{ path('nuevaCuota', {'idSocio' : cuotas.idSocio}) }}">Nueva Cuota</a> #}
-
-				</table>
-			</div>
-		</section>
-		<!--Section: Content-->
-
-	</div>
+			{# <a class="btn btn-dark-green btn-md mx-0 btn-rounded text-white mx-auto d-block" href="{{ path('nuevaCuota', {'idSocio' : cuotas.idSocio}) }}">Nueva Cuota</a> #}
 
 
-{% endblock %}
+		</div>
+	</section>
+	<!--Section: Content-->
+
+</div>{% endblock %}

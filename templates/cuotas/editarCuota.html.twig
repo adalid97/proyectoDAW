@@ -6,7 +6,11 @@
 {% endblock %}
 
 {% block body %}
+
 	{{ form_start(form) }}
 	{{ form_widget(form) }}
 	{{ form_end(form) }}
+
+
+	<a class="btn btn-dark-green btn-md mx-0 btn-rounded text-white mx-auto d-block" href="{{ path('anoCompletoCuota', {'id' : cuota.id}) }}">Año Completo Cuota</a>
 {% endblock %}
