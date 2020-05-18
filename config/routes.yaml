@@ -20,10 +20,6 @@ faq:
     path: /faq
     controller: App\Controller\Controller::faq
 
-nuevaNotificacion:
-    path: /contacto
-    controller: App\Controller\NotificacionesController::nuevaNotificacion
-
 admin:
     path: /admin
     controller: App\Controller\Controller::admin
@@ -39,22 +35,6 @@ inicioAdmin:
 noticiasAdmin:
     path: /administrador/noticias
     controller: App\Controller\Controller::noticiasAdmin
-
-notificacionesAdmin:
-    path: /administrador/notificaciones
-    controller: App\Controller\NotificacionesController::listaNotificaciones
-
-notificacionLeida:
-    path: /administrador/notificacionLeida/{id}
-    controller: App\Controller\NotificacionesController::notificacionLeida
-
-notificacionNoLeida:
-    path: /administrador/notificacionNoLeida/{id}
-    controller: App\Controller\NotificacionesController::notificacionNoLeida
-
-verNotificacion:
-    path: /administrador/notificacion/{id}
-    controller: App\Controller\NotificacionesController::verNotificacion
     
 verNoticia:
     path: /noticia/{id}
@@ -76,6 +56,31 @@ inicioAreaPrivada:
   path: /area_privada
   controller: App\Controller\Controller::inicioAreaPrivada 
 
+#Contacto
+
+notificacionesAdmin:
+    path: /administrador/notificaciones
+    controller: App\Controller\NotificacionesController::listaNotificaciones
+
+notificacionLeida:
+    path: /administrador/notificacionLeida/{id}
+    controller: App\Controller\NotificacionesController::notificacionLeida
+
+notificacionNoLeida:
+    path: /administrador/notificacionNoLeida/{id}
+    controller: App\Controller\NotificacionesController::notificacionNoLeida
+
+verNotificacion:
+    path: /administrador/notificacion/{id}
+    controller: App\Controller\NotificacionesController::verNotificacion
+
+nuevaNotificacion:
+    path: /contacto
+    controller: App\Controller\NotificacionesController::nuevaNotificacion
+
+contactoSocios:
+    path: /socio/contactoSocios
+    controller: App\Controller\NotificacionesController::nuevaNotificacionSocio  
 # Documentos
 
 nuevoDocumento:
@@ -129,6 +134,7 @@ borrarEquipo:
     controller: App\Controller\PartidosController::borrarEquipo
 
 # Cuotas
+
 verCuota:
     path: /socio/cuotas/{idSocio}
     controller: App\Controller\CuotasController::verCuota
@@ -174,9 +180,3 @@ menuAreaPrivada:
 borrarSocio:
   path: /administrador/borrarSocio/{id}
   controller: App\Controller\SociosController::borrarSocio
-
-
-# Pruebas
-pruebasSocios:
-   path: /socio/pruebas
-   controller: App\Controller\CuotasController::socios

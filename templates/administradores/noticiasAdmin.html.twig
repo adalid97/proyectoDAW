@@ -5,7 +5,7 @@
 	{{ render(path('menuAreaPrivada', {'seccionActual': "noticias"})) }}
 {% endblock %}
 {% block body %}
-	<div class="container mt-5">
+	<div class="container mt-3">
 		{% for message in app.flashes('success') %}
 			<div class="alert alert-success">
 				{{ message }}

@@ -8,11 +8,10 @@
 {% endblock %}
 {% block body %}
 
-	<h1>notificaciones ADMINISTRADORES</h1>
-	<table class="table table-hover border-dark">
+	<table class="table table-hover border-dark mt-3">
 		<thead class="success-color-dark white-text">
 			<tr>
-				<th scope="col">ID</th>
+				<th scope="col">Fecha</th>
 				<th scope="col">Nombre</th>
 				<th scope="col">Mensaje</th>
 				<th scope="col">Notificación Leída</th>
@@ -29,7 +28,7 @@
 						{% endif %}
 
 
-						<th scope="row">{{notificacion.id}}</th>
+						<th scope="row">{{ notificacion.date|date("d/m/Y H:m:s") }}</th>
 						<td>{{notificacion.nombre}}</td>
 						<td>{{ notificacion.mensaje|u.truncate(50, '...') }}</td>
 
@@ -42,7 +41,11 @@
 						</th>
 						<td>
 							<p>
-								<a href="{{ path('verNotificacion', {'id': notificacion.id}) }}">Leer...</a>
+								<a class="btn btn-dark-green btn-md mx-0 btn-rounded text-white mx-auto d-block" href="{{ path('verNotificacion', {'id': notificacion.id}) }}">
+									<i class="fas fa-book-reader"></i>
+									Leer...
+								</a>
+
 							</p>
 						</td>
 

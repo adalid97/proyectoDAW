@@ -1,9 +1,8 @@
-<br>
 {% if is_granted('ROLE_ADMIN') %}
 	<a class="btn btn-dark-green btn-md mx-0 btn-rounded text-white mx-auto d-block" href="{{ path('nuevoDocumento') }}">Nuevo Documento</a>
 	<br>
 {% endif %}
-<table class="table">
+<table class="table mt-3">
 	<thead class="success-color-dark white-text">
 		<tr>
 			<th scope="col">Nombre</th>
@@ -35,10 +34,13 @@
 					<td>{{ documento.fecha | date("d/m/Y H:m:s")}}</td>
 					<td>
 						<p>
-							<a class="btn btn-dark-green btn-md mx-0 btn-rounded text-white mx-auto d-block" download href='{{ asset('../../documentos/' ~ documento.fichero) }}'>Descargar</a><br>
+							<a class="btn btn-dark-green btn-md mx-0 btn-rounded text-white mx-auto d-block" download href='{{ asset('../../documentos/' ~ documento.fichero) }}'>
+								<i class="fas fa-file-download"></i>
+								Descargar</a><br>
 							{% if is_granted('ROLE_ADMIN') %}
-								<a class="btn btn-dark-green btn-md mx-0 btn-rounded text-white mx-auto d-block"
-￼>Borrar Documento</a>
+								<a class="btn btn-dark-green btn-md mx-0 btn-rounded text-white mx-auto d-block" href="{{ path('borrarDocumento', {'id': documento.id}) }}">
+									<i class="far fa-trash-alt"></i>
+									Borrar Documento</a>
 							{% endif %}
 						</p>
 					</td>

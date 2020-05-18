@@ -39,7 +39,39 @@ class NotificacionesController extends AbstractController
             return $this->redirectToRoute('nuevaNotificacion');
         }
 
-        return $this->render('contacto.html.twig', array(
+        return $this->render('notificaciones/contacto.html.twig', array(
+            'form' => $form->createView(),
+        ));
+    }
+
+    public function nuevaNotificacionSocio(Request $request)
+    {
+        $notificacion = new Notificacion();
+
+        $form = $this->createFormBuilder($notificacion)
+            ->add('nombre', TextType::class)
+            ->add('email', EmailType::class)
+            ->add('telefono', TextType::class)
+            ->add('mensaje', TextareaType::class)
+            ->add('save', SubmitType::class,
+                array('label' => 'Enviar Mensaje'))
+            ->getForm();
+
+        $notificacion->setLeido(false);
+        $notificacion->setDate(new \DateTime('now'));
+
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $notificacion = $form->getData();
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($notificacion);
+            $entityManager->flush();
+            $this->addFlash('success', 'Su mensaje ha sido enviado, en breve recibiras una respuesta. Gracias!');
+            return $this->redirectToRoute('contactoSocios');
+        }
+
+        return $this->render('notificaciones/contactoSocios.html.twig', array(
             'form' => $form->createView(),
         ));
     }
@@ -49,7 +81,7 @@ class NotificacionesController extends AbstractController
         $entityManager = $this->getDoctrine()->getManager();
         $notificacion = $entityManager->getRepository(Notificacion::class)->findBy(
             array(),
-            array('leido' => 'ASC'),
+            array('leido' => 'ASC', 'date' => 'DESC'),
         );
         return $this->render('administradores/notificacionesAdmin.html.twig', array(
             'notificaciones' => $notificacion,

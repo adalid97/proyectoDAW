@@ -41,7 +41,8 @@ class PartidosController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($equipo);
             $entityManager->flush();
-            return $this->redirectToRoute('partidosAdmin');
+            $this->addFlash('success', 'Equipo creado correctamente!');
+            return $this->redirectToRoute('listaEquipos');
         }
 
         return $this->render('partidos/nuevoEquipo.html.twig', array(
@@ -130,7 +131,13 @@ class PartidosController extends AbstractController
         $equipo = $entityManager->getRepository(Equipo::class)->find($id);
 
         $entityManager->remove($equipo);
-        $entityManager->flush();
+        try {
+            $entityManager->flush();
+            $this->addFlash('success', 'Equipo borrado correctamente!');
+        } catch (\Throwable $th) {
+            $this->addFlash('error', 'Error al borrar el equipo, comprueba que no esté utilizado en ningún partido.');
+        }
+
         return $this->redirectToRoute('listaEquipos');
 
     }

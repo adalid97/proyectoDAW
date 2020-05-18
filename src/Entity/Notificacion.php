@@ -122,4 +122,5 @@ class Notificacion
 
         return $this;
     }
+
 }

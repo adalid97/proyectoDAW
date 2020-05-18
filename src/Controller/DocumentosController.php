@@ -92,6 +92,7 @@ class DocumentosController extends AbstractController
         $documento = $entityManager->getRepository(Documento::class)->find($id);
         $entityManager->remove($documento);
         $entityManager->flush();
+        $this->addFlash('success', 'Documento borrado correctamente!');
         return $this->redirectToRoute('documentosAdmin');
     }
 
