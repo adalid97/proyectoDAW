@@ -44,11 +44,16 @@ class SociosController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $socio = $form->getData();
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($socio);
-            $entityManager->flush();
-            $this->addFlash('success', 'Socio agregado correctamente.');
+            try {
+                $socio = $form->getData();
+                $entityManager = $this->getDoctrine()->getManager();
+
+                $entityManager->persist($socio);
+                $entityManager->flush();
+                $this->addFlash('success', 'Socio creado correctamente!');
+            } catch (\Throwable $th) {
+                $this->addFlash('error', 'Error al insertar el socio, compruebe que el DNI y el número del socio es el correcto.');
+            }
             return $this->redirectToRoute('sociosAdmin');
         }
 

@@ -7,10 +7,38 @@
 
 {% block body %}
 
-	{{ form_start(form) }}
-	{{ form_widget(form) }}
-	{{ form_end(form) }}
+	<div class="container my-5">
+		<section class="text-center dark-green-text mb-5">
+			<div class="card">
+				<div class="card-body rounded-top border border-success p-5">
+					{{ form_start(form) }}
+					<div class="row text-left">
+						<div class="col-md-3">{{ form_widget(form.enero)}}</div>
+						<div class="col-md-3">{{ form_widget(form.febrero)}}</div>
+						<div class="col-md-3">{{ form_widget(form.marzo)}}</div>
+						<div class="col-md-3">{{ form_widget(form.abril)}}</div>
+					</div>
+					<div class="row text-left">
+						<div class="col-md-3">{{ form_widget(form.mayo)}}</div>
+						<div class="col-md-3">{{ form_widget(form.junio)}}</div>
+						<div class="col-md-3">{{ form_widget(form.julio)}}</div>
+						<div class="col-md-3">{{ form_widget(form.agosto)}}</div>
+					</div>
+					<div class="row text-left">
+						<div class="col-md-3">{{ form_widget(form.septiembre)}}</div>
+						<div class="col-md-3">{{ form_widget(form.octubre)}}</div>
+						<div class="col-md-3">{{ form_widget(form.noviembre)}}</div>
+						<div class="col-md-3">{{ form_widget(form.diciembre)}}</div>
 
+					</div>
+					<div class="text-center mt-3">
+						{{ form_widget(form.save, {'attr': {'class': 'btn btn-dark-green text-white'}}) }}
+					</div>
+					{{ form_end(form) }}
+				</div>
 
+			</div>
+		</section>
+	</div>
 	<a class="btn btn-dark-green btn-md mx-0 btn-rounded text-white mx-auto d-block" href="{{ path('anoCompletoCuota', {'id' : cuota.id}) }}">Año Completo Cuota</a>
 {% endblock %}

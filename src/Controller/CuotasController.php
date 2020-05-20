@@ -18,11 +18,13 @@ class CuotasController extends AbstractController
         $cuota = $entityManager->getRepository(Cuota::class)->findBy(
             array(
                 'idSocio' => $idSocio,
-            )
+            ),
+            array('ano' => 'ASC'),
         );
 
         return $this->render('cuotas/verCuota.html.twig', array(
             'cuotas' => $cuota,
+            'socio' => $idSocio,
         ));
     }
 
@@ -37,7 +39,7 @@ class CuotasController extends AbstractController
         $form = $this->createFormBuilder($cuota)
             ->add('ano', NumberType::class)
             ->add('save', SubmitType::class,
-                array('label' => 'Añadir Cuota'))
+                array('label' => 'Añadir Año'))
             ->getForm();
 
         $form->handleRequest($request);
@@ -47,7 +49,8 @@ class CuotasController extends AbstractController
 
             $entityManager->persist($cuota);
             $entityManager->flush();
-            return $this->redirectToRoute('sociosAdmin');
+            $this->addFlash('success', 'Año agregado correctamente.');
+            return $this->redirectToRoute('verCuota', array('idSocio' => $idSocio));
         }
 
         return $this->render('cuotas/nuevaCuota.html.twig', array(
@@ -57,26 +60,30 @@ class CuotasController extends AbstractController
 
     public function nuevoAño(Request $request)
     {
-
-        $cuota = new Cuota();
         $entityManager = $this->getDoctrine()->getManager();
-        $socio = $entityManager->getRepository(Socio::class)->find($idSocio);
-
-        $cuota->setIdSocio($socio);
+        $cuota = new Cuota();
 
         $form = $this->createFormBuilder($cuota)
             ->add('ano', NumberType::class)
             ->add('save', SubmitType::class,
-                array('label' => 'Añadir Cuota'))
+                array('label' => 'Añadir año a todos los socios'))
             ->getForm();
 
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $cuota = $form->getData();
 
-            $entityManager->persist($cuota);
+            $socios = $entityManager->getRepository(Socio::class)->findAll();
+
+            foreach ($socios as $socio) {
+                $cuotaSocio = new Cuota();
+                $cuotaSocio = $form->getData();
+                $cuotaSocio->setIdSocio($socio);
+                $entityManager->persist($cuotaSocio);
+            }
+
             $entityManager->flush();
+
             return $this->redirectToRoute('sociosAdmin');
         }
 
@@ -135,6 +142,7 @@ class CuotasController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $noticia = $form->getData();
             $entityManager->flush();
+            $this->addFlash('success', 'Cuota editada correctamente.');
             return $this->redirectToRoute('verCuota', array('idSocio' => $socio));
         }
         return $this->render('cuotas/editarCuota.html.twig', array(
@@ -162,6 +170,7 @@ class CuotasController extends AbstractController
         $cuota->setDiciembre(true);
         $entityManager->persist($cuota);
         $entityManager->flush();
+        $this->addFlash('success', 'Se ha agregado 12 meses de cuota.');
 
         $socio = $cuota->getIdSocio()->getId();
 
@@ -192,6 +201,7 @@ class CuotasController extends AbstractController
 
         $entityManager->persist($cuota);
         $entityManager->flush();
+        $this->addFlash('success', 'Se ha agregado 6 meses de cuota.');
 
         $socio = $cuota->getIdSocio()->getId();
 

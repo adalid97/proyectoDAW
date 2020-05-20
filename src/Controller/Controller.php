@@ -73,7 +73,7 @@ class Controller extends AbstractController
 
     public function inicioAdmin()
     {
-        return $this->render('administradores/inicioAdmin.html.twig', [
+        return $this->render('areaPrivada/inicioAreaPrivada.html.twig', [
         ]);
     }
 

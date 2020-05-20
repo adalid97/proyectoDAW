@@ -11,6 +11,11 @@
 				{{ message }}
 			</div>
 		{% endfor %}
+		{% for message in app.flashes('error') %}
+			<div class="alert alert-danger">
+				{{ message }}
+			</div>
+		{% endfor %}
 	</div>
 	<a class="btn btn-dark-green btn-md mx-0 btn-rounded text-white mx-auto d-block" href="{{ path('nuevoSocio') }}">Nuevo Socio</a>
 	<br>
@@ -26,8 +31,6 @@
 				<th class="th-sm">Fecha Nacimiento
 				</th>
 				<th class="th-sm">Direccion
-				</th>
-				<th class="th-sm">Localidad
 				</th>
 				<th class="th-sm">Teléfono
 				</th>
@@ -47,7 +50,6 @@
 					<td class="align-middle">{{socio.dni}}</td>
 					<td class="align-middle">{{socio.fechaNacimiento|date("d/m/Y")}}</td>
 					<td class="align-middle">{{socio.direccion}}</td>
-					<td class="align-middle">{{socio.localidad}}</td>
 					<td class="align-middle">{{socio.telefono}}</td>
 					<td>
 						<a class="btn btn-dark-green btn-md mx-0 btn-rounded text-white mx-auto d-block" href="{{ path('verCuota', {'idSocio': socio.id}) }}">
@@ -60,7 +62,7 @@
 							Editar</a>
 					</td>
 					<td>
-						<a class="btn btn-dark-green btn-md mx-0 btn-rounded text-white mx-auto d-block" href="{{ path('borrarSocio', {'id': socio.id}) }}">
+						<a class="btn btn-dark-green btn-md mx-0 btn-rounded text-white mx-auto d-block" href="{{ path('borrarSocio', {'id': socio.id}) }}" onclick="return confirm('¿Estás seguro de que deseas borrar este socio?')">
 							<i class="far fa-trash-alt fa-1x"></i>
 							Borrar
 						</a>
@@ -70,5 +72,6 @@
 
 		</tbody>
 	</table>
+	<a class="btn btn-dark-green btn-md mx-0 btn-rounded text-white mx-auto d-block" href="{{ path('nuevoAño') }}">Nueva Año</a>
 
 {% endblock %}

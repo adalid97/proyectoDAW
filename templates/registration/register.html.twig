@@ -1,14 +1,45 @@
 {% extends 'base.html.twig' %}
-
-{% block title %}Register{% endblock %}
-
+{% block title %}Soci@s
+{% endblock %}
+{% block sidebar %}
+	{{ include('nav.html.twig', { 'seccionActual': "socios" }) }}
+{% endblock %}
 {% block body %}
-    <h1>Register</h1>
+	<div class="container my-5">
+		{% for message in app.flashes('error') %}
+			<div class="alert alert-danger">
+				{{ message }}
+			</div>
+		{% endfor %}
+		<section class="text-center dark-green-text mb-5">
+			<div class="card">
+				<div class="card-body rounded-top border border-success p-5">
+					{{ form_start(registrationForm) }}
+					<div class="form-group row">
+						{{ form_label(registrationForm.username, 'Usuario', {'label_attr': {'class': 'col-sm-2 col-form-labe'}}) }}
+						<div class="col-sm-10">
+							{{ form_widget(registrationForm.username) }}
+						</div>
 
-    {{ form_start(registrationForm) }}
-    
-        {{ form_row(registrationForm) }}
-        
-        <button class="btn">Register</button>
-    {{ form_end(registrationForm) }}
+					</div>
+					<div class="form-group row">
+						{{ form_label(registrationForm.password, 'Contraseña', {'label_attr': {'class': 'col-sm-2 col-form-labe'}}) }}
+						<div class="col-sm-10">
+							{{ form_widget(registrationForm.password) }}
+						</div>
+					</div>
+					<div class="form-group row">
+						{{ form_label(registrationForm.dni, 'DNI soci@', {'label_attr': {'class': 'col-sm-2 col-form-labe'}}) }}
+						<div class="col-sm-10">
+							{{ form_widget(registrationForm.dni) }}
+						</div>
+
+					</div>
+
+					<button class="btn btn-dark-green my-4 text-white">Registrarse</button>
+				</div>
+				{{ form_end(registrationForm) }}
+			</div>
+		</section>
+	</div>
 {% endblock %}

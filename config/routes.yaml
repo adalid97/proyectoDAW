@@ -16,10 +16,6 @@ registroSocio:
     path: /registro
     controller: App\Controller\RegistrationController::register
 
-faq:
-    path: /faq
-    controller: App\Controller\Controller::faq
-
 admin:
     path: /admin
     controller: App\Controller\Controller::admin
@@ -146,6 +142,10 @@ nuevaCuota:
 editarCuota:
     path: /administrador/editarCuota/{id}
     controller: App\Controller\CuotasController::editarCuota
+
+nuevoAño:
+    path: /administrador/nuevoAño
+    controller: App\Controller\CuotasController::nuevoAño
 
 anoCompletoCuota:
     path: /administrador/editarCuota/anoCompleto/{id}
