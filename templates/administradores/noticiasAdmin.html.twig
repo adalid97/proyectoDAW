@@ -11,13 +11,15 @@
 				{{ message }}
 			</div>
 		{% endfor %}
-		<a class="btn btn-dark-green btn-md mx-0 btn-rounded text-white mx-auto d-block" href="{{ path('nuevaNoticia') }}">Nueva noticia</a>
+		<a class="btn btn-dark-green btn-md mx-0 btn-rounded text-white mx-auto d-block" href="{{ path('nuevaNoticia') }}">
+			<i class="far fa-plus-square"></i>
+			Nueva noticia</a>
 		<div class="container ">
 
 			<br>
 			{% for noticia in noticias %}
 
-				{{ include('baseNoticia.html.twig') }}
+				{{ include('noticias/baseNoticia.html.twig') }}
 
 
 			{% else %}

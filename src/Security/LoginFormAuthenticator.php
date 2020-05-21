@@ -2,7 +2,7 @@
 
 namespace App\Security;
 
-
+use App\Entity\Usuario;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -19,8 +19,6 @@ use Symfony\Component\Security\Csrf\CsrfTokenManagerInterface;
 use Symfony\Component\Security\Guard\Authenticator\AbstractFormLoginAuthenticator;
 use Symfony\Component\Security\Guard\PasswordAuthenticatedInterface;
 use Symfony\Component\Security\Http\Util\TargetPathTrait;
-use App\Entity\Usuario;
-use App\Entity\Socio;
 
 class LoginFormAuthenticator extends AbstractFormLoginAuthenticator implements PasswordAuthenticatedInterface
 {
@@ -44,7 +42,7 @@ class LoginFormAuthenticator extends AbstractFormLoginAuthenticator implements P
     public function supports(Request $request)
     {
         return self::LOGIN_ROUTE === $request->attributes->get('_route')
-            && $request->isMethod('POST');
+        && $request->isMethod('POST');
     }
 
     public function getCredentials(Request $request)
@@ -72,8 +70,7 @@ class LoginFormAuthenticator extends AbstractFormLoginAuthenticator implements P
         $user = $this->entityManager->getRepository(Usuario::class)->findOneBy(['username' => $credentials['username']]);
 
         if (!$user) {
-            // fail authentication with a custom error
-            throw new CustomUserMessageAuthenticationException('Username could not be found.');
+            throw new CustomUserMessageAuthenticationException('Usuario o contraseña incorrecto.');
         }
 
         return $user;
@@ -84,9 +81,6 @@ class LoginFormAuthenticator extends AbstractFormLoginAuthenticator implements P
         return $this->passwordEncoder->isPasswordValid($user, $credentials['password']);
     }
 
-    /**
-     * Used to upgrade (rehash) the user's password automatically over time.
-     */
     public function getPassword($credentials): ?string
     {
         return $credentials['password'];
@@ -97,21 +91,6 @@ class LoginFormAuthenticator extends AbstractFormLoginAuthenticator implements P
         if ($targetPath = $this->getTargetPath($request->getSession(), $providerKey)) {
             return new RedirectResponse($targetPath);
         }
-
-/*         $roles = $token->getRoles();
-        $rolesName = array_map(function($role) { 
-          return $role->getRole(); 
-        }, $roles);
-        
-        if (in_array('ROLE_ADMIN', $rolesName, true)) {
-            $response = new RedirectResponse($this->urlGenerator->generate('inicioAdmin'));
-        } else {
-            $response = new RedirectResponse($this->urlGenerator->generate('index'));
-        }
-
-        return response; */
-
-       
 
         return new RedirectResponse($this->urlGenerator->generate('inicioAreaPrivada'));
     }

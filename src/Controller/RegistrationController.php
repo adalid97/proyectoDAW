@@ -35,6 +35,7 @@ class RegistrationController extends AbstractController
             );
 
             $form->get('dni')->getData();
+            $codigoRegistro = $form->get('codigoRegistro')->getData();
 
             $entityManager = $this->getDoctrine()->getManager();
             $socio = $entityManager->getRepository(Socio::class)->findOneByDni($form->get('dni')->getData());
@@ -44,6 +45,8 @@ class RegistrationController extends AbstractController
                 $this->addFlash('error', 'El DNI no pertenece a ningún socio de la Peña. Por favor, póngase en contacto con la Directiva de la Peña');
             } elseif ($username != null) {
                 $this->addFlash('error', 'El usuario ya existe, por favor escribe otro distinto.');
+            } elseif ($codigoRegistro != "fuentes2020") {
+                $this->addFlash('error', 'El código de registro no es correcto.');
             } else {
                 try {
                     $user->setSocio($socio);

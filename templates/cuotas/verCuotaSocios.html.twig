@@ -6,21 +6,11 @@
 {% endblock %}
 {% block body %}
 
-	<div
-		class="container mt-5">
-
-		<!--Section: Content-->
+	<div class="container mt-5">
 		<section class="text-justify">
-
-
 			<div class="table-responsive">
-
 				{% for cuota in cuotas %}
-
-					{{ cuota.idSocio.numSocio}}
-
 					<table class="table table-bordered">
-
 						<thead>
 							<h2 class="text-center font-weight-bold mb-4 pb-2">{{cuota.ano}}</h2>
 							<tr>
@@ -102,20 +92,11 @@
 								{% endif %}
 							</tr>
 						</tbody>
-
-
 					{% else %}
 						<p>No hay cuotas</p>
-
 					{% endfor %}
-
-
 				</table>
 			</div>
 		</section>
-		<!--Section: Content-->
-
 	</div>
-
-
 {% endblock %}

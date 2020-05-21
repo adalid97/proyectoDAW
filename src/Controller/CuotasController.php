@@ -208,4 +208,18 @@ class CuotasController extends AbstractController
         return $this->redirectToRoute('verCuota', array('idSocio' => $socio));
 
     }
+
+    public function borrarCuota($id)
+    {
+        $entityManager = $this->getDoctrine()->getManager();
+        $cuota = $entityManager->getRepository(Cuota::class)->find($id);
+
+        $entityManager->remove($cuota);
+        $entityManager->flush();
+        $this->addFlash('success', 'Cuota borrada correctamente.');
+
+        $socio = $cuota->getIdSocio()->getId();
+
+        return $this->redirectToRoute('verCuota', array('idSocio' => $socio));
+    }
 }

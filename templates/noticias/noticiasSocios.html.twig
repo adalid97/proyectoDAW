@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+{% block title %}Noticias
+{% endblock %}
+{% block sidebar %}
+	{{ include('areaPrivada/navAreaPrivada.html.twig', { 'seccionActual': "noticias" }) }}
+{% endblock %}
+{% block body %}
+	<div class="container mt-5">
+		<div class="row">
+
+			{{ include('noticias/listaNoticias.html.twig', {'noticias':noticias}) }}
+
+		</div>
+	</div>
+
+{% endblock %}

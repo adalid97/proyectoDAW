@@ -1,8 +1,10 @@
 <?php
 namespace App\Controller;
 
+use App\Entity\Cuota;
 use App\Entity\Socio;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Form\Extension\Core\Type\BirthdayType;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
@@ -32,11 +34,19 @@ class SociosController extends AbstractController
         $form = $this->createFormBuilder($socio)
             ->add('numSocio', NumberType::class)
             ->add('nombre', TextType::class)
-            ->add('dni', TextType::class)
+            ->add('dni', TextType::class, [
+                'required' => false,
+            ])
             ->add('fechaNacimiento', BirthdayType::class)
-            ->add('direccion', TextType::class)
-            ->add('localidad', TextType::class)
-            ->add('telefono', TextType::class)
+            ->add('direccion', TextType::class, [
+                'required' => false,
+            ])
+            ->add('localidad', TextType::class, [
+                'required' => false,
+            ])
+            ->add('telefono', TextType::class, [
+                'required' => false,
+            ])
             ->add('save', SubmitType::class,
                 array('label' => 'Añadir Socio'))
             ->getForm();
@@ -133,7 +143,13 @@ class SociosController extends AbstractController
     public function borrarSocio($id)
     {
         $entityManager = $this->getDoctrine()->getManager();
+
         $socio = $entityManager->getRepository(Socio::class)->find($id);
+
+        $cuotas = $entityManager->getRepository(Cuota::class)->findByIdSocio($id);
+        foreach ($cuotas as &$cuota) {
+            $entityManager->remove($cuota);
+        }
 
         $entityManager->remove($socio);
         $entityManager->flush();

@@ -112,11 +112,17 @@
 							</tr>
 						</tbody>
 					</table>
-					<div class="d-flex justify-content-center mb-5">
-						<a class="btn btn-dark-green btn-md mx-0 btn-rounded text-white mr-2" href="{{ path('editarCuota', {'id' : cuota.id}) }}">Editar Cuota</a>
-						<a class="btn btn-dark-green btn-md mx-0 btn-rounded text-white mr-2" href="{{ path('anoCompletoCuota', {'id' : cuota.id}) }}">Año Completo Cuota</a>
-						<a class="btn btn-dark-green btn-md mx-0 btn-rounded text-white mr-2" href="{{ path('seisMesesCuota', {'id' : cuota.id}) }}">6 meses de cuota</a>
-					</div>
+					{% if is_granted('ROLE_ADMIN') %}
+						<div class="d-flex justify-content-center mb-5">
+							<a class="btn btn-dark-green btn-md mx-0 btn-rounded text-white mr-2" href="{{ path('editarCuota', {'id' : cuota.id}) }}">Editar Cuota</a>
+							<a class="btn btn-dark-green btn-md mx-0 btn-rounded text-white mr-2" href="{{ path('anoCompletoCuota', {'id' : cuota.id}) }}">Año Completo Cuota</a>
+							<a class="btn btn-dark-green btn-md mx-0 btn-rounded text-white mr-2" href="{{ path('seisMesesCuota', {'id' : cuota.id}) }}">6 meses de cuota</a>
+							<a class="btn btn-dark-green btn-md mx-0 btn-rounded text-white mr-2" href="{{ path('borrarCuota', {'id': cuota.id}) }}" onclick="return confirm('¿Estás seguro de que deseas borrar este cuota?')">
+								<i class="far fa-trash-alt fa-1x"></i>
+								Borrar
+							</a>
+						</div>
+					{% endif %}
 
 				</tbody>
 

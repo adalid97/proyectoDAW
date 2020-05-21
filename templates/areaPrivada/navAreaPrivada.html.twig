@@ -31,6 +31,9 @@
 				<span class="sr-only"></span>
 			</a>
 		</li>
+		<li {% if seccionActual == "noticias" %} class="nav-item active" {% else %} class="nav-item" {% endif %}>
+			<a class="nav-link" href="{{ path('noticiasSocios') }}">Noticias</a>
+		</li>
 		<li {% if seccionActual == "cuotas" %} class="nav-item active" {% else %} class="nav-item" {% endif %}>
 			<a class="nav-link" href="{{ path('verCuota', {'idSocio': app.user.socio.id}) }}">Cuotas</a>
 		</li>

@@ -29,7 +29,7 @@ class Socio
     private $nombre;
 
     /**
-     * @ORM\Column(type="string", length=9, unique=true)
+     * @ORM\Column(type="string", length=9, unique=true, nullable=true)
      */
     private $dni;
 
@@ -49,7 +49,7 @@ class Socio
     private $localidad;
 
     /**
-     * @ORM\Column(type="string", length=9)
+     * @ORM\Column(type="string", length=9, nullable=true)
      */
     private $telefono;
 

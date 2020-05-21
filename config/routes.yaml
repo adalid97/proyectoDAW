@@ -2,12 +2,6 @@ index:
     path: //
     controller: App\Controller\Controller::index
 
-noticias:
-    path: /noticias/{currentPage}
-    controller: App\Controller\Controller::noticias
-    defaults:
-      currentPage: 1
-
 socios:
     path: /login
     controller: App\Controller\SecurityController::login
@@ -28,29 +22,34 @@ inicioAdmin:
     path: /administrador/inicio
     controller: App\Controller\Controller::inicioAdmin
 
+# Noticias
+editarNoticia:
+  path: /noticia/editar/{id}
+  controller: App\Controller\NoticiasController::editarNoticia
+
 noticiasAdmin:
     path: /administrador/noticias
-    controller: App\Controller\Controller::noticiasAdmin
+    controller: App\Controller\NoticiasController::noticiasAdmin
     
 verNoticia:
     path: /noticia/{id}
-    controller: App\Controller\Controller::verNoticia
+    controller: App\Controller\NoticiasController::verNoticia
 
 nuevaNoticia:
   path: /administrador/noticia/nueva
-  controller: App\Controller\Controller::nuevaNoticia
+  controller: App\Controller\NoticiasController::nuevaNoticia
 
 borrarNoticia:
   path: /administrador/noticia/borrar/{id}
-  controller: App\Controller\Controller::borrarNoticia
+  controller: App\Controller\NoticiasController::borrarNoticia
 
-editarNoticia:
-  path: /noticia/editar/{id}
-  controller: App\Controller\Controller::editarNoticia
+noticias:
+    path: /noticias
+    controller: App\Controller\NoticiasController::noticias
 
-inicioAreaPrivada:
-  path: /area_privada
-  controller: App\Controller\Controller::inicioAreaPrivada 
+noticiasSocios:
+    path: socios/noticias
+    controller: App\Controller\ConNoticiasControllertroller::noticiasSocios
 
 #Contacto
 
@@ -155,6 +154,10 @@ seisMesesCuota:
     path: /administrador/editarCuota/seisMesesCuotas/{id}
     controller: App\Controller\CuotasController::seisMesesCuota
 
+borrarCuota:
+    path: /administrador/editarCuota/borrarCuota/{id}
+    controller: App\Controller\CuotasController::borrarCuota
+
 # Socios
 
 sociosAdmin:
@@ -170,7 +173,7 @@ editarSocioAdmin:
     controller: App\Controller\SociosController::editarSocioAdmin
 
 editarSocio:
-    path: /socio/editarSocio{id}
+    path: /socio/editarSocio/{id}
     controller: App\Controller\SociosController::editarSocio
 
 menuAreaPrivada:
@@ -180,3 +183,7 @@ menuAreaPrivada:
 borrarSocio:
   path: /administrador/borrarSocio/{id}
   controller: App\Controller\SociosController::borrarSocio
+
+inicioAreaPrivada:
+  path: /area_privada
+  controller: App\Controller\Controller::inicioAreaPrivada 

@@ -5,6 +5,7 @@ namespace App\Form;
 use App\Entity\Usuario;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
+use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -17,7 +18,8 @@ class RegistrationFormType extends AbstractType
     {
         $builder
             ->add('username')
-            ->add('password', PasswordType::class, [
+            ->add('password', RepeatedType::class, [
+                'type' => PasswordType::class,
                 'mapped' => false,
                 'constraints' => [
                     new NotBlank([
@@ -29,9 +31,13 @@ class RegistrationFormType extends AbstractType
                         'max' => 4096,
                     ]),
                 ],
+                'first_options' => ['label' => 'Contraseña'],
+                'second_options' => ['label' => 'Repita Contraseña'],
+                'invalid_message' => 'Las contraseñas no coinciden.',
             ])
             ->add('dni', TextType::class, ['mapped' => false])
-        ;
+            ->add('codigoRegistro', TextType::class, ['mapped' => false]);
+
     }
 
     public function configureOptions(OptionsResolver $resolver)

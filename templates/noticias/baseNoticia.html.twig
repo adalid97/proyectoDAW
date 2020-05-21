@@ -19,8 +19,12 @@
 				{{ noticia.fecha|date("d/m/Y") }}</p><br>
 			<a class="btn btn-dark-green btn-md mx-0 btn-rounded text-white" href="{{ path('verNoticia', {'id': noticia.id}) }}">Leer más...</a>
 			{% if is_granted('ROLE_ADMIN') %}
-				<a class="btn btn-dark-green btn-md mx-0 btn-rounded text-white" href="{{ path('editarNoticia', {'id': noticia.id}) }}">Editar Noticia</a>
-				<a class="btn btn-dark-green btn-md mx-0 btn-rounded text-white" href="{{ path('borrarNoticia', {'id': noticia.id}) }}">Borrar Noticia</a>
+				<a class="btn btn-dark-green btn-md mx-0 btn-rounded text-white" href="{{ path('editarNoticia', {'id': noticia.id}) }}">
+					<i class="far fa-edit"></i>
+					Editar Noticia</a>
+				<a class="btn btn-dark-green btn-md mx-0 btn-rounded text-white" href="{{ path('borrarNoticia', {'id': noticia.id}) }}" onclick="return confirm('¿Estás seguro de que deseas borrar esta noticia?')">
+					<i class="far fa-trash-alt"></i>
+					Borrar Noticia</a>
 			{% endif %}
 		</div>
 	</div>

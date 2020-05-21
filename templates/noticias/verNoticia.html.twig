@@ -34,7 +34,7 @@
 
 		{% if is_granted('ROLE_ADMIN') %}
 			<a class="btn btn-dark-green btn-md mx-0 btn-rounded text-white mx-auto d-block" href="{{ path('editarNoticia', {'id': noticia.id}) }}">Editar Noticia</a>
-			<a class="btn btn-dark-green btn-md mx-0 btn-rounded text-white mx-auto d-block" href="{{ path('borrarNoticia', {'id': noticia.id}) }}">Borrar Noticia</a>
+			<a class="btn btn-dark-green btn-md mx-0 btn-rounded text-white mx-auto d-block" href="{{ path('borrarNoticia', {'id': noticia.id}) }}" onclick="return confirm('¿Estás seguro de que deseas borrar esta noticia?')">Borrar Noticia</a>
 		{% endif %}
 		<br>
 	</div>
