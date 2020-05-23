@@ -55,3 +55,16 @@
     width: 100%;
     
 }
+
+.logo {
+    transition: 0.2s linear;
+}
+
+.logo:hover {
+    filter: brightness(80%);
+}
+
+.img_carrusel {
+    width: 100%;
+    object-fit: cover;
+}

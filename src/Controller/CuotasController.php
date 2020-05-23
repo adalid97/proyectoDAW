@@ -22,9 +22,12 @@ class CuotasController extends AbstractController
             array('ano' => 'ASC'),
         );
 
+        $socio = $entityManager->getRepository(Socio::class)->find($idSocio);
+
         return $this->render('cuotas/verCuota.html.twig', array(
             'cuotas' => $cuota,
             'socio' => $idSocio,
+            'socios' => $socio,
         ));
     }
 
@@ -73,11 +76,13 @@ class CuotasController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
 
+            $cuotaSocio = $form->getData();
+
             $socios = $entityManager->getRepository(Socio::class)->findAll();
 
             foreach ($socios as $socio) {
                 $cuotaSocio = new Cuota();
-                $cuotaSocio = $form->getData();
+                $cuotaSocio->setAno($cuota->getAno());
                 $cuotaSocio->setIdSocio($socio);
                 $entityManager->persist($cuotaSocio);
             }

@@ -17,12 +17,14 @@
 			{% if is_granted('ROLE_USER') == false %}
 				{% if documento.privado == 0 %}
 					<tr>
-						<td>{{ documento.nombre }}</td>
-						<td>{{ documento.descripcion }}</td>
-						<td>{{ documento.fecha | date("d/m/Y") }}</td>
+						<td class="align-middle">{{ documento.nombre }}</td>
+						<td class="align-middle">{{ documento.descripcion }}</td>
+						<td class="align-middle">{{ documento.fecha | date("d/m/Y") }}</td>
 						<td>
 							<p>
-								<a download href='{{ asset('../../documentos/' ~ documento.fichero) }}'>Descargar</a>
+								<a class="btn btn-dark-green btn-md mx-0 btn-rounded text-white mx-auto d-block" download href='{{ asset('../../documentos/' ~ documento.fichero) }}'>
+									<i class="fas fa-file-download"></i>
+									Descargar</a>
 							</p>
 						</td>
 					</tr>

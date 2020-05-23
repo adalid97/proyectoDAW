@@ -6,50 +6,38 @@
 {% endblock %}
 
 {% block body %}
-	<div class="row justify-content-center mb-5 mt-5">
-		<div class="col-4">
-			<form method="post" class="text-center border border-success p-5">
-				{% if error %}
-					<div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-				{% endif %}
+	<div class="container-fluid">
+		<div class="row justify-content-center mb-5 mt-5">
+			<div class="col-lg-4 col-sm-6">
+				<form method="post" class="text-center border border-success p-5">
+					{% if error %}
+						<div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+					{% endif %}
 
-				{% if app.user %}
-					<div class="mb-3">
-						You are logged in as
-						{{ app.user.username }},
-						<a href="{{ path('app_logout') }}">Logout</a>
-					</div>
-				{% endif %}
+					{% if app.user %}
+						<div class="mb-3">
+							Has inciado sesión como
+							{{ app.user.username }},
+							<a href="{{ path('app_logout') }}">Cerrar Sesión</a>
+						</div>
+					{% endif %}
+					<h1 class="h4 mb-4">ZONA EXCLUSIVA SOCI@S PEÑA</h1>
+					<input type="text" value="{{ last_username }}" name="username" id="inputUsername" class="form-control mb-4" placeholder="Usuario" required autofocus>
+					<input type="password" name="password" id="inputPassword" class="form-control mb-4" placeholder="Contraseña" required>
 
-				<h1 class="h4 mb-4">ZONA EXCLUSIVA SOCI@S PEÑA</h1>
-				<input type="text" value="{{ last_username }}" name="username" id="inputUsername" class="form-control mb-4" placeholder="Usuario" required autofocus>
-				<input type="password" name="password" id="inputPassword" class="form-control mb-4" placeholder="Contraseña" required>
+					<input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
 
-				<input
-				type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+					<button class="btn btn-dark-green btn-block my-4 text-white" type="submit">
+						<strong>Iniciar Sesión</strong>
+					</button>
+					<p>
+						<a href="{{ path('registroSocio') }}" class="text-success">¿Eres soci@ y no tienes acceso?<strong>
+								Regístrate</strong>
+						</a>
+					</p>
+				</form>
+			</div>
 
-				{#
-												        Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
-												        See https://symfony.com/doc/current/security/remember_me.html
-												
-												        <div class="checkbox mb-3">
-												            <label>
-												                <input type="checkbox" name="_remember_me"> Remember me
-												            </label>
-												        </div>
-												    #}
-
-				<button class="btn btn-dark-green btn-block my-4 text-white" type="submit">
-					<strong>Iniciar Sesión</strong>
-				</button>
-				<!-- Register -->
-				<p>
-					<a href="{{ path('registroSocio') }}" class="text-success">¿Eres soci@ y no tienes acceso?<strong>
-							Regístrate</strong>
-					</a>
-				</p>
-			</form>
 		</div>
-
 	</div>
 {% endblock %}

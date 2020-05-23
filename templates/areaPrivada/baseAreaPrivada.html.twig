@@ -43,13 +43,13 @@
 						<!-- Navbar brand -->
 						<div>
 							<a class="navbar-brand" href="{{ path('inicioAdmin') }}">
-								<img src="../../images/logo.png" alt="logo" class="img-fluid" width="100px">
+								<img src="../../images/logo.png" alt="logo" class="img-fluid logo" width="100px">
 							</a>
 						</div>
 						{#  <div class="align-self-center text-white">
-																																																																																																																																																																																								            <br>
-																																																																																																																																																																																								            <p><strong>Peña Bética Fontaniega<br>'Juan José Cañas'</strong></p>
-																																																																																																																																																																																								        </div> #}
+																																																																																																																																																																																																																																		            <br>
+																																																																																																																																																																																																																																		            <p><strong>Peña Bética Fontaniega<br>'Juan José Cañas'</strong></p>
+																																																																																																																																																																																																																																		        </div> #}
 						<!-- Collapsible content -->
 						<div class="collapse navbar-collapse ml-4" id="basicExampleNav">
 							{% block sidebar %}
@@ -68,7 +68,7 @@
 									</a>
 								</li>
 								<li class="nav-item">
-									<a class="nav-link">
+									<a class="nav-link" href="https://twitter.com/pbfontaniega">
 										<i class="fab fa-twitter"></i>
 									</a>
 								</li>
@@ -78,9 +78,7 @@
 									</a>
 								</li>
 							</ul>
-
 						</div>
-						<!-- Collapsible content -->
 					</nav>
 				</header>
 			{% endblock %}
@@ -88,33 +86,17 @@
 			<div class="container-fluid"> {% block body %}{% endblock %}
 
 				</div>
-
-				<!-- Footer -->
-				<footer
-					class="page-footer font-small green lighten-3 navbar-fixed-bottom footer">
-
-					<!-- Footer Elements -->
-					<div
-						class="container">
-
-						<!-- Grid row-->
-						<div
-							class="row">
-
-							<!-- Grid column -->
+				<footer class="page-footer font-small green lighten-3 navbar-fixed-bottom footer">
+					<div class="container">
+						<div class="row">
 							<div class="col-md-12 py-5">
-								<div
-									class="mb-5 flex-center">
-
-									<!-- Facebook -->
+								<div class="mb-5 flex-center">
 									<a class="fb-ic" href="https://www.facebook.com/penafontaniega.juanjosecanas.7">
 										<i class="fab fa-facebook-f fa-lg white-text mr-md-5 mr-3 fa-2x"></i>
 									</a>
-									<!-- Twitter -->
-									<a class="tw-ic">
+									<a class="tw-ic" href="https://twitter.com/pbfontaniega">
 										<i class="fab fa-twitter fa-lg white-text mr-md-5 mr-3 fa-2x"></i>
 									</a>
-									<!--Instagram-->
 									<a class="ins-ic" href="https://www.instagram.com/pbeticafontaniega/">
 										<i class="fab fa-instagram fa-lg white-text mr-md-5 mr-3 fa-2x"></i>
 									</a>
@@ -128,7 +110,6 @@
 						<strong>Peña Bética Fontaniega 'Juan José Cañas'</strong>
 					</div>
 				</footer>
-
 
 				{% block javascripts %}
 					<script src="{{ asset('vendors/jquery-3.4.1.min.js') }}" type="text/javascript"></script>
