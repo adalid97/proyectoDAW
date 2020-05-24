@@ -27,7 +27,7 @@ class Notificacion
     private $email;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=9)
      */
     private $telefono;
 
