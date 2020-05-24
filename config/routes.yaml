@@ -187,3 +187,32 @@ borrarSocio:
 inicioAreaPrivada:
   path: /area_privada
   controller: App\Controller\Controller::inicioAreaPrivada 
+
+# Entradas
+entradasAdmin:
+  path: /administrador/entradas
+  controller: App\Controller\EntradasController::entradasAdmin
+
+entradasSocios:
+  path: /socio/entradas
+  controller: App\Controller\EntradasController::entradasSocios
+
+nuevaEntrada:
+  path: /administrador/nuevaEntrada
+  controller: App\Controller\EntradasController::nuevaEntrada
+
+nuevaSolicitudEntrada:
+  path: /socio/nuevaSolicitudEntrada/{idSocio}/{idEntrada}
+  controller: App\Controller\EntradasController::nuevaSolicitudEntrada
+
+verEntrada:
+  path: /socio/verEntrada/{id}
+  controller: App\Controller\EntradasController::verEntrada
+
+solicitudesEntradas:
+  path: /administrador/solicitudes/{id}/{idEntrada}
+  controller: App\Controller\EntradasController::solicitudesEntradas
+
+editarEntrada:
+  path: /administrador/editarEntrada/{id}
+  controller: App\Controller\EntradasController::editarEntrada

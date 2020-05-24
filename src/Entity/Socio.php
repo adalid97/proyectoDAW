@@ -63,9 +63,21 @@ class Socio
      */
     private $cuotas;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Entrada::class, mappedBy="Socio")
+     */
+    private $entradas;
+
+    /**
+     * @ORM\OneToMany(targetEntity=SolicitudEntrada::class, mappedBy="socio", orphanRemoval=true)
+     */
+    private $solicitudEntradas;
+
     public function __construct()
     {
         $this->cuotas = new ArrayCollection();
+        $this->entradas = new ArrayCollection();
+        $this->solicitudEntradas = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -199,6 +211,68 @@ class Socio
             // set the owning side to null (unless already changed)
             if ($cuota->getIdSocio() === $this) {
                 $cuota->setIdSocio(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Entrada[]
+     */
+    public function getEntradas(): Collection
+    {
+        return $this->entradas;
+    }
+
+    public function addEntrada(Entrada $entrada): self
+    {
+        if (!$this->entradas->contains($entrada)) {
+            $this->entradas[] = $entrada;
+            $entrada->setSocio($this);
+        }
+
+        return $this;
+    }
+
+    public function removeEntrada(Entrada $entrada): self
+    {
+        if ($this->entradas->contains($entrada)) {
+            $this->entradas->removeElement($entrada);
+            // set the owning side to null (unless already changed)
+            if ($entrada->getSocio() === $this) {
+                $entrada->setSocio(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|SolicitudEntrada[]
+     */
+    public function getSolicitudEntradas(): Collection
+    {
+        return $this->solicitudEntradas;
+    }
+
+    public function addSolicitudEntrada(SolicitudEntrada $solicitudEntrada): self
+    {
+        if (!$this->solicitudEntradas->contains($solicitudEntrada)) {
+            $this->solicitudEntradas[] = $solicitudEntrada;
+            $solicitudEntrada->setSocio($this);
+        }
+
+        return $this;
+    }
+
+    public function removeSolicitudEntrada(SolicitudEntrada $solicitudEntrada): self
+    {
+        if ($this->solicitudEntradas->contains($solicitudEntrada)) {
+            $this->solicitudEntradas->removeElement($solicitudEntrada);
+            // set the owning side to null (unless already changed)
+            if ($solicitudEntrada->getSocio() === $this) {
+                $solicitudEntrada->setSocio(null);
             }
         }
 

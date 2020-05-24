@@ -1,6 +1,7 @@
 <?php
 namespace App\Controller;
 
+use App\Entity\Entrada;
 use App\Entity\Equipo;
 use App\Entity\Partido;
 use App\Form\EquipoType;
@@ -105,6 +106,11 @@ class PartidosController extends AbstractController
             throw $this->createNotFoundException(
                 'No existe ningún partido con id ' . $id
             );
+        }
+
+        $entradas = $entityManager->getRepository(Entrada::class)->findByPartido($id);
+        foreach ($entradas as &$entrada) {
+            $entityManager->remove($entrada);
         }
         $entityManager->remove($partido);
         $entityManager->flush();

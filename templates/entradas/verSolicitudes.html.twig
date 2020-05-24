@@ -1,0 +1,36 @@
+{% extends 'areaPrivada/baseAreaPrivada.html.twig' %}
+{% block title %}Entradas
+{% endblock %}
+{% block sidebar %}
+	{{ render(path('menuAreaPrivada', {'seccionActual': "entradas"})) }}
+{% endblock %}
+{% block body %}
+	<div class="container my-5">
+		<h2>{{entrada.partido}}</h2>
+		<h4>Precio
+			{{entrada.precio}}€</h4>
+		<table class="table table-hover border-dark mt-3">
+			<thead class="success-color-dark white-text">
+				<tr>
+					<th scope="col">Nombre Socio</th>
+					<th scope="col">Teléfono Socio</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for solicitud in solicitudes %}
+					<td>
+						<p>{{solicitud.socio.nombre}}</p>
+					</td>
+					<td>
+						<p>{{solicitud.socio.telefono}}</p>
+					</td>
+				</tbody>
+			{% else %}
+				<p>No hay ninguna solicitud</p>
+			{% endfor %}
+		</table>
+
+		<a class="btn btn-dark-green btn-md mx-0 btn-rounded text-white mr-2 mx-auto justify-content-center" href="{{ path('editarEntrada', {'id' : idEntrada}) }}">Editar Entrada</a>
+
+	</div>
+{% endblock %}

@@ -1,0 +1,45 @@
+{% extends 'areaPrivada/baseAreaPrivada.html.twig' %}
+{% block title %}Entradas
+{% endblock %}
+{% block sidebar %}
+	{{ render(path('menuAreaPrivada', {'seccionActual': "entradas"})) }}
+{% endblock %}
+{% block body %}
+	<div class="mt-3">
+		{% for message in app.flashes('error') %}
+			<div class="alert alert-danger">
+				{{ message }}
+			</div>
+		{% endfor %}
+		{% for message in app.flashes('success') %}
+			<div class="alert alert-success">
+				{{ message }}
+			</div>
+		{% endfor %}
+	</div>
+	{% if is_granted('ROLE_ADMIN') %}
+		<a class="btn btn-dark-green btn-md mx-0 btn-rounded text-white mx-auto d-block mb-4" href="{{ path('nuevaEntrada') }}">
+			<i class="far fa-plus-square"></i>
+			Nuevo Partido</a>
+	{% endif %}
+	<div class="text-center">
+		{% for entrada in entradas %}
+			{% if is_granted('ROLE_ADMIN') == false %}
+				{% if entrada.publico == true %}
+					<h4>
+						<a href="{{ path('verEntrada', {'id': entrada.id}) }}">Entradas
+							{{entrada.partido}}</a>
+					</h4><br>
+				{% endif %}
+			{% endif %}
+			{% if is_granted('ROLE_ADMIN') %}
+				<h4>
+					<a href="{{ path('solicitudesEntradas', {'id': entrada.id, 'idEntrada': entrada.id}) }}">Entradas
+						{{entrada.partido}}</a>
+				</h4><br>
+			{% endif %}
+		{% else %}
+			<li>No hay entradas</li>
+		{% endfor %}
+	</div>
+{% endblock %}

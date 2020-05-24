@@ -1,0 +1,59 @@
+{% extends 'areaPrivada/baseAreaPrivada.html.twig' %}
+{% block title %}Entradas
+{% endblock %}
+{% block sidebar %}
+	{{ render(path('menuAreaPrivada', {'seccionActual': "entradas"})) }}
+{% endblock %}
+{% block body %}
+	<div class="mt-3">
+		{% for message in app.flashes('error') %}
+			<div class="alert alert-danger">
+				{{ message }}
+			</div>
+		{% endfor %}
+		{% for message in app.flashes('success') %}
+			<div class="alert alert-success">
+				{{ message }}
+			</div>
+		{% endfor %}
+	</div>
+	<div class="container my-5">
+
+		
+
+		<div class="row">
+			<div class="col-md-8 col-lg-6 mx-auto">
+
+				<section>
+
+					<div class="card testimonial-card">
+
+						<div class="card-up success-color-dark p-3 white-text">
+							<h2 class="font-weight-normal mb-0 text-center">Entrada
+							</br>
+							{{entrada.partido}}</h2>
+						<h6 class="white-text text-center">Estadio
+							{{entrada.partido.estadio}}
+							~
+							{{entrada.partido.fecha|date("d/m/Y")}}
+							|
+							{{entrada.partido.hora|date('H:i')}}
+							horas</h6>
+						<h4 class="font-weight-normal mb-0 text-center text-dark">Precio entrada:
+							{{entrada.precio}}
+							€</h4>
+
+					</p>
+					<p class="small mb-0"></p>
+				</div>
+				<div class="avatar mx-auto white mb-3 mt-3">
+					<img src='{{ asset('../../equipos/' ~ entrada.partido.idEquipoLocal.escudo) }}' alt="Logo Avatar" width="150px" height="150px">
+					<img src='{{ asset('../../equipos/' ~ entrada.partido.idEquipoVisitante.escudo) }}' alt="Logo Avatar" width"150px" height="150px">
+				</div>
+				<a class="btn btn-dark-green btn-md mx-0 btn-rounded text-white mx-auto d-block" href="{{ path('nuevaSolicitudEntrada', {'idEntrada': entrada.id, 'idSocio': app.user.socio.id}) }}">
+					<i class="far fa-plus-square"></i>
+					Solicitar Entrada</a>
+			</div>
+		</div>
+	</div>
+</div></div>{% endblock %}
