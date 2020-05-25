@@ -48,8 +48,8 @@ noticias:
     controller: App\Controller\NoticiasController::noticias
 
 noticiasSocios:
-    path: socios/noticias
-    controller: App\Controller\ConNoticiasControllertroller::noticiasSocios
+    path: /socios/noticias
+    controller: App\Controller\NoticiasController::noticiasSocios
 
 #Contacto
 
@@ -187,6 +187,10 @@ borrarSocio:
 inicioAreaPrivada:
   path: /area_privada
   controller: App\Controller\Controller::inicioAreaPrivada 
+
+carnetSocio:
+  path: /socio/carnet/{id}
+  controller: App\Controller\Controller::carnetSocio 
 
 # Entradas
 entradasAdmin:

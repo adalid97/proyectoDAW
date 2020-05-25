@@ -161,18 +161,7 @@ class CuotasController extends AbstractController
         $entityManager = $this->getDoctrine()->getManager();
         $cuota = $entityManager->getRepository(Cuota::class)->find($id);
 
-        $cuota->setEnero(true);
-        $cuota->setFebrero(true);
-        $cuota->setMarzo(true);
-        $cuota->setAbril(true);
-        $cuota->setMayo(true);
-        $cuota->setJunio(true);
-        $cuota->setJulio(true);
-        $cuota->setAgosto(true);
-        $cuota->setSeptiembre(true);
-        $cuota->setOctubre(true);
-        $cuota->setNoviembre(true);
-        $cuota->setDiciembre(true);
+        $cuota->pagarEntera();
         $entityManager->persist($cuota);
         $entityManager->flush();
         $this->addFlash('success', 'Se ha agregado 12 meses de cuota.');
@@ -189,19 +178,9 @@ class CuotasController extends AbstractController
         $cuota = $entityManager->getRepository(Cuota::class)->find($id);
 
         if ($cuota->getEnero() == false) {
-            $cuota->setEnero(true);
-            $cuota->setFebrero(true);
-            $cuota->setMarzo(true);
-            $cuota->setAbril(true);
-            $cuota->setMayo(true);
-            $cuota->setJunio(true);
+            $cuota->pagarPrimerSemestre();
         } else if ($cuota->getJulio() == false) {
-            $cuota->setJulio(true);
-            $cuota->setAgosto(true);
-            $cuota->setSeptiembre(true);
-            $cuota->setOctubre(true);
-            $cuota->setNoviembre(true);
-            $cuota->setDiciembre(true);
+            $cuota->pagarSegundoSemestre();
         }
 
         $entityManager->persist($cuota);

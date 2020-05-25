@@ -46,9 +46,9 @@ class EntradasController extends AbstractController
         $entrada = new Entrada();
 
         $form = $this->createFormBuilder($entrada)
-            ->add('Partido')
-            ->add('Precio')
-            ->add('Publico')
+            ->add('partido')
+            ->add('precio')
+            ->add('publico')
             ->add('save', SubmitType::class,
                 array('label' => 'Añadir Entrada'))
             ->getForm();
@@ -79,7 +79,7 @@ class EntradasController extends AbstractController
         $repetido = false;
         for ($i = 0; $i < count($solicitudes); ++$i) {
             if ($solicitudes[$i]->getSocio() == $socio && $solicitudes[$i]->getEntrada() == $entrada) {
-                $this->addFlash('error', 'Ya estabas inscrito para este partido. Si tienes alguna duda, póngase en contacto con la Directiva de la Peña.');
+                $this->addFlash('error', 'Ya estabas inscrito para este partido. Si tienes alguna duda, ponte en contacto con la Directiva de la Peña.');
                 $repetido = true;
                 $i = count($solicitudes);
             }
@@ -89,7 +89,7 @@ class EntradasController extends AbstractController
             $solicitudEntrada->setEntrada($entrada);
             $entityManager->persist($solicitudEntrada);
             $entityManager->flush();
-            $this->addFlash('success', 'Te has inscrito correctamente a este partido. En los próximos días nos pondremos en contacto con usted.');
+            $this->addFlash('success', 'Te has inscrito correctamente a este partido. Comprueba que tu teléfono es el correcto, en los próximos días nos pondremos en contacto contigo.');
         }
 
         return $this->redirectToRoute('entradasSocios');
@@ -110,9 +110,9 @@ class EntradasController extends AbstractController
         $entrada = $entityManager->getRepository(Entrada::class)->find($id);
 
         $form = $this->createFormBuilder($entrada)
-            ->add('Partido')
-            ->add('Precio')
-            ->add('Publico')
+            ->add('partido')
+            ->add('precio')
+            ->add('publico')
             ->add('save', SubmitType::class,
                 array('label' => 'Editar Entrada'))
             ->getForm();

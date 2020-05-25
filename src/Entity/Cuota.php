@@ -258,4 +258,46 @@ class Cuota
 
         return $this;
     }
+
+    public function pagarEntera(): self
+    {
+        $this->setEnero(true);
+        $this->setFebrero(true);
+        $this->setMarzo(true);
+        $this->setAbril(true);
+        $this->setMayo(true);
+        $this->setJunio(true);
+        $this->setJulio(true);
+        $this->setAgosto(true);
+        $this->setSeptiembre(true);
+        $this->setOctubre(true);
+        $this->setNoviembre(true);
+        $this->setDiciembre(true);
+
+        return $this;
+    }
+
+    public function pagarPrimerSemestre(): self
+    {
+        $this->setEnero(true);
+        $this->setFebrero(true);
+        $this->setMarzo(true);
+        $this->setAbril(true);
+        $this->setMayo(true);
+        $this->setJunio(true);
+
+        return $this;
+    }
+
+    public function pagarSegundoSemestre(): self
+    {
+        $this->setJulio(true);
+        $this->setAgosto(true);
+        $this->setSeptiembre(true);
+        $this->setOctubre(true);
+        $this->setNoviembre(true);
+        $this->setDiciembre(true);
+
+        return $this;
+    }
 }

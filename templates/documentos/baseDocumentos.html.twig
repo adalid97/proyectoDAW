@@ -1,5 +1,7 @@
 {% if is_granted('ROLE_ADMIN') %}
-	<a class="btn btn-dark-green btn-md mx-0 btn-rounded text-white mx-auto d-block" href="{{ path('nuevoDocumento') }}">Nuevo Documento</a>
+	<a class="btn btn-dark-green btn-md mx-0 btn-rounded text-white mx-auto d-block" href="{{ path('nuevoDocumento') }}">
+		<i class="far fa-plus-square"></i>
+		Nuevo Documento</a>
 	<br>
 {% endif %}
 <table class="table mt-3">
@@ -40,7 +42,7 @@
 								<i class="fas fa-file-download"></i>
 								Descargar</a><br>
 							{% if is_granted('ROLE_ADMIN') %}
-								<a class="btn btn-dark-green btn-md mx-0 btn-rounded text-white mx-auto d-block" href="{{ path('borrarDocumento', {'id': documento.id}) }}">
+								<a class="btn btn-dark-green btn-md mx-0 btn-rounded text-white mx-auto d-block" href="{{ path('borrarDocumento', {'id': documento.id}) }}" onclick="return confirm('¿Estás seguro de que deseas borrar este documento?')">
 									<i class="far fa-trash-alt"></i>
 									Borrar Documento</a>
 							{% endif %}

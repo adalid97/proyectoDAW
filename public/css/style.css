@@ -68,3 +68,17 @@
     width: 100%;
     object-fit: cover;
 }
+
+.carnet { 
+    width: 800px;
+    height: 600px;
+ }
+
+ .numSocio {
+    margin-top: 305px;
+    margin-right: 35px;
+ }
+
+ .nombreSocio{
+    margin-top: 35px;
+ }

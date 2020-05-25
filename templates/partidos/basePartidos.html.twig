@@ -1,15 +1,12 @@
-<br>
-<div
-	class="mx-auto">
-	<!--Card image-->
+</br>
+<div class="mx-auto">
 	<div class="view" style="background-image: url('../../images/fondo.png');">
 		<div class="row">
-			<div class="col-6 col-6 mt-3"><img class="rounded mx-auto d-block" src='{{ asset('../../equipos/' ~ partidos.idEquipoLocal.escudo) }}' width"300px" height="300px"></div>
-			<div class="col-6 col-6 mt-3"><img class="rounded mx-auto d-block" src='{{ asset('../../equipos/' ~ partidos.idEquipoVisitante.escudo) }}' width"300px" height="300px"></div>
+			<div class="col-6 col-6 mt-3"><img class="rounded mx-auto d-block" src='{{ asset('../../equipos/' ~ partidos.idEquipoLocal.escudo) }}' width"300px" height="300px" alt="imagen"></div>
+			<div class="col-6 col-6 mt-3"><img class="rounded mx-auto d-block" src='{{ asset('../../equipos/' ~ partidos.idEquipoVisitante.escudo) }}' width"300px" height="300px" alt="imagen"></div>
 		</div>
 
-		<div
-			class="card-body text-center">
+		<div class="card-body text-center">
 			<h4 class="card-title white-text">{{partidos.idEquipoLocal.nombre}}
 				-
 				{{partidos.idEquipoVisitante.nombre}}</h4>
@@ -26,6 +23,8 @@
 		</div>
 	</div>
 	{% if is_granted('ROLE_ADMIN') %}
-		<a class="btn btn-dark-green btn-md mx-0 btn-rounded text-white mx-auto d-block" href="{{ path('borrarPartido', {'id': partidos.id}) }}">Borrar Partido</a><br>
+		<a class="btn btn-dark-green btn-md mx-0 btn-rounded text-white mx-auto d-block" href="{{ path('borrarPartido', {'id': partidos.id}) }}" onclick="return confirm('¿Estás seguro de que deseas borrar este partido?')">
+			<i class="far fa-trash-alt"></i>
+			Borrar Partido</a><br>
 	{% endif %}
 </div>

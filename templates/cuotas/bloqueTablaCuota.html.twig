@@ -1,0 +1,85 @@
+<table class="table table-bordered">
+
+	<thead>
+		<h2 class="text-center font-weight-bold mb-4 pb-2">Año
+			{{cuota.ano}}</h2>
+		<tr>
+			<th scope="col">Enero</th>
+			<th scope="col">Febrero</th>
+			<th scope="col">Marzo</th>
+			<th scope="col">Abril</th>
+			<th scope="col">Mayo</th>
+			<th scope="col">Junio</th>
+			<th scope="col">Julio</th>
+			<th scope="col">Agosto</th>
+			<th scope="col">Septiembre</th>
+			<th scope="col">Octubre</th>
+			<th scope="col">Noviembre</th>
+			<th scope="col">Diciembre</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			{% if cuota.enero == true %}
+				<td class="bg-success"></td>
+			{% else %}
+				<td class="bg-danger"></td>
+			{% endif %}
+			{% if cuota.febrero == true %}
+				<td class="bg-success"></td>
+			{% else %}
+				<td class="bg-danger"></td>
+			{% endif %}
+			{% if cuota.marzo == true %}
+				<td class="bg-success"></td>
+			{% else %}
+				<td class="bg-danger"></td>
+			{% endif %}
+			{% if cuota.abril == true %}
+				<td class="bg-success"></td>
+			{% else %}
+				<td class="bg-danger"></td>
+			{% endif %}
+			{% if cuota.mayo == true %}
+				<td class="bg-success"></td>
+			{% else %}
+				<td class="bg-danger"></td>
+			{% endif %}
+			{% if cuota.junio == true %}
+				<td class="bg-success"></td>
+			{% else %}
+				<td class="bg-danger"></td>
+			{% endif %}
+			{% if cuota.julio == true %}
+				<td class="bg-success"></td>
+			{% else %}
+				<td class="bg-danger"></td>
+			{% endif %}
+			{% if cuota.agosto == true %}
+				<td class="bg-success"></td>
+			{% else %}
+				<td class="bg-danger"></td>
+			{% endif %}
+			{% if cuota.septiembre == true %}
+				<td class="bg-success"></td>
+			{% else %}
+				<td class="bg-danger"></td>
+			{% endif %}
+			{% if cuota.octubre == true %}
+				<td class="bg-success"></td>
+			{% else %}
+				<td class="bg-danger"></td>
+			{% endif %}
+			{% if cuota.noviembre == true %}
+				<td class="bg-success"></td>
+			{% else %}
+				<td class="bg-danger"></td>
+			{% endif %}
+			{% if cuota.diciembre == true %}
+				<td class="bg-success"></td>
+			{% else %}
+				<td class="bg-danger"></td>
+			{% endif %}
+		</tr>
+	</tbody>
+</table>

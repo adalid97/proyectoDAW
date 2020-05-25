@@ -49,6 +49,9 @@
 		<li {% if seccionActual == "entradas" %} class="nav-item active" {% else %} class="nav-item" {% endif %}>
 			<a class="nav-link" href="{{ path('entradasSocios') }}">Solicitud Entradas</a>
 		</li>
+		<li {% if seccionActual == "carnet" %} class="nav-item active" {% else %} class="nav-item" {% endif %}>
+			<a class="nav-link" href="{{ path('carnetSocio', {'id' : app.user.socio.id}) }}">Carné</a>
+		</li>
 		<li {% if seccionActual == "contacto" %} class="nav-item active" {% else %} class="nav-item" {% endif %}>
 			<a class="nav-link" href="{{ path('contactoSocios') }}">Contacto</a>
 		</li>

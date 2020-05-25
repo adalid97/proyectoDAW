@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Noticia;
 use App\Entity\Notificacion;
 use App\Entity\Partido;
+use App\Entity\Socio;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class Controller extends AbstractController
@@ -85,6 +86,15 @@ class Controller extends AbstractController
         return $this->render('areaPrivada/navAreaPrivada.html.twig', array(
             'seccionActual' => $seccionActual,
             'notificaciones' => $notificaciones,
+        ));
+    }
+
+    public function carnetSocio($id)
+    {
+        $entityManager = $this->getDoctrine()->getManager();
+        $socio = $entityManager->getRepository(Socio::class)->findOneById($id);
+        return $this->render('socios/carnet.html.twig', array(
+            'socio' => $socio,
         ));
     }
 

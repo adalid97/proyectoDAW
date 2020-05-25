@@ -25,7 +25,7 @@
 			<p>{{noticia.cuerpo}}</p>
 
 			<figure class="figure">
-				<img src='{{ asset('../../images/noticias/' ~ noticia.imagen) }}' class="figure-img img-fluid z-depth-1" alt="" . {{noticia.titular}} ."">
+				<img src='{{ asset('../../images/noticias/' ~ noticia.imagen) }}' class="figure-img img-fluid z-depth-1" alt="imagen" . {{noticia.titular}} ."">
 				<figcaption class="figure-caption">{{noticia.titular}}</figcaption>
 			</figure>
 
@@ -33,7 +33,9 @@
 		<!--Section: Content-->
 
 		{% if is_granted('ROLE_ADMIN') %}
-			<a class="btn btn-dark-green btn-md mx-0 btn-rounded text-white mx-auto d-block" href="{{ path('editarNoticia', {'id': noticia.id}) }}">Editar Noticia</a>
+			<a class="btn btn-dark-green btn-md mx-0 btn-rounded text-white mx-auto d-block" href="{{ path('editarNoticia', {'id': noticia.id}) }}">
+				<i class="far fa-edit"></i>
+				Editar Noticia</a>
 			<a class="btn btn-dark-green btn-md mx-0 btn-rounded text-white mx-auto d-block" href="{{ path('borrarNoticia', {'id': noticia.id}) }}" onclick="return confirm('¿Estás seguro de que deseas borrar esta noticia?')">Borrar Noticia</a>
 		{% endif %}
 		<br>

@@ -14,8 +14,12 @@
 		{% endfor %}
 	</div>
 	{% if is_granted('ROLE_ADMIN') %}
-		<a class="btn btn-dark-green btn-md mx-0 btn-rounded text-white mx-auto d-block" href="{{ path('listaEquipos') }}">Equipos</a><br>
-		<a class="btn btn-dark-green btn-md mx-0 btn-rounded text-white mx-auto d-block" href="{{ path('nuevoPartido') }}">Nuevo Partido</a><br>
+		<a class="btn btn-dark-green btn-md mx-0 btn-rounded text-white mx-auto d-block" href="{{ path('listaEquipos') }}">
+			<i class="far fa-futbol"></i>
+			Equipos</a><br>
+		<a class="btn btn-dark-green btn-md mx-0 btn-rounded text-white mx-auto d-block" href="{{ path('nuevoPartido') }}">
+			<i class="far fa-plus-square"></i>
+			Nuevo Partido</a><br>
 	{% endif %}
 	<div class="col-md-8 col-lg-6 mx-auto">
 		{% for partidos in partidos %}

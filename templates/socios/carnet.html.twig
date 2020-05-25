@@ -1,0 +1,28 @@
+{% extends 'areaPrivada/baseAreaPrivada.html.twig' %}
+{% block title %}Socio
+{% endblock %}
+{% block sidebar %}
+	{{ render(path('menuAreaPrivada', {'seccionActual': "carnet"})) }}
+{% endblock %}
+
+{% block body %}
+
+	<div class="row justify-content-center mb-5 mt-5 ">
+
+		<div class="view carnet" style="background-image: url('../../images/carnetplantilla.png')">
+			<div class="text-right">
+				<h2 class="card-title white-text numSocio">
+					Número Soci@:
+					{{socio.numSocio}}
+				</h2>
+			</div>
+			<div class="text-center">
+				<h3 class="card-title black-text nombreSocio">
+					Nombre Soci@:
+					{{socio.nombre}}
+				</h3>
+			</div>
+		</div>
+	</div>
+
+{% endblock %}
