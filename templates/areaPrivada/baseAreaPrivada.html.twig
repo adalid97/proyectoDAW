@@ -40,9 +40,16 @@
 							<span class="navbar-toggler-icon"></span>
 						</button>
 						<div>
+							{% if is_granted('ROLE_ADMIN') %}
 							<a class="navbar-brand" href="{{ path('inicioAdmin') }}">
 								<img src="../../../images/logo.png" alt="logo" class="img-fluid logo" width="100px">
 							</a>
+							{% endif %}
+							{% if is_granted('ROLE_ADMIN') == false %}
+							<a class="navbar-brand" href="{{ path('inicioAreaPrivada') }}">
+								<img src="../../../images/logo.png" alt="logo" class="img-fluid logo" width="100px">
+							</a>
+							{% endif %}
 						</div>
 						<div class="collapse navbar-collapse ml-4" id="basicExampleNav">
 							{% block sidebar %}
