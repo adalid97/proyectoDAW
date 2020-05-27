@@ -3,12 +3,14 @@
 <html lang="es">
 	<head>
 		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>
 			{% block title %}Peña Bética Fontaniega
 			{% endblock %}
 		</title>
 		<link rel="shortcut icon" href="../../images/logo.png" type="image/x-icon"/>
 		<link rel="icon" href="../images/logo.png" type="image/x-icon"/>
+
 
 		{% block stylesheets %}
 			<link href="{{ asset('vendors/MDB-Free/css/mdb.min.css') }}" type="text/css" rel="stylesheet"/>
@@ -41,14 +43,14 @@
 						</button>
 						<div>
 							{% if is_granted('ROLE_ADMIN') %}
-							<a class="navbar-brand" href="{{ path('inicioAdmin') }}">
-								<img src="../../../images/logo.png" alt="logo" class="img-fluid logo" width="100px">
-							</a>
+								<a class="navbar-brand" href="{{ path('inicioAdmin') }}">
+									<img src="../../../images/logo.png" alt="logo" class="img-fluid logo" width="100px">
+								</a>
 							{% endif %}
 							{% if is_granted('ROLE_ADMIN') == false %}
-							<a class="navbar-brand" href="{{ path('inicioAreaPrivada') }}">
-								<img src="../../../images/logo.png" alt="logo" class="img-fluid logo" width="100px">
-							</a>
+								<a class="navbar-brand" href="{{ path('inicioAreaPrivada') }}">
+									<img src="../../../images/logo.png" alt="logo" class="img-fluid logo" width="100px">
+								</a>
 							{% endif %}
 						</div>
 						<div class="collapse navbar-collapse ml-4" id="basicExampleNav">

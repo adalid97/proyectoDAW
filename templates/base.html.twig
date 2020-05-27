@@ -3,6 +3,8 @@
 <html lang="es">
 	<head>
 		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>
 			{% block title %}Peña Bética Fontaniega
 			{% endblock %}
@@ -26,45 +28,44 @@
 	<body>
 
 		{% block menu %}
-			<header>
-				<!--Navbar-->
-				<nav class="navbar navbar-expand-lg navbar-dark success-color-dark">
+			<!--Navbar-->
+			<nav class="navbar navbar-expand-lg navbar-dark success-color-dark">
 
-					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav" aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle navigation">
-						<span class="navbar-toggler-icon"></span>
-					</button>
-					<!-- Navbar brand -->
-					<div>
-						<a class="navbar-brand" href="{{ path('index') }}">
-							<img src="../images/logo.png" alt="logo" class="img-fluid logo" width="100px">
-						</a>
-					</div>
-					<div class="collapse navbar-collapse ml-4" id="basicExampleNav">
-						{% block sidebar %}
-							{{ include('nav.html.twig', { 'seccionActual': "inicio" }) }}
-						{% endblock %}
-						<ul class="navbar-nav nav-flex-icons">
-							<li class="nav-item">
-								<a class="nav-link" href="https://www.facebook.com/penafontaniega.juanjosecanas.7">
-									<i class="fab fa-facebook-f"></i>
-								</a>
-							</li>
-							<li class="nav-item">
-								<a class="nav-link" href="https://twitter.com/pbfontaniega">
-									<i class="fab fa-twitter"></i>
-								</a>
-							</li>
-							<li class="nav-item">
-								<a class="nav-link" href="https://www.instagram.com/pbeticafontaniega/">
-									<i class="fab fa-instagram"></i>
-								</a>
-							</li>
-						</ul>
-					</div>
-					<!-- Collapsible content -->
-				</nav>
-			</header>
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav" aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<!-- Navbar brand -->
+				<div>
+					<a class="navbar-brand" href="{{ path('index') }}">
+						<img src="../images/logo.png" alt="logo" class="img-fluid logo" width="100px">
+					</a>
+				</div>
+				<div class="collapse navbar-collapse ml-4" id="basicExampleNav">
+					{% block sidebar %}
+						{{ include('nav.html.twig', { 'seccionActual': "inicio" }) }}
+					{% endblock %}
+					<ul class="navbar-nav nav-flex-icons">
+						<li class="nav-item">
+							<a class="nav-link" href="https://www.facebook.com/penafontaniega.juanjosecanas.7">
+								<i class="fab fa-facebook-f"></i>
+							</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="https://twitter.com/pbfontaniega">
+								<i class="fab fa-twitter"></i>
+							</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="https://www.instagram.com/pbeticafontaniega/">
+								<i class="fab fa-instagram"></i>
+							</a>
+						</li>
+					</ul>
+				</div>
+				<!-- Collapsible content -->
+			</nav>
 		{% endblock %}
+
 		{% block body %}{% endblock %}
 
 		<!-- Footer -->

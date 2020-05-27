@@ -1,27 +1,4 @@
-@media (min-width: 1200px) {
-    .container, .container-lg, .container-md, .container-sm, .container-xl {
-        max-width: 1600px;
-    }
-    .faqHeader {
-        font-size: 27px;
-        margin: 20px;
-    }
-}
 
-.map-container {
-    overflow: hidden;
-    padding-bottom: 56.25%;
-    position: relative;
-    height: 0;
-}
-
-.map-container iframe {
-    left: 0;
-    top: 0;
-    height: 100%;
-    width: 100%;
-    position: absolute;
-}
 
 .noticiaPartido {
     height: 463px;
