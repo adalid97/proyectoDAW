@@ -7,7 +7,7 @@ const CACHE_NAME = 'restaurante-frontend';
 
 // Archivos necesarios para el funcionamiento offline
 const CACHE_ASSETS = [
-    '/offline.html',
+    'offline.html',
 ];
 
 // INSTALL
