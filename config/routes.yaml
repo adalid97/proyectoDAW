@@ -83,7 +83,7 @@ nuevoDocumento:
     controller: App\Controller\DocumentosController::nuevoDocumento
 
 documentos:
-    path: /documentos
+    path: /documentosPeña
     controller: App\Controller\DocumentosController::listaDocumentos
 
 documentosAdmin:
