@@ -3,7 +3,7 @@
 
 
 // Nombre de la caché
-const CACHE_NAME = 'tiendaw-v2';
+const CACHE_NAME = 'pbetica';
 
 // Archivos necesarios para el funcionamiento offline
 const CACHE_ASSETS = [
@@ -13,7 +13,6 @@ const CACHE_ASSETS = [
 
 // INSTALL
 // Realizamos el cacheo de la APP SHELL
-//entra en el examen    self y el install
 self.addEventListener('install', function (e) {
     console.log("[Service Worker] * Instalado.");
 
@@ -22,7 +21,7 @@ self.addEventListener('install', function (e) {
             .open(CACHE_NAME)
             .then(function (cache) {
                 console.log('[Service Worker] Cacheando app shell');
-                return cache.addAll(CACHE_ASSETS); //se devuelven los recursos de la cache
+                return cache.addAll(CACHE_ASSETS);
             })
             .then(function () {
                 console.log('[Service Worker] Todos los recursos han sido cacheados');
@@ -34,7 +33,7 @@ self.addEventListener('install', function (e) {
 
 
 // ACTIVATE
-// Eliminamos cachés antiguas.(activate)
+// Eliminamos cachés antiguas.
 self.addEventListener('activate', function (e) {
     console.log("[Service Worker] * Activado.");
 
@@ -56,7 +55,7 @@ self.addEventListener('activate', function (e) {
 
 
 // FETCH
-// Hacemos peticiones a recursos.(fetch)
+// Hacemos peticiones a recursos.
 self.addEventListener('fetch', function (e) {
     console.log("[Service Worker] * Fetch.");
 
@@ -67,7 +66,7 @@ self.addEventListener('fetch', function (e) {
 });
 
 
-// PUSH (metodo para atender las peticiones push)
+// PUSH
 self.addEventListener('push', function (e) {
     // Mantener el service worker a la espera hasta que la notificación sea creada.
     e.waitUntil(
