@@ -248,35 +248,4 @@ class Socio
         return $this;
     }
 
-    /**
-     * @return Collection|SolicitudEntrada[]
-     */
-    public function getSolicitudEntradas(): Collection
-    {
-        return $this->solicitudEntradas;
-    }
-
-    public function addSolicitudEntrada(SolicitudEntrada $solicitudEntrada): self
-    {
-        if (!$this->solicitudEntradas->contains($solicitudEntrada)) {
-            $this->solicitudEntradas[] = $solicitudEntrada;
-            $solicitudEntrada->setSocio($this);
-        }
-
-        return $this;
-    }
-
-    public function removeSolicitudEntrada(SolicitudEntrada $solicitudEntrada): self
-    {
-        if ($this->solicitudEntradas->contains($solicitudEntrada)) {
-            $this->solicitudEntradas->removeElement($solicitudEntrada);
-            // set the owning side to null (unless already changed)
-            if ($solicitudEntrada->getSocio() === $this) {
-                $solicitudEntrada->setSocio(null);
-            }
-        }
-
-        return $this;
-    }
-
 }
