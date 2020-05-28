@@ -48,7 +48,7 @@ noticias:
     controller: App\Controller\NoticiasController::noticias
 
 noticiasSocios:
-    path: /socios/noticias
+    path: /socio/noticias
     controller: App\Controller\NoticiasController::noticiasSocios
 
 #Contacto
@@ -113,7 +113,7 @@ partidosAdmin:
     controller: App\Controller\PartidosController::partidos
 
 partidos:
-    path: /partidos
+    path: /socio/partidos
     controller: App\Controller\PartidosController::partidos
 
 borrarPartido:
