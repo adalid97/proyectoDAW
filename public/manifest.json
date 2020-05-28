@@ -5,7 +5,7 @@
   "background_color": "#00c851",
   "display": "standalone",
   "Scope": "/",
-  "start_url": "https://pbeticafontaniega.herokuapp.com",
+  "start_url": "https://pbeticafontaniega.herokuapp.com/",
   "icons": [
     {
       "src": "images/icons/icon-72x72.png",
