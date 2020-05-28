@@ -4,54 +4,52 @@
 		Nuevo Documento</a>
 	<br>
 {% endif %}
-<div class="table-responsive">
-	<table class="table mt-3">
-		<thead class="success-color-dark white-text">
-			<tr>
-				<th scope="col">Nombre</th>
-				<th scope="col">Descripción</th>
-				<th scope="col">Fecha Publicación</th>
-				<th scope="col"></th>
-			</tr>
-		</thead>
-		<tbody>
-			{% for documento in documentos %}
+<table class="table mt-3">
+	<thead class="success-color-dark white-text">
+		<tr>
+			<th scope="col">Nombre</th>
+			<th scope="col">Descripción</th>
+			<th scope="col">Fecha Publicación</th>
+			<th scope="col"></th>
+		</tr>
+	</thead>
+	<tbody>
+		{% for documento in documentos %}
 
-				{% if is_granted('ROLE_USER') == false %}
-					{% if documento.privado == 0 %}
-						<tr>
-							<td class="align-middle">{{ documento.nombre }}</td>
-							<td class="align-middle">{{ documento.descripcion }}</td>
-							<td class="align-middle">{{ documento.fecha | date("d/m/Y") }}</td>
-							<td>
-								<p>
-									<a class="btn btn-dark-green btn-md mx-0 btn-rounded text-white mx-auto d-block" download href='{{ asset('../../documentos/' ~ documento.fichero) }}'>
-										<i class="fas fa-file-download"></i>
-										Descargar</a>
-								</p>
-							</td>
-						</tr>
-					{% endif %}
-				{% else %}
+			{% if is_granted('ROLE_USER') == false %}
+				{% if documento.privado == 0 %}
 					<tr>
-						<td>{{ documento.nombre }}</td>
-						<td>{{ documento.descripcion }}</td>
-						<td>{{ documento.fecha | date("d/m/Y H:m:s")}}</td>
+						<td class="align-middle">{{ documento.nombre }}</td>
+						<td class="align-middle">{{ documento.descripcion }}</td>
+						<td class="align-middle">{{ documento.fecha | date("d/m/Y") }}</td>
 						<td>
 							<p>
 								<a class="btn btn-dark-green btn-md mx-0 btn-rounded text-white mx-auto d-block" download href='{{ asset('../../documentos/' ~ documento.fichero) }}'>
 									<i class="fas fa-file-download"></i>
-									Descargar</a><br>
-								{% if is_granted('ROLE_ADMIN') %}
-									<a class="btn btn-dark-green btn-md mx-0 btn-rounded text-white mx-auto d-block" href="{{ path('borrarDocumento', {'id': documento.id}) }}" onclick="return confirm('¿Estás seguro de que deseas borrar este documento?')">
-										<i class="far fa-trash-alt"></i>
-										Borrar Documento</a>
-								{% endif %}
+									Descargar</a>
 							</p>
 						</td>
 					</tr>
 				{% endif %}
-			{% endfor %}
-		</tbody>
-	</table>
-</div>
+			{% else %}
+				<tr>
+					<td>{{ documento.nombre }}</td>
+					<td>{{ documento.descripcion }}</td>
+					<td>{{ documento.fecha | date("d/m/Y H:m:s")}}</td>
+					<td>
+						<p>
+							<a class="btn btn-dark-green btn-md mx-0 btn-rounded text-white mx-auto d-block" download href='{{ asset('../../documentos/' ~ documento.fichero) }}'>
+								<i class="fas fa-file-download"></i>
+								Descargar</a><br>
+							{% if is_granted('ROLE_ADMIN') %}
+								<a class="btn btn-dark-green btn-md mx-0 btn-rounded text-white mx-auto d-block" href="{{ path('borrarDocumento', {'id': documento.id}) }}" onclick="return confirm('¿Estás seguro de que deseas borrar este documento?')">
+									<i class="far fa-trash-alt"></i>
+									Borrar Documento</a>
+							{% endif %}
+						</p>
+					</td>
+				</tr>
+			{% endif %}
+		{% endfor %}
+	</tbody>
+</table>

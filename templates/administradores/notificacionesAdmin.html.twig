@@ -5,51 +5,54 @@
 	{{ render(path('menuAreaPrivada', {'seccionActual': "notificaciones"})) }}
 {% endblock %}
 {% block body %}
-	<table class="table table-hover border-dark mt-3 table-responsive">
-		<thead class="success-color-dark white-text">
-			<tr>
-				<th scope="col">Fecha</th>
-				<th scope="col">Nombre</th>
-				<th scope="col">Mensaje</th>
-				<th scope="col">Notificación Leída</th>
-				<th scope="col"></th>
-			</tr>
-		</thead>
-		<tbody>
-			{% for notificacion in notificaciones %}
-				{% if notificacion.leido == 0 %}
-					<tr class="green lighten-4">
+	<div class="table-responsive">
+		<table class="table table-hover border-dark mt-3 ">
+			<thead class="success-color-dark white-text">
+				<tr>
+					<th scope="col">Fecha</th>
+					<th scope="col">Nombre</th>
+					<th scope="col">Mensaje</th>
+					<th scope="col">Notificación Leída</th>
+					<th scope="col"></th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for notificacion in notificaciones %}
+					{% if notificacion.leido == 0 %}
+						<tr class="green lighten-4">
 
-					{% else %}
-						<tr>
-						{% endif %}
-
-
-						<th scope="row">{{ notificacion.date|date("d/m/Y H:m:s") }}</th>
-						<td>{{notificacion.nombre}}</td>
-						<td>{{ notificacion.mensaje|u.truncate(50, '...') }}</td>
-
-						<th scope="col">
-							{% if notificacion.leido == 1 %}
-								Sí
-							{% else %}
-								No
+						{% else %}
+							<tr>
 							{% endif %}
-						</th>
-						<td>
-							<p>
-								<a class="btn btn-dark-green btn-md mx-0 btn-rounded text-white mx-auto d-block" href="{{ path('verNotificacion', {'id': notificacion.id}) }}">
-									<i class="fas fa-book-reader"></i>
-									Leer...
-								</a>
-							</p>
-						</td>
 
-					</tr>
-				{% else %}
-					<p>No hay ninguna notificación</p>
-				{% endfor %}
+
+							<th scope="row">{{ notificacion.date|date("d/m/Y H:m:s") }}</th>
+							<td>{{notificacion.nombre}}</td>
+							<td>{{ notificacion.mensaje|u.truncate(50, '...') }}</td>
+
+							<th scope="col">
+								{% if notificacion.leido == 1 %}
+									Sí
+								{% else %}
+									No
+								{% endif %}
+							</th>
+							<td>
+								<p>
+									<a class="btn btn-dark-green btn-md mx-0 btn-rounded text-white mx-auto d-block" href="{{ path('verNotificacion', {'id': notificacion.id}) }}">
+										<i class="fas fa-book-reader"></i>
+										Leer...
+									</a>
+
+								</p>
+							</td>
+
+						</tr>
+					{% else %}
+						<p>No hay ninguna notificación</p>
+					{% endfor %}
+				</tbody>
 			</tbody>
-		</tbody>
-	</table>
+		</table>
+	</div>
 {% endblock %}

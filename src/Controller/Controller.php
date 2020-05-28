@@ -33,42 +33,6 @@ class Controller extends AbstractController
 
     }
 
-    public function socios()
-    {
-        return $this->render('socios.html.twig', [
-        ]);
-    }
-
-    public function documentos()
-    {
-        return $this->render('documentos.html.twig', [
-        ]);
-    }
-
-    public function contacto()
-    {
-        return $this->render('contacto.html.twig', [
-        ]);
-    }
-
-    public function inicioAdmin()
-    {
-        return $this->render('areaPrivada/inicioAreaPrivada.html.twig', [
-        ]);
-    }
-
-    public function sociosAdmin()
-    {
-        return $this->render('administradores/sociosAdmin.html.twig', [
-        ]);
-    }
-
-    public function notificacionesAdmin()
-    {
-        return $this->render('administradores/notificacionesAdmin.html.twig', [
-        ]);
-    }
-
     public function inicioAreaPrivada()
     {
         return $this->render('areaPrivada/inicioAreaPrivada.html.twig', [
