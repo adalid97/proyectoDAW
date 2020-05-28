@@ -19,6 +19,12 @@
 			<link href="{{ asset('css/style.css') }}" type="text/css" rel="stylesheet"/>
 			<link href="{{ asset('css/addons/datatables.min.css') }}" rel="stylesheet">
 		{% endblock %}
+		<!-- PWA: Para habilitar Progressive Web Application -->
+		<link rel="manifest" href="../manifest.json">
+
+		<noscript>
+			<h2>El uso de Javascript es necesario</h2>
+		</noscript>
 		<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600&family=Dancing+Script&family=Mukta:wght@600;700;800&display=swap" rel="stylesheet">
 		<style>
 			body {
@@ -125,6 +131,13 @@
 $('#dtBasicExample').DataTable();
 $('.dataTables_length').addClass('bs-select');
 });
+					</script>
+					<script>
+						if ('serviceWorker' in navigator) {
+window.addEventListener('load', () => {
+navigator.serviceWorker.register('{{ asset('service-worker.js') }}').then(reg => console.log('[Service Worker] * Registrado.')).catch(err => console.log (`[Service Worker] * Error: ${err}`));
+});
+}
 					</script>
 				{% endblock %}
 			</body>
