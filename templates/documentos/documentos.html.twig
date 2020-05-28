@@ -5,5 +5,7 @@
 	{{ include('nav.html.twig', { 'seccionActual': "documentos" }) }}
 {% endblock %}
 {% block body %}
-	{{ include('documentos/baseDocumentos.html.twig') }}
+	<div class="container-fluid">
+		{{ include('documentos/baseDocumentos.html.twig') }}
+	</div>
 {% endblock %}
