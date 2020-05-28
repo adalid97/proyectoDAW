@@ -24,8 +24,8 @@
 	<div class="row">
 		{% for equipo in equipos %}
 
-			<div class="card col-2 m-2 mx-auto d-block">
-				<img class="card-img-top" src='{{ asset('../../equipos/' ~ equipo.escudo) }}' width"300px" height="300px" alt="...">
+			<div class="card col-lg-2 col-md-4 m-2 mx-auto d-block">
+				<img class="card-img-top" src='{{ asset('../../equipos/' ~ equipo.escudo) }}' width"300px" height="230px" alt="...">
 				<div class="card-body">
 					<p class="card-text text-center">{{equipo.nombre}}
 						<a class="btn btn-dark-green btn-md mx-0 btn-rounded text-white mx-auto d-block" href="{{ path('borrarEquipo',{'id': equipo.id}) }}">

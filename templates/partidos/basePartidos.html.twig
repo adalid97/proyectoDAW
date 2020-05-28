@@ -1,9 +1,10 @@
-</br>
-<div class="mx-auto">
+<div class="mx-auto mb-2">
 	<div class="view" style="background-image: url('../../images/fondo.png');">
 		<div class="row">
-			<div class="col-6 col-6 mt-3"><img class="rounded mx-auto d-block" src='{{ asset('../../equipos/' ~ partidos.idEquipoLocal.escudo) }}' width"300px" height="300px" alt="imagen"></div>
-			<div class="col-6 col-6 mt-3"><img class="rounded mx-auto d-block" src='{{ asset('../../equipos/' ~ partidos.idEquipoVisitante.escudo) }}' width"300px" height="300px" alt="imagen"></div>
+			<div class="col-6 col-6 mt-3"><img class="rounded mx-auto d-block visible-lg visible-lg" src='{{ asset('../../equipos/' ~ partidos.idEquipoLocal.escudo) }}' width"300px" height="300px" alt="imagen"></div>
+
+			<div class="col-6 col-6 mt-3"><img class="rounded mx-auto d-block visible-lg visible-md" src='{{ asset('../../equipos/' ~ partidos.idEquipoVisitante.escudo) }}' width"300px" height="300px" alt="imagen"></div>
+
 		</div>
 
 		<div class="card-body text-center">
@@ -27,4 +28,4 @@
 			<i class="far fa-trash-alt"></i>
 			Borrar Partido</a><br>
 	{% endif %}
-</div>
+</br></div>
