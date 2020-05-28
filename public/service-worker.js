@@ -3,16 +3,17 @@
 
 
 // Nombre de la caché
-const CACHE_NAME = 'restaurante-frontend';
+const CACHE_NAME = 'tiendaw-v2';
 
 // Archivos necesarios para el funcionamiento offline
 const CACHE_ASSETS = [
     '/',
-    '/offline.html'
+    '/offline.html',
 ];
 
 // INSTALL
 // Realizamos el cacheo de la APP SHELL
+//entra en el examen    self y el install
 self.addEventListener('install', function (e) {
     console.log("[Service Worker] * Instalado.");
 
@@ -21,7 +22,7 @@ self.addEventListener('install', function (e) {
             .open(CACHE_NAME)
             .then(function (cache) {
                 console.log('[Service Worker] Cacheando app shell');
-                return cache.addAll(CACHE_ASSETS);
+                return cache.addAll(CACHE_ASSETS); //se devuelven los recursos de la cache
             })
             .then(function () {
                 console.log('[Service Worker] Todos los recursos han sido cacheados');
@@ -33,7 +34,7 @@ self.addEventListener('install', function (e) {
 
 
 // ACTIVATE
-// Eliminamos cachés antiguas.
+// Eliminamos cachés antiguas.(activate)
 self.addEventListener('activate', function (e) {
     console.log("[Service Worker] * Activado.");
 
@@ -55,45 +56,7 @@ self.addEventListener('activate', function (e) {
 
 
 // FETCH
-// Hacemos peticiones a recursos.
-self.addEventListener('fetch', function (e) {
-    console.log("[Service Worker] * Fetch.");
-
-    // if (e.request.mode !== 'navigate') {
-    //   // Not a page navigation, bail.
-    //   return; 
-    // }
-    if ((e.request.url.indexOf('/auth/') !== -1 ||
-        e.request.url.indexOf('/perfil') !== -1)) {
-        return false;
-    }
-
-    e.respondWith(
-        fetch(e.request)
-            .catch(() => {
-                return caches.open(CACHE_NAME)
-                    .then((cache) => {
-                        return cache.match('/offline.html');
-                    });
-            })
-    );
-
-});
-
-
-// PUSH
-self.addEventListener('push', function (e) {
-    // Mantener el service worker a la espera hasta que la notificación sea creada.
-    e.waitUntil(
-        // Mostrar una notification con título 'Notificación importante' y cuerpo 'Alea iacta est'.
-        self.registration.showNotification('Notificación importante', {
-            body: 'Alea iacta est',
-        })
-    );
-});
-
-// FETCH
-// Hacemos peticiones a recursos.
+// Hacemos peticiones a recursos.(fetch)
 self.addEventListener('fetch', function (e) {
     console.log("[Service Worker] * Fetch.");
 
@@ -104,7 +67,7 @@ self.addEventListener('fetch', function (e) {
 });
 
 
-// PUSH
+// PUSH (metodo para atender las peticiones push)
 self.addEventListener('push', function (e) {
     // Mantener el service worker a la espera hasta que la notificación sea creada.
     e.waitUntil(
