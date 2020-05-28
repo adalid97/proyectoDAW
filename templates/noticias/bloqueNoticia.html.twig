@@ -4,7 +4,7 @@
 		<img class="img-fluid" src='{{ asset('../../images/noticias/' ~ noticia.imagen) }}' alt="Card image cap">
 		<div class="card-body">
 			<h4 class="card-title">{{ noticia.titular }}</h4>
-			<p class="card-text">{{ noticia.cuerpo|u.truncate(100, '...')}}</p>
+			<p class="card-text">{{ noticia.cuerpo|u.truncate(60, '...')}}</p>
 			<a class="btn btn-dark-green btn-md mx-0 btn-rounded text-white" href="{{ path('verNoticia', {'id': noticia.id}) }}">Leer más...</a>
 		</div>
 	</div>
