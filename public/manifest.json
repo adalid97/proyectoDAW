@@ -1,9 +1,10 @@
 {
-  "name": "Peña Bética Fontaniega 'Juan José Cañas'",
-  "short_name": "Peña Bética Fontaniega",
-  "theme_color": "#007E33",
-  "background_color": "#00c851",
-  "display": "browser",
+  "name": "Restaurante Frontend",
+  "short_name": "Restaurante Frontend",
+  "theme_color": "#bb6000",
+  "background_color": "#c6c6c5",
+  "display": "standalone",
+  "orientation": "portrait",
   "Scope": "/",
   "start_url": "/",
   "icons": [
