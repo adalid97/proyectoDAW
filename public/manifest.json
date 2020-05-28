@@ -1,12 +1,11 @@
 {
-  "name": "Restaurante Frontend",
-  "short_name": "Restaurante Frontend",
-  "theme_color": "#bb6000",
-  "background_color": "#c6c6c5",
-  "display": "standalone",
-  "orientation": "portrait",
+  "name": "Peña Bética Fontaniega 'Juan José Cañas'",
+  "short_name": "Peña Bética Fontaniega",
+  "theme_color": "#007E33",
+  "background_color": "#00c851",
+  "display": "browser",
   "Scope": "/",
-  "start_url": "/",
+  "start_url": "https://pbeticafontaniega.herokuapp.com",
   "icons": [
     {
       "src": "images/icons/icon-72x72.png",
