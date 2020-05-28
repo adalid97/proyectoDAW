@@ -91,7 +91,7 @@ documentosAdmin:
   controller: App\Controller\DocumentosController::documentosAdmin   
 
 documentosSocios:
-  path: /socio/documentosSocios
+  path: /socio/documentos
   controller: App\Controller\DocumentosController::documentosSocios   
 
 borrarDocumento:
