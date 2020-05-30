@@ -1,11 +1,13 @@
 <div class="col-lg-4 mb-3">
-	<div class="card wow fadeIn" data-wow-delay="0.2s">
+	<div class="card wow fadeIn h-100" data-wow-delay="0.2s">
 
 		<img class="img-fluid" src='{{ asset('../../images/noticias/' ~ noticia.imagen) }}' alt="Card image cap">
 		<div class="card-body">
-			<h4 class="card-title">{{ noticia.titular }}</h4>
-			<p class="card-text">{{ noticia.cuerpo|u.truncate(60, '...')}}</p>
-			<a class="btn btn-dark-green btn-md mx-0 btn-rounded text-white" href="{{ path('verNoticia', {'id': noticia.id}) }}">Leer más...</a>
+			<div class="cardNoticia">
+				<h4 class="card-title">{{ noticia.titular }}</h4>
+				<p class="card-text">{{ noticia.cuerpo|u.truncate(100, '...')}}</p>
+			</div>
+			<a class="btn btn-dark-green btn-md mx-0 btn-rounded text-white  mx-auto d-block" href=" {{ path('verNoticia', {'id': noticia.id} ) }}">Leer más...</a>
 		</div>
 	</div>
 </div>
