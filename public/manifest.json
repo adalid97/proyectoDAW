@@ -2,10 +2,10 @@
   "name": "Peña Bética Fontaniega 'Juan José Cañas'",
   "short_name": "Peña Bética Fontaniega",
   "theme_color": "#007E33",
-  "background_color": "#00c851",
+  "background_color": "#007E33",
   "display": "standalone",
   "Scope": "/",
-  "start_url": "https://pbeticafontaniega.herokuapp.com",
+  "start_url": "/",
   "icons": [
     {
       "src": "images/icons/icon-72x72.png",

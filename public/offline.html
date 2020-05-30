@@ -5,11 +5,37 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Restaurante Frontend</title>
+    <title>Peña Bética Fontaniega</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600&family=Dancing+Script&family=Mukta:wght@600;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        body {
+            background-color: #007E33;
+            font-family: 'Mukta', sans-serif;
+            text-align: center;
+            color: white;
+        }
+
+        img {
+            max-width: 20%;
+        }
+    </style>
+
+
 </head>
 
 <body>
-    OFFLINE
+    <h1>Peña Bética Fontaniega 'Juan José Cañas'</h1>
+    <h2>¡Vaya! Parece que no hay internet</h2>
+    <h3>Comprueba tu conexión</h3>
+    <img src="images/logo.png" alt="">
+    <br />
+
+    <br />
+    <script>
+        window.addEventListener("online", () => (window.location.href = "/"));
+    </script>
 </body>
 
 </html>
