@@ -85,11 +85,19 @@ class SociosController extends AbstractController
         $form = $this->createFormBuilder($socio)
             ->add('numSocio', NumberType::class)
             ->add('nombre', TextType::class)
-            ->add('dni', TextType::class)
+            ->add('dni', TextType::class, [
+                'required' => false,
+            ])
             ->add('fechaNacimiento', BirthdayType::class)
-            ->add('direccion', TextType::class)
-            ->add('localidad', TextType::class)
-            ->add('telefono', TextType::class)
+            ->add('direccion', TextType::class, [
+                'required' => false,
+            ])
+            ->add('localidad', TextType::class, [
+                'required' => false,
+            ])
+            ->add('telefono', TextType::class, [
+                'required' => false,
+            ])
             ->add('save', SubmitType::class,
                 array('label' => 'Editar Socio'))
             ->getForm();
@@ -156,7 +164,5 @@ class SociosController extends AbstractController
         $this->addFlash('success', 'Socio borrado correctamente.');
         return $this->redirectToRoute('sociosAdmin');
     }
-
-    
 
 }

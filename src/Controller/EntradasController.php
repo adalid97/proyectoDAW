@@ -46,7 +46,7 @@ class EntradasController extends AbstractController
         $entrada = new Entrada();
 
         $form = $this->createFormBuilder($entrada)
-            ->add('partido')
+            ->add('Partido')
             ->add('precio')
             ->add('publico')
             ->add('save', SubmitType::class,
@@ -59,7 +59,12 @@ class EntradasController extends AbstractController
             $entrada = $form->getData();
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($entrada);
-            $entityManager->flush();
+            try {
+                $entityManager->flush();
+                $this->addFlash('success', 'Partido insertado correctamente!');
+            } catch (\Throwable $th) {
+                $this->addFlash('error', 'Error al insertar el partido, comprueba que no esté ya creado.');
+            }
             return $this->redirectToRoute('entradasAdmin');
         }
 
@@ -110,7 +115,7 @@ class EntradasController extends AbstractController
         $entrada = $entityManager->getRepository(Entrada::class)->find($id);
 
         $form = $this->createFormBuilder($entrada)
-            ->add('partido')
+            ->add('Partido')
             ->add('precio')
             ->add('publico')
             ->add('save', SubmitType::class,

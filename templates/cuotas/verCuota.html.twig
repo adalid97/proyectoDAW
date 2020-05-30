@@ -20,18 +20,12 @@
 			</div>
 		{% endif %}
 		<section class="text-justify">
-
 			<div class="table-responsive">
 				<h2>{{socios.nombre}}</h2>
-
 				{% for cuota in cuotas %}
-
-					{# {{ cuota.idSocio.numSocio}} #}
-
 					{{ include('cuotas/bloqueTablaCuota.html.twig')}}
-
 					{% if is_granted('ROLE_ADMIN') %}
-						<div class="d-flex justify-content-center mb-5">
+						<div class="justify-content-center mb-5">
 							<a class="btn btn-dark-green btn-md mx-0 btn-rounded text-white mr-2" href="{{ path('editarCuota', {'id' : cuota.id}) }}">Editar Cuota</a>
 							<a class="btn btn-dark-green btn-md mx-0 btn-rounded text-white mr-2" href="{{ path('anoCompletoCuota', {'id' : cuota.id}) }}">Año Completo Cuota</a>
 							<a class="btn btn-dark-green btn-md mx-0 btn-rounded text-white mr-2" href="{{ path('seisMesesCuota', {'id' : cuota.id}) }}">6 meses de cuota</a>
@@ -41,17 +35,11 @@
 							</a>
 						</div>
 					{% endif %}
-
 				</tbody>
-
-
 			{% else %}
 				<p>No hay cuotas</p>
 
 			{% endfor %}
-
-			{# <a class="btn btn-dark-green btn-md mx-0 btn-rounded text-white mx-auto d-block" href="{{ path('nuevaCuota', {'idSocio' : cuotas.idSocio}) }}">Nueva Cuota</a> #}
-
 
 		</div>
 	</section>

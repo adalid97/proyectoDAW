@@ -9,10 +9,7 @@
 
 		{% if is_granted('ROLE_ADMIN') %}
 			<a href="{{ path('noticiasAdmin') }}">← Volver a las noticias</a>
-		{% else %}
-			<p class="small">
-				<a href="{{ path('noticias') }}">← Volver a las noticias</a>
-			</p>
+
 		{% endif %}
 
 

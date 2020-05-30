@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Noticia;
+use App\Form\EditarNoticiaType;
 use App\Form\NoticiaType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -128,7 +129,7 @@ class NoticiasController extends AbstractController
             );
         }
 
-        $form = $this->createForm(NoticiaType::class, $noticia);
+        $form = $this->createForm(EditarNoticiaType::class, $noticia);
 
         $form->handleRequest($request);
 
@@ -138,7 +139,7 @@ class NoticiasController extends AbstractController
             $entityManager->flush();
             return $this->redirectToRoute('noticiasAdmin');
         }
-        return $this->render('administradores/nuevaNoticia.html.twig', array(
+        return $this->render('noticias/editarNoticia.html.twig', array(
             'form' => $form->createView(),
         ));
     }

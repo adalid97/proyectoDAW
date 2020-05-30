@@ -23,7 +23,7 @@ class Entrada
      * @ORM\OneToOne(targetEntity=Partido::class, cascade={"persist", "remove"})
      * @ORM\JoinColumn(nullable=false)
      */
-    private $partido;
+    private $Partido;
 
     /**
      * @ORM\Column(type="integer")
@@ -52,12 +52,12 @@ class Entrada
 
     public function getPartido(): ?Partido
     {
-        return $this->partido;
+        return $this->Partido;
     }
 
-    public function setPartido(Partido $partido): self
+    public function setPartido(Partido $Partido): self
     {
-        $this->Partido = $partido;
+        $this->Partido = $Partido;
 
         return $this;
     }

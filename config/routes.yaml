@@ -20,7 +20,7 @@ logout:
 
 inicioAdmin:
     path: /administrador/inicio
-    controller: App\Controller\Controller::inicioAdmin
+    controller: App\Controller\Controller::inicioAreaPrivada
 
 # Noticias
 editarNoticia:
