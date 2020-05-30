@@ -12,26 +12,29 @@
 			</div>
 		{% endfor %}
 		<section class="text-center dark-green-text mb-5">
+
 			<div class="card">
 				<div class="card-body rounded-top border border-success p-5">
 					<h3 class="font-weight-bold my-4">Escríbenos...</h3>
 					<p class="font-weight-light mx-auto mb-4 pb-2">Si deseas ponerse en contacto con la Directiva de la Peña, por favor rellene el siguiente formulario y le contestaremos en la mayor brevedad posible.</p>
+
 					{{ form_start(form) }}
 					<div class="row">
-						<div class="col-lg-12 mb-4">
+						<div class="col-md-12 mb-4">
 							{{ form_widget(form.nombre, {'attr': {'placeholder': 'Nombre'}}) }}
 						</div>
 					</div>
 					<div class="row">
-						<div class="col-lg-6 col-md-12 col-sm 12 mb-4">
+						<div class="col-md-6 mb-4">
 							{{ form_widget(form.email, {'attr': {'placeholder': 'Correo Electrónico'}}) }}
 						</div>
-						<div class="col-md-6 col-md-12 col-sm 12 mb-4">
+						<div class="col-md-6 mb-4">
 							{{ form_widget(form.telefono, {'attr': {'placeholder': 'Teléfono'}}) }}
 						</div>
 					</div>
 					<div class="row">
-						<div class="col-12">
+						<div class="col-md-12">
+
 							<div class="form-group mb-4">
 								{{ form_widget(form.mensaje, {'attr': {'placeholder': 'Mensaje'}}) }}
 							</div>

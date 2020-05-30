@@ -19,10 +19,9 @@
 	</div>
 	<div class="container my-5">
 
-		
 
 		<div class="row">
-			<div class="col-md-8 col-lg-6 mx-auto">
+			<div class="col-md-8 col-lg-8 col-xl-6 col-sm-10 mx-auto">
 
 				<section>
 
@@ -48,7 +47,7 @@
 				</div>
 				<div class="avatar mx-auto white mb-3 mt-3">
 					<img src='{{ asset('../../equipos/' ~ entrada.partido.idEquipoLocal.escudo) }}' alt="Logo Avatar" width="150px" height="150px">
-					<img src='{{ asset('../../equipos/' ~ entrada.partido.idEquipoVisitante.escudo) }}' alt="Logo Avatar" width"150px" height="150px">
+					<img src='{{ asset('../../equipos/' ~ entrada.partido.idEquipoVisitante.escudo) }}' alt="Logo Avatar" width="170px" height="150px">
 				</div>
 				<a class="btn btn-dark-green btn-md mx-0 btn-rounded text-white mx-auto d-block" href="{{ path('nuevaSolicitudEntrada', {'idEntrada': entrada.id, 'idSocio': app.user.socio.id}) }}">
 					<i class="far fa-plus-square"></i>

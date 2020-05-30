@@ -57,11 +57,12 @@ body{
 }
 
 .carnet { 
+    background-image: url('../../images/carnetplantilla.png');
     width: 800px;
     height: 600px;
  }
 
- .numSocio {
+.numSocio {
     margin-top: 305px;
     margin-right: 35px;
  }
@@ -69,6 +70,27 @@ body{
  .nombreSocio{
     margin-top: 35px;
  }
+
+ @media (max-width: 767px) {
+    .carnet { 
+        background-image: url('../../images/carnetplantilla.png');
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center;
+    }
+    .numSocio {
+        font-size: small;
+        margin-top: 302px;
+        margin-right: 35px;
+     }
+    
+     .nombreSocio{
+        font-size: small;
+        margin-top: 20px;
+     }
+}
+
+ 
 
  .cardNoticia{
      height: 120px;
