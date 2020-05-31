@@ -8,7 +8,7 @@ const CACHE_NAME = 'pbetica';
 // Archivos necesarios para el funcionamiento offline
 const CACHE_ASSETS = [
     '/',
-    '/public/offline.html',
+    'offline.html',
 ];
 
 // INSTALL
