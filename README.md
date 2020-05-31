@@ -1,6 +1,6 @@
 # Aplicación web de administración de asociación deportiva
 
-Proyecto final del Ciclo Formativo de Grado Superior de Desarrollo de Aplicaciones Web.
+_Proyecto final del Ciclo Formativo de Grado Superior de Desarrollo de Aplicaciones Web._
 
 Enlace a web: https://pbeticafontaniega.herokuapp.com/
 
