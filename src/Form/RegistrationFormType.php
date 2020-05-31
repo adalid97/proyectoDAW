@@ -37,7 +37,6 @@ class RegistrationFormType extends AbstractType
             ])
             ->add('dni', TextType::class, ['mapped' => false])
             ->add('codigoRegistro', TextType::class, ['mapped' => false]);
-
     }
 
     public function configureOptions(OptionsResolver $resolver)

@@ -5,13 +5,12 @@
 	{{ include('areaPrivada/navAreaPrivada.html.twig', { 'seccionActual': "cuotas" }) }}
 {% endblock %}
 {% block body %}
-
 	<div class="container mt-5">
 		<section class="text-justify">
 			<div class="table-responsive">
 				{% for cuota in cuotas %}
 					{{ include('cuotas/bloqueTablaCuota.html.twig')}}
-				</div>
-			</section>
-		</div>
-	{% endblock %}
+			</div>
+		</section>
+	</div>
+{% endblock %}

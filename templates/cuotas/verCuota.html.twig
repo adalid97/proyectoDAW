@@ -5,7 +5,6 @@
 	{{ render(path('menuAreaPrivada', {'seccionActual': "cuotas"})) }}
 {% endblock %}
 {% block body %}
-
 	<div class="container mt-5">
 		<div class="mt-3">
 			{% for message in app.flashes('success') %}
@@ -38,11 +37,7 @@
 				</tbody>
 			{% else %}
 				<p>No hay cuotas</p>
-
 			{% endfor %}
-
 		</div>
 	</section>
-
-
 </div>{% endblock %}

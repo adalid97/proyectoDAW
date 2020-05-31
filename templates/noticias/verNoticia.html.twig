@@ -6,13 +6,9 @@
 {% endblock %}
 {% block body %}
 	<div class="container mt-5">
-
 		{% if is_granted('ROLE_ADMIN') %}
 			<a href="{{ path('noticiasAdmin') }}">← Volver a las noticias</a>
-
 		{% endif %}
-
-
 		<!--Section: Content-->
 		<section class="text-justify">
 			<h2 class="text-center font-weight-bold mb-4 pb-2">{{noticia.titular}}</h2>
@@ -28,7 +24,6 @@
 
 		</section>
 		<!--Section: Content-->
-
 		{% if is_granted('ROLE_ADMIN') %}
 			<a class="btn btn-dark-green btn-md mx-0 btn-rounded text-white mx-auto d-block" href="{{ path('editarNoticia', {'id': noticia.id}) }}">
 				<i class="far fa-edit"></i>

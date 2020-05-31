@@ -22,7 +22,6 @@ class EditarNoticiaType extends AbstractType
             ->add('save', SubmitType::class,
                 array('label' => 'Editar Noticia'))
             ->getForm();
-
     }
 
     public function configureOptions(OptionsResolver $resolver)

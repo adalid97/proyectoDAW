@@ -22,13 +22,11 @@ class PartidoType extends AbstractType
             ->add('idEquipoVisitante')
             ->add('save', SubmitType::class, array('label' => 'Guardar Partido'))
             ->getForm();
-
     }
 
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-
         ]);
     }
 }

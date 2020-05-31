@@ -130,16 +130,16 @@
 					<script type="text/javascript" src="{{ asset('js/addons/datatables.min.js') }}"></script>
 					<script>
 						$(document).ready(function () {
-$('#dtBasicExample').DataTable();
-$('.dataTables_length').addClass('bs-select');
-});
+								$('#dtBasicExample').DataTable();
+								$('.dataTables_length').addClass('bs-select');
+						});
 					</script>
 					<script>
 						if ('serviceWorker' in navigator) {
-window.addEventListener('load', () => {
-navigator.serviceWorker.register('{{ asset('service-worker.js') }}').then(reg => console.log('[Service Worker] * Registrado.')).catch(err => console.log (`[Service Worker] * Error: ${err}`));
-});
-}
+							window.addEventListener('load', () => {
+							navigator.serviceWorker.register('{{ asset('service-worker.js') }}').then(reg => console.log('[Service Worker] * Registrado.')).catch(err => console.log (`[Service Worker] * Error: ${err}`));
+							});
+						}
 					</script>
 				{% endblock %}
 			</body>

@@ -15,13 +15,9 @@
 			<i class="far fa-plus-square"></i>
 			Nueva noticia</a>
 		<div class="container ">
-
 			<br>
 			{% for noticia in noticias %}
-
 				{{ include('noticias/baseNoticia.html.twig') }}
-
-
 			{% else %}
 				<p>No hay noticias</p>
 			{% endfor %}

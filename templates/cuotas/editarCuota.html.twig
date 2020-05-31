@@ -4,9 +4,7 @@
 {% block sidebar %}
 	{{ render(path('menuAreaPrivada', {'seccionActual': "cuotas"})) }}
 {% endblock %}
-
 {% block body %}
-
 	<div class="container my-5">
 		<section class="text-center dark-green-text mb-5">
 			<div class="card">
@@ -29,14 +27,12 @@
 						<div class="col-md-3">{{ form_widget(form.octubre)}}</div>
 						<div class="col-md-3">{{ form_widget(form.noviembre)}}</div>
 						<div class="col-md-3">{{ form_widget(form.diciembre)}}</div>
-
 					</div>
 					<div class="text-center mt-3">
 						{{ form_widget(form.save, {'attr': {'class': 'btn btn-dark-green text-white'}}) }}
 					</div>
 					{{ form_end(form) }}
 				</div>
-
 			</div>
 		</section>
 	</div>

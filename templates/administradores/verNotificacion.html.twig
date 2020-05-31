@@ -5,7 +5,6 @@
 	{{ render(path('menuAreaPrivada', {'seccionActual': "socios"})) }}
 {% endblock %}
 {% block body %}
-
 </br>
 <p class="small">
 	<a href="{{ path('notificacionesAdmin') }}">← Volver a las notificaciones</a>
@@ -24,15 +23,10 @@
 <hr class="w-header my-4"/>
 
 <div class="row d-flex justify-content-center">
-
-
 	<div class="col-md-6">
 		<p class="text-muted mb-5 pb-2">{{ notificacion.mensaje }}</p>
 	</div>
-
-
 </div>
-
 <div class="col text-center">
 	<a class="btn btn-dark-green btn-md mx-0 btn-rounded text-white" href="{{ path('notificacionNoLeida', {'id' : notificacion.id}) }}">Marcar notificación como NO leída</a>
-</div><br><br><br><br>{% endblock %}
+</div></br></br></br></br>{% endblock %}

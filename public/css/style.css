@@ -78,20 +78,19 @@ body{
         background-size: contain;
         background-position: center;
     }
+
     .numSocio {
         font-size: small;
         margin-top: 302px;
         margin-right: 35px;
-     }
-    
-     .nombreSocio{
-        font-size: small;
-        margin-top: 20px;
-     }
+    }
+
+    .nombreSocio{
+    font-size: small;
+    margin-top: 20px;
+    }
 }
 
- 
-
- .cardNoticia{
-     height: 120px;
- }
+.cardNoticia{
+    height: 120px;
+}

@@ -15,7 +15,6 @@
 	</thead>
 	<tbody>
 		{% for documento in documentos %}
-
 			{% if is_granted('ROLE_USER') == false %}
 				{% if documento.privado == 0 %}
 					<tr>

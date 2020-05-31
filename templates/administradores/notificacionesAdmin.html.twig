@@ -20,16 +20,12 @@
 				{% for notificacion in notificaciones %}
 					{% if notificacion.leido == 0 %}
 						<tr class="green lighten-4">
-
 						{% else %}
 							<tr>
 							{% endif %}
-
-
 							<th scope="row">{{ notificacion.date|date("d/m/Y H:m:s") }}</th>
 							<td>{{notificacion.nombre}}</td>
 							<td>{{ notificacion.mensaje|u.truncate(50, '...') }}</td>
-
 							<th scope="col">
 								{% if notificacion.leido == 1 %}
 									Sí
@@ -43,10 +39,8 @@
 										<i class="fas fa-book-reader"></i>
 										Leer...
 									</a>
-
 								</p>
 							</td>
-
 						</tr>
 					{% else %}
 						<p>No hay ninguna notificación</p>
