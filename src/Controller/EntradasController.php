@@ -46,7 +46,7 @@ class EntradasController extends AbstractController
         $entrada = new Entrada();
 
         $form = $this->createFormBuilder($entrada)
-            ->add('Partido')
+            ->add('partido')
             ->add('precio')
             ->add('publico')
             ->add('save', SubmitType::class,
@@ -115,7 +115,7 @@ class EntradasController extends AbstractController
         $entrada = $entityManager->getRepository(Entrada::class)->find($id);
 
         $form = $this->createFormBuilder($entrada)
-            ->add('Partido')
+            ->add('partido')
             ->add('precio')
             ->add('publico')
             ->add('save', SubmitType::class,
