@@ -18,7 +18,7 @@ class EquipoType extends AbstractType
             ->add('escudo', FileType::class, [
                 'label' => 'Escudo equipo:',
                 'mapped' => false,
-                'required' => false,
+                'required' => true,
                 'constraints' => [
                     new File([
                         'mimeTypes' => [
